@@ -7,44 +7,33 @@
       content="width=device-width, initial-scale=1, maximum-scale=1"
       name="viewport"
     />
-
-    <style>
-      .container {
-        /* Step 1: Set display to grid */
-        display: grid;
-        /* Step 2: setup rows amd columns */
-        /* grid-template-columns: repeat(3, 1fr); */
-        grid-template-columns: 300px 300px 300px;
-        grid-template-rows: 250px 600px;
-        grid-template-areas:
-          "hd hd hd hd hd hd hd hd"
-          "sd sd sd main main main main main"
-          "ft ft ft ft ft ft ft ft";
-        border: 2px solid yellow;
-      }
-      .box {
-        border: 1px solid red;
-        background: #f8fa9d;
-      }
-      /* Assign grid area below */
-      .header {
-      }
-      .footer {
-      }
-      .sidebar {
-      }
-      .content {
-      }
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <!--     In `index.html`, assign the grid areas for `header`, `footer`, `sidebar` and `content`. Feel free to play around with the `grid-template-areas` for these! -->
+    <!--Assign the grid areas for `header`, `footer`, `sidebar` and `content`. Feel free to play around with the `grid-template-areas` for these! -->
     <div class="container">
       <div class="header box">Header</div>
-      <div class="sidebar box">Sidebar</div>
-      <div class="content box">Content</div>
+      <div class="sidebar-left box">Sidebar-left</div>
+      <div class="sidebar-right box">Sidebar-right</div>
+      <div class="content box">
+        <div class="box d">
+          <div class="box e">E</div>
+          <div class="box f">F</div>
+          <div class="box g">G</div>
+        </div>
+      </div>
       <div class="footer box">Footer</div>
     </div>
+    <!-- <div class="wrapper">
+      <div class="box a">A</div>
+      <div class="box b">B</div>
+      <div class="box c">C</div>
+      <div class="box d">
+        <div class="box e">E</div>
+        <div class="box f">F</div>
+        <div class="box g">G</div>
+      </div>
+    </div> -->
   </body>
 </html>
