@@ -1,16 +1,17 @@
 .sidebar{
   grid-area: sb;
-  grid-gap: 10px;
-  background:var(--main-blue);
 }
 
 .sidebar-card{
+  background:var(--main-blue);
+  height: auto;
   padding: 20px;
+  margin-bottom: 20px;
 }
 
 .sidebar-img {
   background-color: #aaa;
-  /* width: 100%; */
+  width: 100%;
   padding: 20px;
 }
 

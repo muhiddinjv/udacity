@@ -1,8 +1,10 @@
 #contact {
-  grid-area: ctc;
-  margin-top: 20px;
-  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  /* padding-bottom: 19.5rem; */
   background: var(--main-blue);
+  /* min-height: 100%; */
 }
 
 .contact-section-header {
@@ -35,9 +37,9 @@
   transform: translateY(8px);
 }
 
-
-
-input[type=text], select, textarea {
+input[type="text"],
+select,
+textarea {
   width: 100%;
   padding: 12px;
   border: 1px solid #ccc;
@@ -48,8 +50,8 @@ input[type=text], select, textarea {
   resize: vertical;
 }
 
-input[type=submit] {
-  background-color: #4CAF50;
+input[type="submit"] {
+  background-color: #4caf50;
   color: white;
   padding: 12px 20px;
   border: none;
@@ -57,7 +59,7 @@ input[type=submit] {
   cursor: pointer;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
   background-color: #45a049;
 }
 

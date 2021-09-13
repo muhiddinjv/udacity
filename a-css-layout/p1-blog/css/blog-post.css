@@ -5,9 +5,8 @@
 /* Fake image */
 .blog-img {
   background-color: #aaa;
-  
-    width: 100%;
-    height: auto;
+  width: 100%;
+  height: auto;
   padding: 20px;
 }
 
