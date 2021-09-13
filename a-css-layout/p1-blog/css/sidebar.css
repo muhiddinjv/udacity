@@ -1,0 +1,6 @@
+.sidebar{
+  grid-area: sb;
+  grid-gap: 10px;
+  background:var(--main-blue);
+}
+
