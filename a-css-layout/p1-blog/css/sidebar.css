@@ -4,3 +4,13 @@
   background:var(--main-blue);
 }
 
+.sidebar-card{
+  padding: 20px;
+}
+
+.sidebar-img {
+  background-color: #aaa;
+  /* width: 100%; */
+  padding: 20px;
+}
+

@@ -2,7 +2,7 @@
 @import "navbar.css";
 @import "welcome.css";
 @import "projects.css";
-@import "blog.css";
+@import "blog-post.css";
 @import "contact.css";
 @import "sidebar.css";
 @import "footer.css";
@@ -88,29 +88,17 @@ body {
   background:var(--main-gray);
 }
 
-h1,
-h2 {
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-}
-
 h1 {
   font-size: 6rem;
 }
 
-h2 {
-  font-size: 3rem;
-}
 
 a {
   text-decoration: none;
   color: var(--main-white);
 }
 
-img {
-  /* display: block; */
-  width: 100%;
-}
+
 .contents{
   grid-area: ct;
 }

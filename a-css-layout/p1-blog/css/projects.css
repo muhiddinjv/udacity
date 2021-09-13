@@ -7,13 +7,15 @@
 
 /* "Automagic" image grid using no media queries */
 .projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 2rem;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  max-width: 70rem;
   height: 100%;
+
+  padding: 2rem 0;
   margin: 0 auto;
-  margin: 2rem 0;
 }
 
 .project {
@@ -23,10 +25,10 @@
 }
 
 .project-image {
-  height: calc(100% - 6.8rem);
+  /* height: calc(100% - 6.8rem); */
   width: 100%;
   height: 50%;
-  object-fit: cover;
+  /* object-fit: cover; */
 }
 
 .project-title {

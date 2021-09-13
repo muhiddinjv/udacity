@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <title>Document</title>
     <link rel="stylesheet" href="css/main.css" />
+    <script defer src="css/all.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -11,17 +12,17 @@
       <nav class="nav">
         <div class="nav-list">
           <a href="#welcome">home</a>
-          <a href="#projects">Work</a>
+          <a href="#projects">work</a>
           <a href="#blog">blog</a>
-          <a href="#contact">Contact</a>
+          <a href="#contact">contact</a>
         </div>
       </nav>
       <!-- END NAV -->
 
       <!-- START WELCOME SECTION -->
       <section id="welcome">
-        <h1>Hey I'm Muhiddin</h1>
-        <p>Web Developer From the Future</p>
+        <h1>Hi, I'm Muhiddin</h1>
+        <p>Web Developer Minimalist</p>
       </section>
       <!-- END WELCOME SECTION -->
 
@@ -32,6 +33,71 @@
           <!-- <h2 class="projects-section-header">my projects</h2> -->
           <h2>my projects</h2>
           <div class="projects-grid">
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <a
+                  href="https://codepen.io/Muallim/full/WVGXZw"
+                  target="_blank"
+                  class="project project-tile"
+                >
+                  <div class="flip-box-front">
+                    <img
+                      class="project-image"
+                      src="https://raw.githubusercontent.com/Emuallim/emuallim.github.io/master/img/portfolio/tribute.png"
+                      alt="project"
+                    />
+                  </div>
+                  <div class="flip-box-back">
+                    <h2>tribute</h2>
+                    <p>stephen srashen</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <a
+                  href="https://codepen.io/Muallim/full/Qedmzb"
+                  target="_blank"
+                  class="project project-tile"
+                >
+                  <div class="flip-box-front">
+                    <img
+                      class="project-image"
+                      src="https://raw.githubusercontent.com/Emuallim/emuallim.github.io/master/img/portfolio/app.png"
+                      alt="project"
+                    />
+                  </div>
+                  <div class="flip-box-back">
+                    <h2>landing</h2>
+                    <p>my very first app</p>
+                  </div>
+                </a>
+              </div>
+            </div>
+
+            <div class="flip-box">
+              <div class="flip-box-inner">
+                <a
+                  href="https://emuallim.github.io/projects/06.comingSoon/index.html"
+                  target="_blank"
+                  class="project project-tile"
+                >
+                  <div class="flip-box-front">
+                    <img
+                      class="project-image"
+                      src="https://raw.githubusercontent.com/Emuallim/emuallim.github.io/master/img/portfolio/comingsoon.png"
+                      alt="project"
+                    />
+                  </div>
+                  <div class="flip-box-back">
+                    <h2>soon</h2>
+                    <p>my side hustle</p>
+                  </div>
+                </a>
+              </div>
+            </div>
             <div class="flip-box">
               <div class="flip-box-inner">
                 <a
@@ -110,33 +176,31 @@
         <!-- END PROJECTS SECTION -->
 
         <!-- START BLOG SECTION -->
-        <div id="blog">
-          <h2>blog posts</h2>
-          <div class="card">
-            <div class="fakeimg" style="height: 200px">Image</div>
+        <div id="blog-post">
+          <div class="post-card">
+            <div class="blog-img" style="height: 200px">Image</div>
             <div class="blog-text">
+              <!-- <h2>blog posts</h2> -->
               <h3>title heading</h3>
-            <h5>title description, Dec 7, 2017</h5>
-            <p>some text..</p>
-            <p>
-              Sunt in culpa qui officia deserunt mollit anim id est laborum
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco.
-            </p>
+              <p>
+                Sunt in culpa qui officia deserunt mollit anim id est laborum
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco.
+              </p>
             </div>
           </div>
-          <div class="card">
-            <h3>title heading</h3>
-            <h5>title description, Sep 2, 2017</h5>
-            <div class="fakeimg" style="height: 200px">Image</div>
-            <p>some text..</p>
-            <p>
-              Sunt in culpa qui officia deserunt mollit anim id est laborum
-              consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco.
-            </p>
+          <div class="post-card">
+            <div class="blog-img" style="height: 200px">Image</div>
+            <div class="blog-text">
+              <h3>title heading</h3>
+              <p>
+                Sunt in culpa qui officia deserunt mollit anim id est laborum
+                consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+                labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                nostrud exercitation ullamco.
+              </p>
+            </div>
           </div>
         </div>
         <!-- END BLOG SECTION -->
@@ -145,23 +209,21 @@
 
       <!-- START SIDEBAR SECTION -->
       <section class="sidebar">
-        <div class="card">
+        <div class="sidebar-card">
           <h2>About Me</h2>
-          <div class="fakeimg" style="height: 100px">Image</div>
+          <div class="sidebar-img" style="height: 100px">Image</div>
           <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
         </div>
-        <div class="card">
+        <div class="sidebar-card">
           <h3>Popular Post</h3>
-          <div class="fakeimg">Image</div>
+          <div class="sidebar-img">Image</div>
           <br />
-          <div class="fakeimg">Image</div>
+          <div class="sidebar-img">Image</div>
           <br />
-          <div class="fakeimg">Image</div>
+          <div class="sidebar-img">Image</div>
         </div>
-        
 
         <!-- START CONTACT SECTION -->
-
         <section id="contact">
           <h2>contact</h2>
           <form action="https://www.w3schools.com/action_page.php">
@@ -198,38 +260,7 @@
             <button type="submit" class="btn btn-show-all">submit</button>
           </form>
         </section>
-
         <!-- END CONTACT SECTION -->
-        <div class="card">
-          <h3>Follow Me</h3>
-          <div class="contact-links">
-            <a
-              href="https://www.facebook.com/jmuhiddin"
-              target="_blank"
-              class="btn contact-details"
-              ><i class="fab fa-facebook-square"></i> Facebook</a
-            >
-            <a
-              id="profile-link"
-              href="https://github.com/Emuallim"
-              target="_blank"
-              class="btn contact-details"
-              ><i class="fab fa-github"></i> GitHub</a
-            >
-            <a
-              href="https://t.me/muhiddinjv"
-              target="_blank"
-              class="btn contact-details"
-              ><i class="fab fa-telegram-plane"></i> Telegram</a
-            >
-            <a href="mailto:muhiddinjv@gmail.com" class="btn contact-details"
-              ><i class="fas fa-at"></i> Send a mail</a
-            >
-            <a href="tel:99893-539-9093" class="btn contact-details"
-              ><i class="fas fa-mobile-alt"></i> Call me</a
-            >
-          </div>
-        </div>
       </section>
       <!-- END SIDEBAR SECTION -->
 
@@ -237,29 +268,28 @@
       <footer class="footer">
         <div class="flex-center">
           <nav class="footer_icons flex-between">
-            <a href="https://facebook.com/"
+            <a href="https://www.facebook.com/jmuhiddin" target="_blank"
               ><i class="fab fa-facebook" aria-hidden="true"></i
             ></a>
-            <a href="https://youtube.com/"
+            <a href="https://youtube.com/emuallim" target="_blank"
               ><i class="fab fa-youtube" aria-hidden="true"></i
             ></a>
-            <a href="https://twitter.com/"
-              ><i class="fab fa-twitter" aria-hidden="true"></i
+            <a href="https://github.com/emuallim" target="_blank"
+              ><i class="fab fa-github" aria-hidden="true"></i
             ></a>
-            <a href="https://trello.com/"
-              ><i class="fab fa-trello" aria-hidden="true"></i
+            <a href="https://t.me/muhiddinjv" target="_blank"
+              ><i class="fab fa-telegram-plane" aria-hidden="true"></i
             ></a>
+            <a href="mailto:muhiddinjv@gmail.com"><i class="fas fa-at"></i></a>
+            <a href="tel:99893-539-9093"><i class="fas fa-mobile-alt"></i></a>
           </nav>
         </div>
-        <p>**All the projects and contact details given are my own.</p>
         <p>
           &copy; Created for
-          <a href="https://www.freecodecamp.com/" target="_blank"
-            >Udacity <i class="fab fa-free-code-camp"></i
-          ></a>
+          <a href="https://www.udacity.com/" target="_blank"
+            >Udacity</a>
         </p>
       </footer>
-
       <!-- END FOOTER SECTION -->
     </div>
   </body>
