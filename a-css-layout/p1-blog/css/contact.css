@@ -4,11 +4,8 @@
   padding: 2rem;
   /* padding-bottom: 19.5rem; */
   background: var(--main-blue);
-  /* min-height: 100%; */
-}
-
-.contact-section-header {
-  font-size: 6rem;
+  min-height: 50%;
+  /* overflow: hidden; */
 }
 
 @media (max-width: 28.75em) {
