@@ -3,17 +3,32 @@ footer {
   font-weight: 300;
   display: flex;
   justify-content: center;
-  /* padding: 1rem; */
   background: var(--main-gray);
-  border-top: 4px solid var(--main-red);
+  border-top: 2px solid var(--main-dark);
 }
 
-footer > div, p {
-  margin: 2rem;
+footer {
+  padding: 2rem;
+  /* vertical-align: middle; */
 }
 
-footer i {
-  vertical-align: middle;
+.footer-icons >a {
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--main-dark);
+}
+
+.footer-icons >a:hover {
+  border: 1px solid var(--main-silver);
+}
+
+.copyright{
+  margin-left: 1rem;
+}
+
+.copyright >a:hover {
+  
+  text-decoration: underline;
 }
 
 @media (max-width: 28.75em) {

@@ -1,7 +1,7 @@
 #projects {
   text-align: center;
   padding:  3rem 2rem;
-  background: var(--main-blue);
+  background: var(--main-white);
 }
 
 /* "Automagic" image grid using no media queries */
@@ -12,15 +12,15 @@
   align-items: center;
   max-width: 100rem;
   height: 100%;
-  padding: 2rem 0;
+  padding-bottom: 2rem;
   margin: 0 auto;
 }
 
-.project {
-  background: var(--main-gray);
+/* .project {
+  background: var(--main-silver);
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   border-radius: 9px;
-}
+} */
 
 .project-image {
   /* height: calc(100% - 6.8rem); */
@@ -34,20 +34,7 @@
   padding: 2rem 0.5rem;
 }
 
-.btn {
-  padding: 1rem 2rem;
-  border-radius: 5px;
-}
 
-.btn-show-all {
-  font-size: 2rem;
-  background: var(--main-gray);
-  transition: background 0.3s ease-out;
-}
-
-.btn-show-all:hover {
-  background: var(--main-red);
-}
 
 .btn-show-all:hover > i {
   transform: translateX(2px);

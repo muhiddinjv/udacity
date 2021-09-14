@@ -2,18 +2,42 @@
   margin-top: 20px;
 }
 
-/* Fake image */
-.blog-img {
-  background-color: #aaa;
-  width: 100%;
-  height: auto;
-  padding: 20px;
-}
-
-/* Add a card effect for articles */
 .post-card {
-  background: var(--main-blue);
+  background: var(--main-white);
   display: flex;
   padding: 20px;
   margin-top: 20px;
 }
+
+.post-text{
+  margin-left: 2rem;
+}
+
+.post-text > p{
+  margin: 1rem 0;
+}
+
+
+
+.post-img {
+  background-color: #aaa;
+  width: 20rem;
+  height: 15rem;
+}
+
+.img1{
+  background-image: url("../img/bedroom.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.img2{
+  background-image: url("../img/notebook.jpg");
+  background-size:cover;
+  background-repeat:no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+

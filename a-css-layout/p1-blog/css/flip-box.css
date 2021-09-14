@@ -1,11 +1,11 @@
 
 .flip-box {
   background-color: transparent;
-  width: 300px;
+  width: 280px;
   height: 200px;
-  border: 1px solid #f1f1f1;
+  border: 1px solid var(--main-gray);
   perspective: 1000px;
-  margin: 10px;
+  margin: 15px;
 }
 
 .flip-box-inner {
@@ -28,14 +28,9 @@
   backface-visibility: hidden;
 }
 
-.flip-box-front {
-  background-color: #bbb;
-  color: black;
-}
-
 .flip-box-back {
-  background-color: #555;
-  color: white;
+  background-color: var(--main-gray);
+  color: var(--main-dark);
   transform: rotateY(180deg);
   padding-top: 50px;
 }
