@@ -26,7 +26,7 @@
 }
 
 .img1{
-  background-image: url("../img/bedroom.jpg");
+  background-image: url("../../img/bedroom.jpg");
   background-size:cover;
   background-repeat:no-repeat;
   background-position: center;
@@ -34,7 +34,7 @@
 }
 
 .img2{
-  background-image: url("../img/notebook.jpg");
+  background-image: url("../../img/notebook.jpg");
   background-size:cover;
   background-repeat:no-repeat;
   background-position: center;

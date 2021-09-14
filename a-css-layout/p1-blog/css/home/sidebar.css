@@ -1,0 +1,19 @@
+.sidebar{
+  grid-area: sb;
+  width: 30rem;
+  flex-shrink: 0;
+}
+
+.sidebar-card{
+  background:var(--main-white);
+  height: auto;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar-img {
+  background-color: #aaa;
+  width: 100%;
+  padding: 20px;
+}
+
