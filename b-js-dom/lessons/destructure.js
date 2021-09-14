@@ -6,9 +6,9 @@ const x = point[0];
 const y = point[1];
 const z = point[2];
 
-// short
-const [x, y, z] = point;
-console.log(x, y, z);
+// short: comma = ignore (y=25)
+const [x, , z] = point; 
+console.log(x, z);
 
 
 // DESTRUCTURE OBJECT ------------
