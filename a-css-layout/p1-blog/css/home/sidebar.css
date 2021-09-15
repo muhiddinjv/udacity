@@ -1,14 +1,13 @@
 .sidebar{
   grid-area: sb;
   width: 30rem;
-  flex-shrink: 0;
+  display: grid;
+  grid-gap: 2rem;
 }
 
 .sidebar-card{
   background:var(--main-white);
-  height: auto;
   padding: 20px;
-  margin-bottom: 20px;
 }
 
 .sidebar-img {
