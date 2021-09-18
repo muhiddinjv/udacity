@@ -12,16 +12,6 @@ footer {
   /* vertical-align: middle; */
 }
 
-.footer-icons >a {
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--main-dark);
-}
-
-.footer-icons >a:hover {
-  border: 1px solid var(--main-silver);
-}
-
 .copyright{
   margin-left: 1rem;
 }

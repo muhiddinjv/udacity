@@ -1,16 +1,27 @@
 .biobox{
   grid-area: bio;
   display: flex;
-  height: 20rem;
+  padding: 2rem;
   background: var(--main-white);
 }
 
 .avatar{
-  width: 20%;
-  border: 1px solid #333;
+  width: 20rem;
+  /* border: 1px solid #333; */
+  text-align: center;
 }
 
 .bio{
   border: 1px solid #333;
-  width: 100%;
+  padding: 1rem;
+}
+
+.ava-img{
+  background: url('../../img/muhiddin.jpg') no-repeat center;
+  background-size: cover;
+  border: 1px solid var(--main-gray);
+  margin: 1rem;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
 }

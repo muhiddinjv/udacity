@@ -8,10 +8,11 @@
 #post > p{
   margin-top: 1rem;
 }
-figcaption{
-  /* border: 1px solid var(--main-dark); */
+
+figure{
   margin-bottom: 2rem;
 }
+
 .post-img {
   background-color: #aaa;
   width: 100%;
