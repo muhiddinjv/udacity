@@ -80,7 +80,7 @@ a {
 }
 
 .icons >a:hover {
-  border: 1px solid var(--main-gray);
+  border: 1px solid var(--main-silver);
 }
 
 .btn {
