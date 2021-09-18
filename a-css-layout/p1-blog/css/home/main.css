@@ -7,13 +7,12 @@
 @import "footer.css";
 @import "flip-box.css";
 
-
 /* Custom properties/variables  */
 :root {
-  --main-dark:  #545e69;
+  --main-dark: #545e69;
   --main-white: #fff;
-  --main-gray: #DAE3E7;
-  --main-silver: #F5F5F5;
+  --main-gray: #dae3e7;
+  --main-silver: #f5f5f5;
 }
 
 /* Base reset */
@@ -32,22 +31,24 @@
 html {
   box-sizing: border-box;
   /* REM for size, margin, padding */
-  font-size: 62.5%;/* = 10px = 1rem */
+  font-size: 62.5%; /* = 10px = 1rem */
   scroll-behavior: smooth;
 }
 
 /* Base styles */
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 1.8rem; /* 18px */
   font-weight: 400;
   line-height: 1.4;
   color: var(--main-dark);
-  background:var(--main-gray);
+  background: var(--main-gray);
 }
 
-div, section, img{
+div,
+section,
+img {
   border-radius: 5px;
 }
 
@@ -55,11 +56,14 @@ h1 {
   font-size: 6rem;
 }
 
-h2, h3{
+h2,
+h3 {
   margin-bottom: 1rem;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   text-transform: capitalize;
 }
 
@@ -80,54 +84,54 @@ a {
   border: 1px solid silver;
 }
 
-.link:hover{
+.link:hover {
   color: #aaa;
 }
 
 /* media queries */
 
-.wrapper{
+.wrapper {
   display: grid;
   grid-gap: 20px;
-  grid-template-areas: 
-    "wc wc wc wc wc wc wc wc" 
+  grid-template-areas:
+    "wc wc wc wc wc wc wc wc"
     ". prj prj prj prj prj sb ."
     ". blg blg blg blg blg sb ."
-    "ft ft ft ft ft ft ft ft"
-  ;
+    "ft ft ft ft ft ft ft ft";
 }
 
 @media (max-width: 1020px) {
-  h1 {font-size: 5rem;}
-  .wrapper{
+  h1 {
+    font-size: 5rem;
+  }
+  .wrapper {
     display: grid;
-    grid-template-areas: 
+    grid-template-areas:
       "wc wc wc wc"
       ". prj prj ."
       ". blg blg ."
       ". sb sb ."
-      "ft ft ft ft"
-    ;
+      "ft ft ft ft";
   }
-  .sidebar{
+  .sidebar {
     width: 100%;
     grid-template-columns: 1fr 1fr;
   }
-  #contact{
+  #contact {
     grid-column: 2 / 3;
     grid-row: 1 / 3;
   }
 }
 
 @media (max-width: 700px) {
-  h1 {font-size: 4rem;}
-  .sidebar{
+  h1 {
+    font-size: 4rem;
+  }
+  .sidebar {
     grid-template-columns: 1fr;
   }
-  #contact{
+  #contact {
     grid-column: 1;
     grid-row: 3;
   }
 }
-
-
