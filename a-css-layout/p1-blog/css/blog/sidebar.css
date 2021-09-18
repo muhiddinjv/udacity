@@ -16,6 +16,27 @@
   padding: 3rem;
 }
 
+/* subscription form */
+
+.subs-form {
+  padding: 20px;
+  background: var(--main-white);
+}
+
+input[type=text], input[type=submit] {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+input[type=checkbox] {
+  margin-top: 16px;
+}
+
+/* about block */
+
 .about{
   background: url('../../img/img_temp_startup.jpg') no-repeat center;
   background-size: cover;
