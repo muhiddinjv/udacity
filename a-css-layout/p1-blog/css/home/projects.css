@@ -1,17 +1,18 @@
 #projects {
+  grid-area: prj;
+
   text-align: center;
   padding:  3rem 2rem;
   background: var(--main-white);
 }
 
-/* "Automagic" image grid using no media queries */
 .projects-grid {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  max-width: 100rem;
-  height: 100%;
+  width: 100%;
+  /* height: 100%; */
   padding-bottom: 2rem;
   margin: 0 auto;
 }

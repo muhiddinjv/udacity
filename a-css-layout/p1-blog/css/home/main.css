@@ -113,17 +113,13 @@ a {
   color: #aaa;
 }
 
-.contents{
-  grid-area: ct;
-}
-
 .wrapper{
-  /* max-width: 1400px; */
   display: grid;
   grid-gap: 20px;
   grid-template-areas: 
     "wc wc wc wc wc wc wc wc" 
-    ". ct ct ct ct sb sb ."
+    ". prj prj prj prj prj sb ."
+    ". blg blg blg blg blg sb ."
     "ft ft ft ft ft ft ft ft"
   ;
 }
@@ -134,7 +130,8 @@ a {
     display: grid;
     grid-template-areas: 
       "wc wc wc wc"
-      ". ct ct ."
+      ". prj prj ."
+      ". blg blg ."
       ". sb sb ."
       "ft ft ft ft"
     ;
