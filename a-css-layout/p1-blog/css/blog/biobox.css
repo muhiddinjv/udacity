@@ -16,6 +16,12 @@
   padding: 1rem;
 }
 
+.titles{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
 .ava-img{
   background: url('../../img/muhiddin.jpg') no-repeat center;
   background-size: cover;
