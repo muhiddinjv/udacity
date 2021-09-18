@@ -2,7 +2,6 @@
 @import "navbar.css";
 @import "welcome.css";
 @import "post.css";
-@import "contact.css";
 @import "sidebar.css";
 @import "footer.css";
 
@@ -30,37 +29,9 @@
 
 html {
   box-sizing: border-box;
-  /* for size, margin and padding */
+  /* REM for size, margin, padding */
   font-size: 62.5%;/* = 10px = 1rem */
   scroll-behavior: smooth;
-}
-
-/* 
- * The breakpoint calculation is the following
- * screen size divided by browser base font size
- * As an example: a breakpoint at 980px
- * 980px / 16px = 61.25em
-*/
-
-/* 1200px / 16px = 75em */
-@media (max-width: 75em) {
-  html {
-    font-size: 60%;
-  }
-}
-
-/* 980px / 16px = 61.25em */
-@media (max-width: 61.25em) {
-  html {
-    font-size: 58%;
-  }
-}
-
-/* 460px / 16px = 28.75em */
-@media (max-width: 28.75em) {
-  html {
-    font-size: 55%;
-  }
 }
 
 /* Base styles */
@@ -111,6 +82,7 @@ a {
   color: #aaa;
 }
 
+/* media queries */
 
 .wrapper{
   /* max-width: 1400px; */
