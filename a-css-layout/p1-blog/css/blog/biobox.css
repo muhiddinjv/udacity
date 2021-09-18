@@ -1,0 +1,16 @@
+.biobox{
+  grid-area: bio;
+  display: flex;
+  height: 20rem;
+  background: var(--main-white);
+}
+
+.avatar{
+  width: 20%;
+  border: 1px solid #333;
+}
+
+.bio{
+  border: 1px solid #333;
+  width: 100%;
+}

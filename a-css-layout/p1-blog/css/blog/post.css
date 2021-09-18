@@ -1,5 +1,5 @@
 #post {
-  grid-area: post;
+  grid-area: ps;
   padding:  3rem 2rem;
   background: var(--main-white);
   border-radius: 5px;
@@ -8,7 +8,10 @@
 #post > p{
   margin-top: 1rem;
 }
-
+figcaption{
+  /* border: 1px solid var(--main-dark); */
+  margin-bottom: 2rem;
+}
 .post-img {
   background-color: #aaa;
   width: 100%;

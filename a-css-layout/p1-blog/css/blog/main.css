@@ -1,6 +1,7 @@
 @import "base.css";
 @import "navbar.css";
 @import "welcome.css";
+@import "biobox.css";
 @import "post.css";
 @import "sidebar.css";
 @import "footer.css";
@@ -45,7 +46,7 @@ body {
   background:var(--main-gray);
 }
 
-div, section, img{
+div, section, img, figcaption{
   border-radius: 5px;
 }
 
@@ -85,12 +86,12 @@ a {
 /* media queries */
 
 .wrapper{
-  /* max-width: 1400px; */
   display: grid;
   grid-gap: 20px;
   grid-template-areas: 
     "wc wc wc wc wc wc wc wc" 
-    ". post sb sb sb sb sb ."
+    ". bio bio bio bio bio sb ."
+    ". ps ps ps ps ps sb ."
     "ft ft ft ft ft ft ft ft"
   ;
 }
@@ -101,7 +102,8 @@ a {
     display: grid;
     grid-template-areas: 
       "wc wc wc wc"
-      ". post post ."
+      ". bio bio ."
+      ". ps ps ."
       ". sb sb ."
       "ft ft ft ft"
     ;
