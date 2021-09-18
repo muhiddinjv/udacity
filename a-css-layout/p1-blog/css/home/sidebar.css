@@ -5,6 +5,11 @@
   grid-gap: 2rem;
 }
 
+.subscribe {
+  padding: 2rem;
+  background: var(--main-white);
+}
+
 .sidebar-card{
   background:var(--main-white);
   padding: 20px;

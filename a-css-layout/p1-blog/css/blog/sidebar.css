@@ -18,23 +18,10 @@
 
 /* subscription form */
 
-.subs-form {
-  padding: 20px;
+.subscribe {
+  padding: 2rem;
   background: var(--main-white);
 }
-
-input[type=text], input[type=submit] {
-  width: 100%;
-  padding: 12px;
-  margin: 8px 0;
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-input[type=checkbox] {
-  margin-top: 16px;
-}
-
 /* about block */
 
 .about{
@@ -68,12 +55,11 @@ input[type="text"],
 select,
 textarea {
   width: 100%;
-  padding: 12px;
+  padding: 1.2rem;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
+  margin: 6px 0 16px 0;
   resize: vertical;
 }
 
