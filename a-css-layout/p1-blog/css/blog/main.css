@@ -111,9 +111,6 @@ a {
   color: #aaa;
 }
 
-.contents{
-  grid-area: ct;
-}
 
 .wrapper{
   /* max-width: 1400px; */
@@ -121,7 +118,7 @@ a {
   grid-gap: 20px;
   grid-template-areas: 
     "wc wc wc wc wc wc wc wc" 
-    ". ct ct ct ct sb sb ."
+    ". post sb sb sb sb sb ."
     "ft ft ft ft ft ft ft ft"
   ;
 }
@@ -132,7 +129,7 @@ a {
     display: grid;
     grid-template-areas: 
       "wc wc wc wc"
-      ". ct ct ."
+      ". post post ."
       ". sb sb ."
       "ft ft ft ft"
     ;

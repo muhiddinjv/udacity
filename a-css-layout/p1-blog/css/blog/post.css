@@ -1,4 +1,5 @@
 #post {
+  grid-area: post;
   padding:  3rem 2rem;
   background: var(--main-white);
   border-radius: 5px;
