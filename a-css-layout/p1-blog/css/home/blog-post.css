@@ -1,12 +1,13 @@
 #blog-post {
-  margin-top: 20px;
+  margin-top: 2rem;
+  display: grid;
+  grid-gap: 2rem;
 }
 
 .post-card {
   background: var(--main-white);
   display: flex;
-  padding: 20px;
-  margin-top: 20px;
+  padding: 2rem;
 }
 
 .post-text{
@@ -16,8 +17,6 @@
 .post-text > p{
   margin: 1rem 0;
 }
-
-
 
 .post-img {
   background-color: #aaa;
