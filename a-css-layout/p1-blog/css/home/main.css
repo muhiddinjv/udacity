@@ -73,6 +73,16 @@ a {
   color: var(--main-dark);
 }
 
+.icons >a {
+  padding: 0.5rem;
+  border-radius: 2rem;
+  border: 1px solid var(--main-dark);
+}
+
+.icons >a:hover {
+  border: 1px solid var(--main-gray);
+}
+
 .btn {
   padding: 1rem 2rem;
   border-radius: 5px;
