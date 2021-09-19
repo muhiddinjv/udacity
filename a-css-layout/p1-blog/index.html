@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" title="home-page">
   <head>
     <meta charset="UTF-8" />
     <title>Document</title>
@@ -10,10 +10,10 @@
     <div class="wrapper">
       <!-- START HEADER -->
       <header>
-        <nav class="nav">
+        <nav class="nav" title="header">
           <div class="nav-list">
             <a href="#welcome">Home</a>
-            <a href="blog.html">Blog</a>
+            <a href="blog.html" alt="blog">Blog</a>
             <a href="#contact">Contact</a>
           </div>
         </nav>
@@ -21,7 +21,7 @@
       <!-- END HEADER -->
 
       <!-- START WELCOME -->
-      <section id="welcome">
+      <section id="welcome" aria-label="welcome">
         <h1>hi, i'm muhiddin</h1>
         <h2>web developer minimalist</h2>
       </section>
@@ -173,9 +173,9 @@
       <!-- END PROJECTS SECTION -->
 
       <!-- START BLOG SECTION -->
-      <section id="blog-post">
+      <section id="blog-post" aria-label="blog-post">
         <div class="post-card">
-          <a class="link" href="blog.html"><div class="post-img img1"></div></a>
+          <a class="link" href="blog.html"  aria-label="home-office"><div class="post-img img1"></div></a>
           <div class="post-text">
             <!-- <h2>post posts</h2> -->
             <h3>
@@ -190,7 +190,7 @@
           </div>
         </div>
         <div class="post-card">
-          <a class="link" href="blog.html"><div class="post-img img2"></div></a>
+          <a class="link" href="blog.html"><div class="post-img img2" title="notepad"></div></a>
           <div class="post-text">
             <h3>
               <a class="link" href="blog.html">planning a web app</a>
@@ -207,7 +207,7 @@
       <!-- END BLOG SECTION -->
 
       <!-- START SIDEBAR -->
-      <section class="sidebar">
+      <section class="sidebar" aria-label="sidebar">
         <form class="subscribe" action="/action_page.php">
           <h3>Subscribe to newsletter</h3>
           <input type="text" placeholder="Name" name="name" required />
@@ -263,19 +263,19 @@
       <!-- START FOOTER -->
       <footer>
         <nav class="icons">
-          <a href="https://www.facebook.com/jmuhiddin" target="_blank"
+          <a href="https://www.facebook.com/jmuhiddin" target="_blank" title="fb-icon"
             ><i class="fab fa-facebook" aria-hidden="true"></i
           ></a>
-          <a href="https://youtube.com/emuallim" target="_blank"
+          <a href="https://youtube.com/emuallim" target="_blank" title="yt-icon"
             ><i class="fab fa-youtube" aria-hidden="true"></i
           ></a>
-          <a href="https://github.com/emuallim" target="_blank"
+          <a href="https://github.com/emuallim" target="_blank" title="gh-icon"
             ><i class="fab fa-github" aria-hidden="true"></i
           ></a>
           <a href="https://t.me/muhiddinjv" target="_blank"
-            ><i class="fab fa-telegram-plane" aria-hidden="true"></i
+          title="tgm-icon"><i class="fab fa-telegram-plane" aria-hidden="true"></i
           ></a>
-          <a href="mailto:muhiddinjv@gmail.com"><i class="fas fa-at"></i></a>
+          <a href="mailto:muhiddinjv@gmail.com" title="email-icon"><i class="fas fa-at"></i></a>
           <!-- <a href="tel:99893-539-9093"><i class="fas fa-mobile-alt"></i></a> -->
         </nav>
         <p class="copyright">
