@@ -10,11 +10,11 @@
   padding: 2rem;
 }
 
-.post-text{
+.post-text {
   margin-left: 2rem;
 }
 
-.post-text > p{
+.post-text > p {
   margin: 1rem 0;
 }
 
@@ -24,19 +24,18 @@
   height: 15rem;
 }
 
-.img1{
+.img1 {
   background-image: url("../../img/bedroom.jpg");
-  background-size:cover;
-  background-repeat:no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   flex-shrink: 0;
 }
 
-.img2{
+.img2 {
   background-image: url("../../img/notebook.jpg");
-  background-size:cover;
-  background-repeat:no-repeat;
+  background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   flex-shrink: 0;
 }
-

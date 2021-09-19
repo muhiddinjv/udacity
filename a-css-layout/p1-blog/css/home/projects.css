@@ -2,7 +2,7 @@
   grid-area: prj;
 
   text-align: center;
-  padding:  3rem 2rem;
+  padding: 3rem 2rem;
   background: var(--main-white);
 }
 
@@ -28,8 +28,6 @@
   font-size: 2rem;
   padding: 2rem 0.5rem;
 }
-
-
 
 .btn-show-all:hover > i {
   transform: translateX(2px);

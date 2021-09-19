@@ -12,12 +12,11 @@ footer {
   /* vertical-align: middle; */
 }
 
-.copyright{
+.copyright {
   margin-left: 1rem;
 }
 
-.copyright >a:hover {
-  
+.copyright > a:hover {
   text-decoration: underline;
 }
 
