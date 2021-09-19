@@ -1,0 +1,34 @@
+.biobox {
+  grid-area: bio;
+  display: flex;
+  padding: 2rem;
+  background: var(--main-white);
+}
+
+.avatar {
+  width: 20rem;
+  text-align: center;
+}
+
+.bio {
+  padding: 1rem;
+}
+
+.titles {
+  display: flex;
+  align-items: center;
+}
+
+.titles > * {
+  margin-right: 0.5rem;
+}
+
+.ava-img {
+  background: url("../../img/me.jpg") no-repeat center;
+  background-size: cover;
+  border: 1px solid var(--main-gray);
+  margin: 1rem;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+}

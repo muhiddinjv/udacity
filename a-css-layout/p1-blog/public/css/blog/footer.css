@@ -1,0 +1,28 @@
+footer {
+  grid-area: ft;
+  font-weight: 300;
+  display: flex;
+  justify-content: center;
+  background: var(--main-gray);
+  border-top: 2px solid var(--main-dark);
+}
+
+footer {
+  padding: 2rem;
+  /* vertical-align: middle; */
+}
+
+.copyright {
+  margin-left: 1rem;
+}
+
+.copyright > a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 28.75em) {
+  footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}

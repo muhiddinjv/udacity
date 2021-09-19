@@ -1,0 +1,52 @@
+#post {
+  grid-area: ps;
+  padding: 3rem 2rem;
+  background: var(--main-white);
+  border-radius: 5px;
+}
+
+#post > article > p {
+  margin-top: 1rem;
+}
+
+figure {
+  margin-bottom: 2rem;
+}
+
+.post-img {
+  background-color: #aaa;
+  width: 100%;
+  height: 20rem;
+  background: url("../../img/woods.jpg") no-repeat center;
+  background-size: cover;
+  margin: 1rem 0;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+}
+
+blockquote {
+  margin: 2rem;
+}
+
+/* Pages */
+.pages {
+  display: flex;
+}
+
+.pages a {
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.pages a.active {
+  background-color: var(--main-dark);
+  color: white;
+}
+
+.pages a:hover:not(.active) {
+  background-color: #ddd;
+}

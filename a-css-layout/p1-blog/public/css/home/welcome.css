@@ -1,0 +1,18 @@
+#welcome {
+  grid-area: wc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: var(--main-silver);
+  border-radius: 0;
+}
+
+#welcome > p {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 200;
+  font-style: italic;
+  color: var(--main-dark);
+}

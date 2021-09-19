@@ -1,0 +1,30 @@
+.nav {
+  /* grid-area: nv; */
+  display: flex;
+  justify-content: flex-end;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--main-silver);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+  z-index: 10;
+}
+
+.nav-list {
+  display: flex;
+  margin-right: 2rem;
+}
+
+.nav-list > a {
+  /* display: block; */
+  font-size: 2.2rem;
+  padding: 1.5rem;
+  border-width: 0;
+  transition: border-width 9s linear;
+}
+
+.nav-list > a:hover {
+  border: 1px solid var(--main-dark);
+  border-width: 0 5px;
+}

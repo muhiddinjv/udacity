@@ -1,0 +1,41 @@
+#blog-post {
+  grid-area: blg;
+  display: grid;
+  grid-gap: 2rem;
+}
+
+.post-card {
+  background: var(--main-white);
+  display: flex;
+  padding: 2rem;
+}
+
+.post-text {
+  margin-left: 2rem;
+}
+
+.post-text > p {
+  margin: 1rem 0;
+}
+
+.post-img {
+  background-color: #aaa;
+  width: 20rem;
+  height: 15rem;
+}
+
+.img1 {
+  background-image: url("../../img/bedroom.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}
+
+.img2 {
+  background-image: url("../../img/notebook.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  flex-shrink: 0;
+}

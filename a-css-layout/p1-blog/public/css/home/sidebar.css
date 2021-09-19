@@ -1,0 +1,71 @@
+.sidebar {
+  grid-area: sb;
+  width: 30rem;
+  display: grid;
+  grid-gap: 2rem;
+}
+
+.subscribe {
+  padding: 2rem;
+  background: var(--main-white);
+}
+
+.sidebar-card {
+  background: var(--main-white);
+  padding: 20px;
+}
+
+.sidebar-img {
+  background-color: var(--main-gray);
+  width: 100%;
+  padding: 3rem;
+}
+
+.about {
+  background: url("../../img/img_temp_startup.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.pop-post1 {
+  background: url("../../img/img_5terre_wide.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.pop-post2 {
+  background: url("../../img/img_woods_wide.jpg") no-repeat center;
+  background-size: cover;
+}
+
+.pop-post3 {
+  background: url("../../img/img_snow_wide.jpg") no-repeat center;
+  background-size: cover;
+}
+
+/* contact --------------- */
+#contact {
+  padding: 2rem;
+  background: var(--main-white);
+}
+
+input[type="text"],
+select,
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.container {
+  border-radius: 5px;
+  padding: 2rem;
+}
+
+.submit {
+  border: none;
+  color: var(--main-dark);
+}
