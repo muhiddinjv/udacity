@@ -65,7 +65,7 @@ console.log('ice cream is tasty'); // 3
 
 // Since most JavaScript is run in response to an event, this is known as an event loop: Pick up the next event, run its handler, and repeat.
 
-// EVENT LOOP has 3 parts:
+// THE EVENT LOOP has 3 parts:
 // 1) the Call Stack
 // 2) Web APIs/the browser
 // 3) an Event Queue
@@ -82,3 +82,17 @@ console.log('ice cream is tasty'); // 3
 // First, the browser runs this block of code to completion -- that is, steps 1, 2, and 3. Step 2 passes an event handler (numbers) to the browser for future use: the browser will hold this function until there's a click event but click doesn't work if some js is running (callstack isn't empty).
 
 // IMPORTANT: The key things to remember here are 1) current synchronous code runs to completion, and 2) events are processed when the browser isn't busy. Asynchronous code (such as loading an image) runs outside of this loop and sends an event when it is done.
+
+
+// QUIZ QUESTION - What is the order that the iceCream function goes through if the <footer> is clicked?
+
+const pageFooter = document.querySelector('#page-footer');
+pageFooter.addEventListener('click', function iceCream () {
+    const footerDetails = document.querySelector('#details');
+    footerDetails.textContent = 'Everyone should eat ice cream!';
+});
+
+// the Callstack, the Queue, browser?
+// First >> 
+// Second >>
+// Third >> 
