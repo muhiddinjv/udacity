@@ -10,11 +10,17 @@
   padding: 20px;
 }
 
+.sidebar-card > .about{
+  height: 10rem;
+}
+
 .sidebar-img {
   background-color: #aaa;
   width: 100%;
   padding: 3rem;
 }
+
+
 
 /* subscription form */
 
