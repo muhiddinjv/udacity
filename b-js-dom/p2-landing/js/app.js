@@ -17,82 +17,59 @@
 const landingContainers = document.querySelectorAll(".landing__container");
 const allSections = document.querySelectorAll("section");
 const navbarList = document.querySelector("#navbar__list");
-// document.documentElement.style.scrollBehavior = "smooth";
-// console.log(landingContainers);
-// console.log(allSections[0].id);
-// console.log(navbarList);
-
-/**
+document.documentElement.style.scrollBehavior = "smooth";
+/*
  * End Global Variables
  * Start Helper Functions
  */
- window.onscroll = function() {myFunction()};
-const generateLists = () => {
-  // this.preventDefault();
-  const fragment = document.createDocumentFragment();
+const viewport = (elem) => {
+  const distance = elem.getBoundingClientRect();
+  return (
+    distance.top >= 0 &&
+    distance.left >= 0 &&
+    distance.bottom <= 
+    // if browser doesnt support "innerHeight", then "clientHeight" 
+    (window.innerHeight || document.documentElement.clientHeight) &&
+    distance.right <=
+    (window.innerWidth || document.documentElement.clientWidth)
+  );
+};
+/*
+ * End Helper Functions
+ * Begin Main Functions
+ */
+// Add class 'active' to section when near top of viewport
+window.addEventListener(
+  "scroll", () => {
+    for (section of allSections) {
+      if (viewport(section)) {
+        section.classList.add("active");
+      } else {
+        section.classList.remove("active");
+      }
+    }
+  },
+  false
+);
 
+const generateLists = () => {
+  const fragment = document.createDocumentFragment();
+  // build the nav
   for (let i = 0; i < landingContainers.length; i++) {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.textContent = allSections[i].attributes[1].value;
-    a.setAttribute("href", `#${allSections[i].id}`);
-    // a.addEventListener('click', () => window.scrollTo({
-    //     top: 900,
-    //     behavior: 'smooth',
-    //   }));
-      a.classList.add("menu__link");
-      li.appendChild(a);
-      fragment.appendChild(li);
 
-      myFunction = () => {
-        const rect = allSections[i].getBoundingClientRect();
-        // console.log(rect.top);
-        if (rect.top < 80) {
-          console.log(rect.top);
-          allSections[i].classList.add("active");
-        } else {
-          allSections[i].classList.remove("active");
-        }
-      }
+    // Scroll to section on link click
+    a.setAttribute("href", `#${allSections[i].id}`);
+
+    a.classList.add("menu__link");
+    li.appendChild(a);
+    fragment.appendChild(li);
   }
   navbarList.appendChild(fragment);
 };
 generateLists();
-
-
-
-// document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-//   anchor.addEventListener("click", function (e) {
-//     e.preventDefault();
-
-//     document.querySelector(this.getAttribute("href")).scrollIntoView({
-//       behavior: "smooth",
-//     });
-//   });
-// });
-
-
-
-// function myFunction(...allSections) {
-//   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-//     allSections.classList.add("your-active-class");
-//   } else {
-//     allSections.classList.remove("your-active-class");
-//   }
-// }
-
-/**
- * End Helper Functions
- *
- * Begin Main Functions
- *
- */
-
-// build the nav
-
-// Add class 'active' to section when near top of viewport
-
-// Scroll to anchor ID using scrollTO event
 
 /**
  * End Main Functions
@@ -100,8 +77,8 @@ generateLists();
  *
  */
 
-// Build menu
+// Scroll to anchor ID using scrollTO event
 
-// Scroll to section on link click
+// Build menu
 
 // Set sections as active
