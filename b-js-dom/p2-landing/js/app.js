@@ -17,20 +17,19 @@
 const landingContainers = document.querySelectorAll(".landing__container");
 const allSections = document.querySelectorAll("section");
 const navbarList = document.querySelector("#navbar__list");
-document.documentElement.style.scrollBehavior = "smooth";
 /*
  * End Global Variables
  * Start Helper Functions
  */
 const viewport = (elem) => {
-  const distance = elem.getBoundingClientRect();
+  const rect = elem.getBoundingClientRect();
   return (
-    distance.top >= 0 &&
-    distance.left >= 0 &&
-    distance.bottom <= 
+    rect.top >= 0 &&
+    rect.left >= 0 &&
+    rect.bottom <= 
     // if browser doesnt support "innerHeight", then "clientHeight" 
     (window.innerHeight || document.documentElement.clientHeight) &&
-    distance.right <=
+    rect.right <=
     (window.innerWidth || document.documentElement.clientWidth)
   );
 };
