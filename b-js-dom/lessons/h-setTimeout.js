@@ -22,9 +22,9 @@ function generateParagraphs() {
 
     document.body.appendChild(fragment);
 
-    // if (count < 20000) {
-    //     setTimeout(generateParagraphs, 0);
-    // }
+    if (count < 20000) {
+        setTimeout(generateParagraphs, 0);
+    }
 }
 generateParagraphs();
 // This code starts off by setting a count variable to 1. This will keep track of the number of paragraphs that have been added. The generateParagraphs() function will add 500 paragraphs to the page each time it's invoked. The interesting thing is that there's a setTimeout() call at the end of the generateParagraphs() function. If there are less than twenty thousand elements, then the setTimeout() will be used to call the generateParagraphs() function.
