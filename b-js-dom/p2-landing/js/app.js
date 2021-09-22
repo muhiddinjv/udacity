@@ -21,8 +21,8 @@ const navbarList = document.querySelector("#navbar__list");
  * End Global Variables
  * Start Helper Functions
  */
-const viewport = (elem) => {
-  const rect = elem.getBoundingClientRect();
+const viewport = (el) => {
+  const rect = el.getBoundingClientRect();
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&
