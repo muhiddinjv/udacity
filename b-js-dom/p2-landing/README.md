@@ -1,13 +1,11 @@
 # Landing Page Project
 
-## Table of Contents
+## Project Description
 
-* [Instructions](#instructions)
+a multi-section landing page, with a dynamically updating navigational menu based on the amount of content that is added to the page. Often times, we don’t know how much content will be added to a page through a CMS or an API. To circumvent this problem, I dynamically add the content to the page. I demonstrate this with the navigation menu. Additionally, dynamically building the navigation is a great precursor to understanding the virtual DOM.
 
-## Instructions
+## Usage
+Click on one of the navbar links at the top of the page and you will be sent to the part of the page anchor-linked to the navbar. When the section top reaches the top of the viewport, you'll see magic.
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
-
-To get started, open `js/app.js` and start building out the app's functionality
-
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Dependencies
+I did not use any dependencies to build this project. Its 100% pure, good old vanilla javascript.
