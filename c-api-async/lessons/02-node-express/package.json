@@ -1,0 +1,24 @@
+{
+  "name": "lessons",
+  "version": "1.0.0",
+  "description": "express",
+  "main": "index.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test"
+  },
+  "author": "muhiddin",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Emuallim/udacity/tree/main/c-api-async/lessons/02-node-express"
+  },
+  "keywords": [
+    "async"
+  ]
+}
