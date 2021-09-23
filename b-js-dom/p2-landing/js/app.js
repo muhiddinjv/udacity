@@ -31,6 +31,7 @@ const viewport = (el) => {
     (window.innerHeight || document.documentElement.clientHeight) &&
     rect.right <=
     (window.innerWidth || document.documentElement.clientWidth)
+    // i got this code block from github
   );
 };
 /*
