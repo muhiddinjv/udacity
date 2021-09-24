@@ -4,6 +4,15 @@ const members = require('./Members');
 
 const app = express();
 
+//call "next" last to move to middleware fn in the stack
+const logger = (req, res, next) => {
+  console.log(`Requested: ${req.protocol}://${req.get('host')}${req.originalUrl}`);
+  next();
+}
+
+//init middleware
+app.use(logger);
+
 // gets all members
 app.get('/api/members',(req, res) => res.json(members))
 
