@@ -1,6 +1,7 @@
 // import
-const express = require("express");
-const path = require("path");
+const express = require('express');
+const path = require('path');
+const uuid = require('uuid');
 // const logger = require("./middleware/logger");
 
 const app = express();
@@ -8,8 +9,12 @@ const app = express();
 //init middleware
 // app.use(logger);
 
+//Body Parser Middleware
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 // Set static folder
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Members API Routes
 app.use('/api/members', require('./routes/api/members'));
