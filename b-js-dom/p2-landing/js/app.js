@@ -26,26 +26,22 @@ const viewport = (el) => {
   return (
     rect.top >= 0 &&
     rect.left >= 0 &&
-    rect.bottom <= 
-    // if browser doesnt support "innerHeight", then "clientHeight" 
-    (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <=
-    (window.innerWidth || document.documentElement.clientWidth)
+    rect.bottom <=
+      // if browser doesnt support "innerHeight", then "clientHeight"
+      (window.innerHeight || document.documentElement.clientHeight) &&
+    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
     // i got this code block from github
   );
 };
 
-const scrollToSection = (e) => {
-  e.preventDefault()
-  alert('hi from scrolltosection')
-}
 /*
  * End Helper Functions
  * Begin Main Functions
  */
 // Add class 'active' to section when near top of viewport
 window.addEventListener(
-  "scroll", () => {
+  "scroll",
+  () => {
     for (section of allSections) {
       if (viewport(section)) {
         section.classList.add("active");
@@ -67,9 +63,22 @@ const generateLists = () => {
 
     // Scroll to section on link click
     a.setAttribute("href", `#${allSections[i].id}`);
-    a.addEventListener('click', scrollToSection)
 
     a.classList.add("menu__link");
+    a.addEventListener("click", () => {
+      var current = document.getElementsByClassName("menu__link--active");
+
+      // If there's no menu__link--active class
+      if (current.length > 0) {
+        current[0].className = current[0].className.replace(
+          " menu__link--active",
+          ""
+        );
+      }
+
+      // Add the menu__link--active class to the current elem
+      this.className += " menu__link--active";
+    });
     li.appendChild(a);
     fragment.appendChild(li);
   }
