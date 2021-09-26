@@ -34,6 +34,15 @@ const viewport = (el) => {
   );
 };
 
+const addClassAndScroll = (e) => {
+  e.preventDefault();
+  let active = document.querySelector(".menu__link--active");
+  if (active !== null) {
+    active.classList.remove("menu__link--active");
+  }
+  e.target.classList.add("menu__link--active");
+};
+
 /*
  * End Helper Functions
  * Begin Main Functions
@@ -63,22 +72,8 @@ const generateLists = () => {
 
     // Scroll to section on link click
     a.setAttribute("href", `#${allSections[i].id}`);
-
     a.classList.add("menu__link");
-    a.addEventListener("click", () => {
-      var current = document.getElementsByClassName("menu__link--active");
-
-      // If there's no menu__link--active class
-      if (current.length > 0) {
-        current[0].className = current[0].className.replace(
-          " menu__link--active",
-          ""
-        );
-      }
-
-      // Add the menu__link--active class to the current elem
-      this.className += " menu__link--active";
-    });
+    a.addEventListener("click", addClassAndScroll);
     li.appendChild(a);
     fragment.appendChild(li);
   }
