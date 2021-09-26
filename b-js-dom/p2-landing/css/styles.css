@@ -88,9 +88,9 @@ section {
     transition: ease 0.3s all;
 }
 
-.menu__link--active{
+.navbar__menu .active-link{
     background: #fff;
-    color: #333 !important;
+    color: #333;
 }
 
 /* Header Styles */

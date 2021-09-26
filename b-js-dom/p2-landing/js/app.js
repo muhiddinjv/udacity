@@ -36,11 +36,18 @@ const viewport = (el) => {
 
 const addClassAndScroll = (e) => {
   e.preventDefault();
-  let active = document.querySelector(".menu__link--active");
-  if (active !== null) {
-    active.classList.remove("menu__link--active");
+  let activeElem = document.querySelector(".active-link");
+  if (activeElem !== null) {
+    activeElem.classList.remove("active-link");
   }
-  e.target.classList.add("menu__link--active");
+  e.target.classList.add("active-link");
+
+  // Scroll to anchor ID using scrollTO event
+  for (section of allSections){
+    if (e.target.textContent == section.attributes[1].textContent){
+      section.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+    }
+  }
 };
 
 /*
@@ -69,11 +76,12 @@ const generateLists = () => {
     const li = document.createElement("li");
     const a = document.createElement("a");
     a.textContent = allSections[i].attributes[1].value;
-
-    // Scroll to section on link click
     a.setAttribute("href", `#${allSections[i].id}`);
     a.classList.add("menu__link");
+
+    // Add class "active" & scroll to section on click
     a.addEventListener("click", addClassAndScroll);
+
     li.appendChild(a);
     fragment.appendChild(li);
   }
@@ -87,7 +95,7 @@ generateLists();
  *
  */
 
-// Scroll to anchor ID using scrollTO event
+
 
 // Build menu
 
