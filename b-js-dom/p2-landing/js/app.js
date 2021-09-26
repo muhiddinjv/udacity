@@ -34,6 +34,11 @@ const viewport = (el) => {
     // i got this code block from github
   );
 };
+
+const scrollToSection = (e) => {
+  e.preventDefault()
+  alert('hi from scrolltosection')
+}
 /*
  * End Helper Functions
  * Begin Main Functions
@@ -62,6 +67,7 @@ const generateLists = () => {
 
     // Scroll to section on link click
     a.setAttribute("href", `#${allSections[i].id}`);
+    a.addEventListener('click', scrollToSection)
 
     a.classList.add("menu__link");
     li.appendChild(a);
