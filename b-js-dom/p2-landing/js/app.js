@@ -17,10 +17,22 @@
 const landingContainers = document.querySelectorAll(".landing__container");
 const allSections = document.querySelectorAll("section");
 const navbarList = document.querySelector("#navbar__list");
+const navButton = document.querySelector("button[aria-expanded]");
 /*
  * End Global Variables
  * Start Helper Functions
  */
+const toggleNav = ({ target }) => {
+  const expanded = target.getAttribute("aria-expanded") === "true" || false;
+  navButton.setAttribute("aria-expanded", !expanded);
+  console.log(navButton.textContent);
+  if(navButton.textContent === "Close"){
+    navButton.textContent = "Open";
+  } else {
+    navButton.textContent = "Close";
+  }
+}
+
 const viewport = (el) => {
   const rect = el.getBoundingClientRect();
   return (
@@ -36,6 +48,8 @@ const viewport = (el) => {
 
 const addClassAndScroll = (e) => {
   e.preventDefault();
+
+  // set clicked link as active & keep it until another link is clicked
   let activeElem = document.querySelector(".active-link");
   if (activeElem !== null) {
     activeElem.classList.remove("active-link");
@@ -43,9 +57,13 @@ const addClassAndScroll = (e) => {
   e.target.classList.add("active-link");
 
   // Scroll to anchor ID using scrollTO event
-  for (section of allSections){
-    if (e.target.textContent == section.attributes[1].textContent){
-      section.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+  for (section of allSections) {
+    if (e.target.id == section.attributes.id.value) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "center",
+        inline: "nearest",
+      });
     }
   }
 };
@@ -54,6 +72,7 @@ const addClassAndScroll = (e) => {
  * End Helper Functions
  * Begin Main Functions
  */
+
 // Add class 'active' to section when near top of viewport
 window.addEventListener(
   "scroll",
@@ -71,12 +90,13 @@ window.addEventListener(
 
 const generateLists = () => {
   const fragment = document.createDocumentFragment();
-  // build the nav
+  // build the nav menu
   for (let i = 0; i < landingContainers.length; i++) {
     const li = document.createElement("li");
     const a = document.createElement("a");
+
     a.textContent = allSections[i].attributes[1].value;
-    a.setAttribute("href", `#${allSections[i].id}`);
+    a.setAttribute("id", `${allSections[i].id}`);
     a.classList.add("menu__link");
 
     // Add class "active" & scroll to section on click
@@ -86,17 +106,11 @@ const generateLists = () => {
     fragment.appendChild(li);
   }
   navbarList.appendChild(fragment);
+  navButton.addEventListener("click", toggleNav);
+
 };
 generateLists();
 
 /**
  * End Main Functions
- * Begin Events
- *
  */
-
-
-
-// Build menu
-
-// Set sections as active
