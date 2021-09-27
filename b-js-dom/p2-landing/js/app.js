@@ -26,7 +26,7 @@ const navButton = document.querySelector("button[aria-expanded]");
 const toggleNav = ({ target }) => {
   const expanded = target.getAttribute("aria-expanded") === "true" || false;
   navButton.setAttribute("aria-expanded", !expanded);
-  console.log(navButton.textContent);
+
   if(navButton.textContent === "Close"){
     navButton.textContent = "Open";
   } else {
