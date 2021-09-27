@@ -3,11 +3,17 @@ const express = require('express');
 const path = require('path');
 const uuid = require('uuid');
 // const logger = require("./middleware/logger");
+const exphbs = require("express-handlebars");
+
 
 const app = express();
 
 //init middleware
 // app.use(logger);
+
+//Handlebars Middleware
+app.engine('handlebars', exphbs({defaultLayout: 'main'}));
+app.set('view engine', 'handlebars');
 
 //Body Parser Middleware
 app.use(express.json());

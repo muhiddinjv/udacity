@@ -1,3 +1,4 @@
+//import tools
 const express = require("express");
 const router = express.Router();
 const members = require("../../Members");
@@ -64,6 +65,6 @@ router.delete("/:id", (req, res) => {
   } else {
     res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
   }
-});
+}); //stopped at 58:00
 
 module.exports = router;
