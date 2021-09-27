@@ -22,6 +22,7 @@ const navButton = document.querySelector("button[aria-expanded]");
  * End Global Variables
  * Start Helper Functions
  */
+// open & close navbar on small screens
 const toggleNav = ({ target }) => {
   const expanded = target.getAttribute("aria-expanded") === "true" || false;
   navButton.setAttribute("aria-expanded", !expanded);

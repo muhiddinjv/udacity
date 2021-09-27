@@ -143,6 +143,7 @@ section {
       margin-right: 10px;
       background-color: #0f214800;
       grid-column: 2 / 3;
+      align-self: flex-start;
   }
   [aria-expanded]:hover{
       cursor: pointer;
