@@ -67,7 +67,6 @@ section {
 /* Navigation Styles*/
 .navbar__menu {
   background-color: #0f214864;
-  
 }
 .navbar__menu ul {
   /* padding-left: 0; */
@@ -111,10 +110,10 @@ section {
 @media only screen and (max-width: 560px) {
   .navbar__menu {
     display: grid;
-  grid-gap: 10px;
-  align-items: center;
+    grid-gap: 10px;
+    align-items: center;
 
-    grid-template-columns: 9fr 1fr ;
+    grid-template-columns: 9fr 1fr;
   }
   [aria-controls="menu-list"] {
     display: block;
@@ -131,21 +130,20 @@ section {
     max-height: 500px;
     transform: rotateX(0);
   }
-  [aria-expanded]{
-      color: #fff;
-      border-style: none;
-      padding: 10px;
-      margin-right: 10px;
-      background-color: #0f214800;
-      grid-column: 2 / 3;
-      align-self: flex-start;
+  [aria-expanded] {
+    color: #fff;
+    border-style: none;
+    padding: 10px;
+    margin-right: 10px;
+    background-color: #0f214800;
+    grid-column: 2 / 3;
+    align-self: flex-start;
   }
-  [aria-expanded]:hover{
-      cursor: pointer;
-      border-bottom: 2px solid #fff;
-      background-color: #0f214865;
+  [aria-expanded]:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
+    background-color: #0f214865;
   }
-  
 }
 
 /* Header Styles */

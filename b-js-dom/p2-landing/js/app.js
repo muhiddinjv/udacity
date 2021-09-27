@@ -27,12 +27,12 @@ const toggleNav = ({ target }) => {
   const expanded = target.getAttribute("aria-expanded") === "true" || false;
   navButton.setAttribute("aria-expanded", !expanded);
 
-  if(navButton.textContent === "Close"){
+  if (navButton.textContent === "Close") {
     navButton.textContent = "Open";
   } else {
     navButton.textContent = "Close";
   }
-}
+};
 
 const viewport = (el) => {
   const rect = el.getBoundingClientRect();
@@ -108,7 +108,6 @@ const generateLists = () => {
   }
   navbarList.appendChild(fragment);
   navButton.addEventListener("click", toggleNav);
-
 };
 generateLists();
 
