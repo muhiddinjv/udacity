@@ -2,6 +2,7 @@
 const express = require("express");
 const router = express.Router();
 const members = require("../../Members");
+const uuid = require("uuid");
 
 // Get all members
 router.get("/", (req, res) => res.json(members));
@@ -30,6 +31,8 @@ router.post("/", (req, res) => {
     return res.status(400).json({ msg: "Please include a name & email" });
   }
   members.push(newMember);
+  // res.json(members);
+  res.redirect('/');
 });
 
 // Update member
@@ -65,6 +68,6 @@ router.delete("/:id", (req, res) => {
   } else {
     res.status(400).json({ msg: `No member with the id of ${req.params.id}` });
   }
-}); //stopped at 58:00
+});
 
 module.exports = router;

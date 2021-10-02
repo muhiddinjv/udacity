@@ -1,7 +1,6 @@
 // import
 const express = require("express");
 const path = require("path");
-const uuid = require("uuid");
 // const logger = require("./middleware/logger");
 const exphbs = require("express-handlebars");
 const members = require("./Members");
