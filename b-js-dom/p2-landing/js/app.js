@@ -35,16 +35,16 @@ const toggleNav = ({ target }) => {
 };
 
 const viewport = (el) => {
-  const rect = el.getBoundingClientRect();
-  return (
-    rect.top >= 0 &&
-    rect.left >= 0 &&
-    rect.bottom <=
-      // if browser doesnt support "innerHeight", then "clientHeight"
-      (window.innerHeight || document.documentElement.clientHeight) &&
-    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    // i got this code block from github
-  );
+  const { top, bottom } = el.getBoundingClientRect();
+
+  // Only completely visible elements return true:
+  let isVisible =
+    top >= 0 && // if browser doesnt support "innerHeight", then "clientHeight"
+    (bottom <= window.innerHeight || document.documentElement.clientHeight);
+
+  // Partially visible elements return true:
+  // isVisible = top < window.innerHeight && bottom >= 0;
+  return isVisible;
 };
 
 const addClassAndScroll = (e) => {
@@ -81,10 +81,10 @@ window.addEventListener(
     for (section of allSections) {
       if (viewport(section)) {
         section.classList.add("active");
-        console.log('visible');
+        console.log("visible");
       } else {
         section.classList.remove("active");
-        console.log('not visible');
+        console.log("not visible");
       }
     }
   },
