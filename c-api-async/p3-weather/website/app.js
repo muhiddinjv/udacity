@@ -14,5 +14,4 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
 
 /* Function to POST data */
 
-
 /* Function to GET Project Data */
