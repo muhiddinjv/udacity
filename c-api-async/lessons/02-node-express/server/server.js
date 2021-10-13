@@ -16,35 +16,44 @@ const cors = require('cors');
 app.use(cors());
 
 /* Initialize the main project folder*/
-app.use(express.static('website'));
+app.use(express.static('../client'));
 
-const port = 5000;
+const port = 8000;
 /* Spin up the server*/
 const server = app.listen(port, listening);
- function listening(){
-    // console.log(server);
+function listening(){
+  //  console.log(server);
     console.log(`running on localhost: ${port}`);
   };
 
-// GET route
-app.get('/all', sendData);
 
-function sendData (request, response) {
-  response.send(projectData);
-};
+// fake api
+const fakeData = {
+  animal: 'lion',
+  fact: 'lions are fun'
+}
+
+// GET route
+app.get('/fakeAnimalData', (req, res)=>{
+  res.send(fakeData);
+})
+
+const animalData = [];
+
+app.get('/all', (req, res)=>{
+  res.send(animalData);
+  // console.log(animalData);
+});
 
 // POST route
-app.post('/add', callBack);
-
-function callBack(req,res){
-  res.send('POST received');
-};
-
-// POST an animal
-const data = [];
-
-app.post('/animal', addAnimal);
-
-function addAnimal (req,res){
-    data.push(req.body);
-};
+app.post('/addAnimal', (req, res) => {
+  newEntry = {
+    animal: req.body.name,
+    fact: req.body.timezone,
+    fav: req.body.fav,
+  }
+  // const newEntry = {animal, fact, fav} = req.body;
+  animalData.push(newEntry);
+    res.send(animalData);
+    console.log(animalData);
+});
