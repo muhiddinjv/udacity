@@ -14,32 +14,36 @@
       <div class="holder headline">
         <h1>Weather Journal App</h1>
       </div>
-      <div class="holder zip">
-        <label for="zip">
-          <h2>Enter Zipcode here</h2>
-        </label>
-        <input type="text" id="zip" placeholder="enter zip code here" />
-      </div>
+
       <div class="holder feel">
-        <label for="feelings">
-          <h2>How are you feeling today?</h2>
-        </label>
-        <textarea
-          class="myInput"
-          id="feelings"
-          placeholder="Enter your feelings here"
-          rows="9"
-          cols="50"
-        ></textarea>
-        <button id="generate" type="submit">Generate</button>
+        <!-- <form action="post"> -->
+          <div class="city">
+            <label for="city">
+              <h3>Enter city here</h3>
+            </label>
+            <input type="text" id="inputCity" placeholder="enter city name" />
+          </div>
+          <label for="feelings">
+            <h3>How are you feeling today?</h3>
+          </label>
+          <textarea
+            class="myInput"
+            id="feelings"
+            placeholder="Enter your feelings here"
+            rows="10"
+            cols="50"
+          ></textarea>
+          <button id="generate" type="submit">Generate</button>
+        <!-- </form> -->
       </div>
       <div class="holder entry">
         <div class="title"><h2>Most Recent Entry</h2></div>
+        <div class="error"></div>
         <div id="entryHolder">
           <div id="city">city</div>
           <div id="date">date</div>
           <div id="temp">temp</div>
-          <div id="content">content</div>
+          <div id="content">feeling</div>
         </div>
       </div>
     </div>
