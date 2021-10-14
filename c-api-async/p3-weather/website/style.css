@@ -65,12 +65,17 @@ body {
 
 #entryHolder {
   border: 1px solid white;
-  display: flex;
-  justify-content: space-around;
+  
+  /* flex-wrap: wrap; */
 }
 
 #entryHolder > * {
   border: 1px solid white;
+}
+
+#innerContainer{
+display: flex;
+  justify-content: space-around;
 }
 
 .city{

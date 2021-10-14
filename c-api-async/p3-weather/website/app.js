@@ -1,13 +1,14 @@
 /* Global Variables */
 const inputCity = document.getElementById("inputCity");
 const generate = document.getElementById("generate");
+const error = document.getElementById("error");
+
 let retryEveryMs = 3000;
 let retries = 6;
 
 // Create a new date instance dynamically with JS
 let d = new Date();
 let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
-console.log(date);
 
 // Personal API Key for OpenWeatherMap API
 const api = "ad8a4d7750ce20473c84cde66d6c7ab4";
@@ -20,9 +21,9 @@ generate.addEventListener("click", performAction);
 function performAction() {
   const fav = document.getElementById("feelings").value;
 
-  getAnimal()
+  getWeather()
     //new syntax
-    .then(function(data) {
+    .then(function (data) {
       // Add data
       postData("/addWeather", {
         city: data.name,
@@ -36,25 +37,25 @@ function performAction() {
 }
 
 /* Function to GET Web API Data*/
-const getAnimal = async () => {
-  const res = await fetch(
-    `http://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${api}&units=metric`
-  );
+const getWeather = async () => {
   // const res = await fetch(url);
   try {
+    const res = await fetch(
+      `http://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${api}&units=metric`
+    );
     const data = await res.json();
     console.log(data);
     return data;
   } catch (error) {
-    // console.log(error);
+    console.log("error", error);
     setTimeout(() => {
       retries--;
-      content.innerText = "Retrying promise..." + retries;
+      error.innerText = "Retrying promise..." + retries;
       // Retrying failed promise...
       if (retries == 0) {
-        return (content.innerText = "Max retries exceeded!");
+        return (error.innerText = "Max retries exceeded!");
       }
-      getAnimal();
+      getWeather();
     }, retryEveryMs);
   }
 };
@@ -84,10 +85,41 @@ const updateUI = async () => {
   const request = await fetch("/all");
   try {
     const allData = await request.json();
-    document.getElementById("city").innerHTML = allData[0].city;
-    document.getElementById("date").innerHTML = allData[0].date;
-    document.getElementById("temp").innerHTML = allData[0].temp;
-    document.getElementById("content").innerHTML = allData[0].fav;
+
+    const entryHolder = document.getElementById("entryHolder");
+    const fragment = document.createDocumentFragment();
+    const parent = document.createElement("div");
+
+    for (let i = 0; i < allData.length; i++) {
+      parent.innerHTML = `
+        <div id="city">${allData[i].city}</div>
+        <div id="temp">${allData[i].temp}</div>
+        <div id="date">${allData[i].date}</div>
+        <div id="fav">${allData[i].fav}</div>
+      `; // lightbulb :))
+
+      // const city = document.createElement("div");
+      // city.setAttribute("id", "city");
+      // city.innerHTML = allData[i].city;
+      // fragment.appendChild(city);
+
+      // const temp = document.createElement("div");
+      // temp.setAttribute("id", "temp");
+      // temp.innerHTML = allData[i].temp;
+      // fragment.appendChild(temp);
+
+      // const date = document.createElement("div");
+      // date.setAttribute("id", "date");
+      // date.innerHTML = allData[i].date;
+      // fragment.appendChild(date);
+
+      // const fav = document.createElement("div");
+      // fav.setAttribute("id", "fav");
+      // fav.innerHTML = allData[i].fav;
+      // fragment.appendChild(fav);
+    }
+    fragment.appendChild(parent);
+    entryHolder.appendChild(fragment);
   } catch (error) {
     console.log("error", error);
   }
