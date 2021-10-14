@@ -8,6 +8,7 @@ let retries = 6;
 
 // Create a new date instance dynamically with JS
 let d = new Date();
+console.log(d);
 let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
 
 // Personal API Key for OpenWeatherMap API
@@ -95,7 +96,7 @@ const updateUI = async () => {
       <div class="city">${d.city}</div>
       <div class="temp">${d.temp}</div>
       <div class="date">${d.date}</div>
-      <div class="fav">${d.fav}</div>
+      <div class="fav">Feelings: ${d.fav}</div>
       `;
     });
 

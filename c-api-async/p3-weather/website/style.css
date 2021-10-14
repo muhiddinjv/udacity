@@ -41,16 +41,26 @@ body {
 }
 
 #app {
-  /* padding: 1em; */
+  padding: 10px;
   display: grid;
-  grid-auto-rows: 1fr 4fr;
+  grid-auto-rows: auto 72vh;
   /* grid-template-columns:  */
-  grid-template-columns: 1fr 1fr;
-  /* height: max-content; */
-  /* justify-content: center; */
+  /* grid-template-columns: 1fr 1fr; */
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
   grid-gap: 1em;
   font-family: "Oswald", sans-serif;
 }
+
+/* @media (max-width: 728px) {
+  body {
+    color: red;
+  }
+
+  #app {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr 1fr;
+  }
+} */
 
 .holder {
   border-radius: 5px;
@@ -59,28 +69,42 @@ body {
   background: rgba(59, 74, 107, 0.4);
 }
 
-.entry {
-  /* asdfasfd */
+.entryTitles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
-.entryTitles {
-  display: flex;
-  justify-content: space-around;
+.entryTitles, .entryHolder, .parent >*{
+  border: 1px solid white;
+  padding: 5px;
+  margin: 5px 5px 0 0;
+  border-radius: 5px;
+  text-align: center;
 }
 
 #entryHolder[reversed] {
-  border: 1px solid white;
+  max-height: 50vh;
   display: flex;
   flex-direction: column-reverse;
+  overflow: auto;
+  border-radius: 5px;
 }
 
-#entryHolder .parent > * {
-  border: 1px solid white;
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+#entryHolder[reversed]::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+#entryHolder[reversed] {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .parent{
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
 }
 
 .city{
@@ -96,7 +120,9 @@ body {
 }
 
 .fav {
-  grid-area: 1 / span 3;
+  grid-area: 2 / 1 / 3 / span 3;
+  text-align: start;
+  /* grid-area: row-start / col-start / row-end / col-end; */
 }
 
 .headline {
@@ -107,7 +133,7 @@ body {
 }
 
 .title {
-  /* asdfsaf */
+  text-align: center;
 }
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
@@ -121,20 +147,24 @@ button {
   background: none;
   color: white;
   border: 1px solid white;
+  border-radius: 5px;
 }
 
-input {
-  /* asdfsaf */
+input, textarea, .fav {
+  padding: 10px;
 }
 
 button {
-  /* background: none; */
+  margin-top: 10px;
   display: block;
   cursor: pointer;
+  padding: 5px 10px;
+  font-size: 18px;
+  transition: 0.3s;
 }
 
-textarea {
-  /* sdafsa */
+button:hover{
+  background:rgba(0, 0, 0, 0.479);
 }
 
 textarea::placeholder,
