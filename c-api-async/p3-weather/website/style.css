@@ -63,18 +63,23 @@ body {
   /* asdfasfd */
 }
 
-#entryHolder {
-  border: 1px solid white;
-  
-  /* flex-wrap: wrap; */
+.entryTitles {
+  display: flex;
+  justify-content: space-around;
 }
 
-#entryHolder > * {
+#entryHolder[reversed] {
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#entryHolder .parent > * {
   border: 1px solid white;
 }
 
-#innerContainer{
-display: flex;
+.parent{
+  display: flex;
   justify-content: space-around;
 }
 
@@ -90,8 +95,8 @@ display: flex;
   /* asdfasf */
 }
 
-.content {
-  /* asdfasf */
+.fav {
+  grid-area: 1 / span 3;
 }
 
 .headline {

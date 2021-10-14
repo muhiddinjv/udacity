@@ -35,7 +35,7 @@ const server = app.listen(port, () => {
 // };
 
 
-const animalData = [];
+let animalData = [];
 
 // Initialize all route with a callback function to GET '/all'
 app.get('/all', (req, res)=>{
@@ -52,6 +52,6 @@ app.post('/addWeather', (req, res) => {
   // }
   const newEntry = {city, date, temp, fav} = req.body;
   animalData.push(newEntry);
-    res.send(animalData);
+  res.send(animalData);
     console.log(animalData);
 });

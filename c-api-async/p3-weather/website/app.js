@@ -44,7 +44,7 @@ const getWeather = async () => {
       `http://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${api}&units=metric`
     );
     const data = await res.json();
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (error) {
     console.log("error", error);
@@ -90,34 +90,45 @@ const updateUI = async () => {
     const fragment = document.createDocumentFragment();
     const parent = document.createElement("div");
 
-    for (let i = 0; i < allData.length; i++) {
+    allData.map((d) => {
       parent.innerHTML = `
-        <div id="city">${allData[i].city}</div>
-        <div id="temp">${allData[i].temp}</div>
-        <div id="date">${allData[i].date}</div>
-        <div id="fav">${allData[i].fav}</div>
-      `; // lightbulb :))
+      <div class="city">${d.city}</div>
+      <div class="temp">${d.temp}</div>
+      <div class="date">${d.date}</div>
+      <div class="fav">${d.fav}</div>
+      `;
+    });
 
-      // const city = document.createElement("div");
-      // city.setAttribute("id", "city");
-      // city.innerHTML = allData[i].city;
-      // fragment.appendChild(city);
+    // for (let i = 0; i < allData.length; i++) {
+    //   parent.innerHTML = `
+    //     <div id="city">${allData[i].city}</div>
+    //     <div id="temp">${allData[i].temp}</div>
+    //     <div id="date">${allData[i].date}</div>
+    //     <div id="fav">${allData[i].fav}</div>
+    //   `; // lightbulb :))
 
-      // const temp = document.createElement("div");
-      // temp.setAttribute("id", "temp");
-      // temp.innerHTML = allData[i].temp;
-      // fragment.appendChild(temp);
+    // const city = document.createElement("div");
+    // city.setAttribute("id", "city");
+    // city.innerHTML = allData[i].city;
+    // fragment.appendChild(city);
 
-      // const date = document.createElement("div");
-      // date.setAttribute("id", "date");
-      // date.innerHTML = allData[i].date;
-      // fragment.appendChild(date);
+    // const temp = document.createElement("div");
+    // temp.setAttribute("id", "temp");
+    // temp.innerHTML = allData[i].temp;
+    // fragment.appendChild(temp);
 
-      // const fav = document.createElement("div");
-      // fav.setAttribute("id", "fav");
-      // fav.innerHTML = allData[i].fav;
-      // fragment.appendChild(fav);
-    }
+    // const date = document.createElement("div");
+    // date.setAttribute("id", "date");
+    // date.innerHTML = allData[i].date;
+    // fragment.appendChild(date);
+
+    // const fav = document.createElement("div");
+    // fav.setAttribute("id", "fav");
+    // fav.innerHTML = allData[i].fav;
+    // fragment.appendChild(fav);
+    // }
+
+    parent.setAttribute('class', 'parent');
     fragment.appendChild(parent);
     entryHolder.appendChild(fragment);
   } catch (error) {

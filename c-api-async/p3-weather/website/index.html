@@ -17,33 +17,35 @@
 
       <div class="holder feel">
         <!-- <form action="post"> -->
-          <div class="city">
-            <label for="city">
-              <h3>Enter city here</h3>
-            </label>
-            <input type="text" id="inputCity" placeholder="enter city name" />
-          </div>
-          <label for="feelings">
-            <h3>How are you feeling today?</h3>
+        <div class="city">
+          <label for="city">
+            <h3>Enter city here</h3>
           </label>
-          <textarea
-            class="myInput"
-            id="feelings"
-            placeholder="Enter your feelings here"
-            rows="10"
-            cols="50"
-          ></textarea>
-          <button id="generate" type="submit">Generate</button>
+          <input type="text" id="inputCity" placeholder="enter city name" />
+        </div>
+        <label for="feelings">
+          <h3>How are you feeling today?</h3>
+        </label>
+        <textarea
+          class="myInput"
+          id="feelings"
+          placeholder="Enter your feelings here"
+          rows="10"
+          cols="50"
+        ></textarea>
+        <button id="generate" type="submit">Generate</button>
         <!-- </form> -->
       </div>
       <div class="holder entry">
         <div class="title"><h2>Most Recent Entry</h2></div>
-        <div id="error">error</div>
-        <div id="entryHolder">
-          <!-- <div>city</div>
-          <div>date</div>
-          <div>temp</div>
-          <div>feeling</div> -->
+        <!-- <div id="error">error</div> -->
+        <div class="entryTitles">
+          <div class="cityTitle">city</div>
+          <div class="tempTitle">temperature</div>
+          <div class="dateTitle">date</div>
+        </div>
+        <div id="entryHolder" reversed>
+          <!-- Entries go here -->
         </div>
       </div>
     </div>
