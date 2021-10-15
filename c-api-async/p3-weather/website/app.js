@@ -8,8 +8,7 @@ let retryEveryMs = 3000;
 let retries = 11;
 
 // Create a new date instance dynamically with JS
-let d = new Date();
-console.log(d);
+let d = new Date(); console.log(d);
 let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
 
 // Personal API Key for OpenWeatherMap API
