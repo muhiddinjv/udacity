@@ -21,7 +21,8 @@
           <label for="city">
             <h3>Enter city here</h3>
           </label>
-          <input type="text" id="inputCity" placeholder="enter city name" />
+          <input type="text" id="cityName" placeholder="enter city name" />
+          <div id="inputError"></div>
         </div>
         <label for="feelings">
           <h3>How are you feeling today?</h3>
@@ -42,10 +43,11 @@
         <!-- <div id="error">error</div> -->
         <div class="entryTitles">
           <div>CITY</div>
-          <div id="error">TEMPERATURE</div>
+          <div>TEMPERATURE</div>
           <div>DATE</div>
         </div>
         <div id="entryHolder" reversed>
+          <div id="offline"></div>
           <!-- Entries go here -->
         </div>
       </div>

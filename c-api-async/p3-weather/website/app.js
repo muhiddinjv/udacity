@@ -1,10 +1,11 @@
 /* Global Variables */
-const inputCity = document.getElementById("inputCity");
+const cityName = document.getElementById("cityName");
 const generate = document.getElementById("generate");
-const error = document.getElementById("error");
+const offline = document.getElementById("offline");
+const inputError = document.getElementById("inputError");
 
 let retryEveryMs = 3000;
-let retries = 6;
+let retries = 11;
 
 // Create a new date instance dynamically with JS
 let d = new Date();
@@ -15,26 +16,46 @@ let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
 const api = "ad8a4d7750ce20473c84cde66d6c7ab4";
 //d0889ce843a11270e6749177a5118aec -- my 2nd api
 
+//function to check user input for city name
+function validateCity(cityName) {
+  if (cityName == "" || !cityName) {
+    return false; //return false if it's empty
+  } else {
+    return true; //return true if it is not empty
+  }
+}
+
 // Event listener to add function to existing HTML DOM element
 generate.addEventListener("click", performAction);
 
 /* Function called by event listener */
 function performAction() {
-  const fav = document.getElementById("feelings").value;
-
-  getWeather()
-    //new syntax
-    .then(function (data) {
-      // Add data
-      postData("/addWeather", {
-        city: data.name,
-        date: date,
-        temp: data.main.temp,
-        fav: fav,
+  let feelings = document.getElementById("feelings").value;
+  if (!validateCity(cityName.value)) {
+    // display error message if city name input is empty
+    inputError.textContent = "City name cannot be empty, please enter it!";
+    // inputError.style.color = "red";
+    return;
+  } else {
+    inputError.textContent = "";
+    if (!feelings) {
+      //if feelings is empty
+      feelings = "too lazy to enter feelings"; //fill it with this string
+    }
+    getWeather()
+      //new syntax
+      .then(function (data) {
+        // Add data
+        postData("/addWeather", {
+          city: data.name,
+          date: date,
+          temp: data.main.temp,
+          feelings: feelings,
+        });
+        // we can do this because of async!
+        updateUI();
       });
-      // we can do this because of async!
-      updateUI();
-    });
+  }
 }
 
 /* Function to GET Web API Data*/
@@ -42,21 +63,25 @@ const getWeather = async () => {
   // const res = await fetch(url);
   try {
     const res = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${inputCity.value}&appid=${api}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=${api}&units=metric`
     );
     const data = await res.json();
+    if (data.cod == "404") {
+      inputError.innerText = "Please enter a valid city name!";
+    }
     // console.log(data);
+    offline.innerText = "";
     return data;
   } catch (error) {
     console.log("error", error);
     setTimeout(() => {
       retries--;
-      error.innerText = "Retrying promise..." + retries;
+      offline.innerText = "Reconnecting to the Internet..." + retries;
       // Retrying failed promise...
-      if (retries == 0) {
-        return (error.innerText = "Max retries exceeded!");
+      if (retries < 1) {
+        return (offline.innerText = "Reconnecting failed. Please refresh the page!");
       }
-      getWeather();
+      performAction();
     }, retryEveryMs);
   }
 };
@@ -98,7 +123,7 @@ const updateUI = async () => {
       ${d.temp > 0 ? "+" : ""}${Math.round(d.temp)}
       </div>
       <div class="date">${d.date}</div>
-      <div class="fav"><div><b>Feelings:</b> <i>${d.fav}</i></div></div>
+      <div class="fav"><div>Feelings: <i>${d.feelings}</i></div></div>
       `;
     });
 
@@ -131,7 +156,7 @@ const updateUI = async () => {
     // fragment.appendChild(fav);
     // }
 
-    parent.setAttribute('class', 'parent');
+    parent.setAttribute("class", "parent");
     fragment.appendChild(parent);
     entryHolder.appendChild(fragment);
   } catch (error) {

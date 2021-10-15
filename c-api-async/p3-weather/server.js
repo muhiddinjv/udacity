@@ -50,7 +50,7 @@ app.post('/addWeather', (req, res) => {
   //   temp: req.body.temp,
   //   fav: req.body.fav,
   // }
-  const newEntry = {city, date, temp, fav} = req.body;
+  const newEntry = {city, date, temp, feelings} = req.body;
   animalData.push(newEntry);
   res.send(animalData);
     console.log(animalData);
