@@ -34,13 +34,12 @@ function performAction() {
   if (!validateCity(cityName.value)) {
     // display error message if city name input is empty
     inputError.textContent = "City name cannot be empty, please enter it!";
-    // inputError.style.color = "red";
     return;
   } else {
     inputError.textContent = "";
     if (!feelings) {
-      //if feelings is empty
-      feelings = "too lazy to enter feelings"; //fill it with this string
+      //if feelings is empty fill it with this text
+      feelings = "too lazy to enter feelings";
     }
     getWeather()
       //new syntax

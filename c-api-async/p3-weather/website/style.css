@@ -53,10 +53,6 @@ body {
   font-family: "Oswald", sans-serif;
 }
 
-/* #app > * {
-  flex: 1;
-} */
-
 .headline {
   width: 100%;
   text-align: center;
@@ -67,17 +63,6 @@ body {
   flex-grow: 1;
   height: 72vh;
 }
-
-/* @media (max-width: 728px) {
-  body {
-    color: red;
-  }
-
-  #app {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr 1fr;
-  }
-} */
 
 .holder {
   border-radius: 5px;
