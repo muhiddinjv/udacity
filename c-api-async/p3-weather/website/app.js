@@ -112,21 +112,21 @@ const updateUI = async () => {
 
     const entryHolder = document.getElementById("entryHolder");
     const fragment = document.createDocumentFragment();
-    const parent = document.createElement("div");
+    const entryRow = document.createElement("div");
 
     allData.map((d) => {
-      parent.innerHTML = `
-      <div class="city">${d.city}</div>
-      <div class="temp">
+      entryRow.innerHTML = `
+      <div id="city">${d.city}</div>
+      <div id="temp">
       ${d.temp > 0 ? "+" : ""}${Math.round(d.temp)}
       </div>
-      <div class="date">${d.date}</div>
-      <div class="fav"><div>Feelings: <i>${d.feelings}</i></div></div>
+      <div id="date">${d.date}</div>
+      <div id="content"><div>Feelings: <i>${d.feelings}</i></div></div>
       `;
     });
 
     // for (let i = 0; i < allData.length; i++) {
-    //   parent.innerHTML = `
+    //   entryRow.innerHTML = `
     //     <div id="city">${allData[i].city}</div>
     //     <div id="temp">${allData[i].temp}</div>
     //     <div id="date">${allData[i].date}</div>
@@ -154,8 +154,8 @@ const updateUI = async () => {
     // fragment.appendChild(fav);
     // }
 
-    parent.setAttribute("class", "parent");
-    fragment.appendChild(parent);
+    entryRow.setAttribute("class", "entryRow");
+    fragment.appendChild(entryRow);
     entryHolder.appendChild(fragment);
   } catch (error) {
     console.log("error", error);
