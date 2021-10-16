@@ -116,12 +116,12 @@ const updateUI = async () => {
 
     allData.map((d) => {
       entryRow.innerHTML = `
-      <div id="city">${d.city}</div>
-      <div id="temp">
+      <div class="city">${d.city}</div>
+      <div class="temp">
       ${d.temp > 0 ? "+" : ""}${Math.round(d.temp)}
       </div>
-      <div id="date">${d.date}</div>
-      <div id="content"><div>Feelings: <i>${d.feelings}</i></div></div>
+      <div class="date">${d.date}</div>
+      <div class="content"><div>Feelings: <i>${d.feelings}</i></div></div>
       `;
     });
 

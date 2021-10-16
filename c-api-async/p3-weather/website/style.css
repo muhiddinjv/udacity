@@ -142,13 +142,13 @@ body {
   /* asdfasf */
 }
 
-#content {
+.content {
   grid-area: 2 / 1 / 3 / span 3;
   /* grid-area: row-start / col-start / row-end / col-end; */
   text-align: start;
 }
 
-#content > div {
+.content > div {
   max-width: fit-content;
 }
 
@@ -170,7 +170,7 @@ button {
   border-radius: 5px;
 }
 
-input, textarea, #content {
+input, textarea, .content {
   padding: 10px;
 }
 
