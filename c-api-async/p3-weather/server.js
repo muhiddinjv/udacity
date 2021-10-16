@@ -44,5 +44,5 @@ app.post('/addWeather', (req, res) => {
   const newEntry = {city, date, temp, feelings} = req.body;
   projectData.push(newEntry);
   res.send(projectData);
-  console.log(projectData);
+  // console.log(projectData);
 });
