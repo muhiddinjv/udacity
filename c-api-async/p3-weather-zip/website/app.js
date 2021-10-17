@@ -14,7 +14,8 @@ let retries = 11;
 // Create a new date instance dynamically with JS
 let d = new Date();
 console.log(d);
-let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
+// let newDate = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
+let newDate = d.getMonth() + 1 + "/" + d.getDate() + "/" + d.getFullYear();
 
 // Personal API Key for OpenWeatherMap API
 // const api = "ad8a4d7750ce20473c84cde66d6c7ab4";
@@ -51,7 +52,7 @@ function performAction() {
       .then(function (data) {
         // Add data
         postData("/addWeather", {
-          date: date,
+          date: newDate,
           temp: data.main.temp,
           feelings: feelings,
         });
@@ -113,20 +114,11 @@ const updateUI = async () => {
   try {
     const allData = await request.json();
     console.log(allData);
-    document.getElementById("date").innerHTML = allData.date;
+    document.getElementById("date").innerHTML = newDate;
     temperature.innerHTML = `${allData.temp > 0 ? "+" : ""}${Math.round(
       allData.temp
     )}`;
     document.getElementById("feelingOutput").innerHTML = allData.feelings;
-    // allData.map((d) => {
-    //   entryRow.innerHTML = `
-    //   <div class="date">${d.date}</div>
-    //   <div class="temp">
-    //   ${d.temp > 0 ? "+" : ""}${Math.round(d.temp)}
-    //   </div>
-    //   <div class="content"><div>Feelings: <i>${d.feelings}</i></div></div>
-    //   `;
-    // });
   } catch (error) {
     console.log("error", error);
   }
