@@ -39,14 +39,14 @@ git clone -- git@github.com:[your-user-name]/webpack-express.git --
 
 **Note:** Webpack needs to be at version 4 in order for this repo to work as expected. Webpack is automatically included at the correct version in the `package.json` provided here.
 
-# Notes on Webpack
-`WEBPACK` is a static module bundler for modern JS apps. It takes all the assets, styles, images, scripts and `“bundles”` or combines them into fewer files that are much easier to manage. For example, multiple .js files become one .js file - that’s because the two files were combined into one large .js file.
+# My Notes on Webpack
+`WEBPACK` is a static module bundler for modern JS apps. It takes all the assets, styles, images, scripts and `“bundles”` or combines them into fewer files that are much easier to manage. For example, multiple .js files become one .js file - that’s because the two files are combined into one large .js file.
 
-## Features
-- components - entry point, output, loaders, plugins and modes
+## Components
+- five major components - entry point, output, loaders, plugins and modes
   - 2 modes - development `(src)` input & production `(dist)` output
 
-### Entry point
+## Entry point
 This is a starting place for webpack to begin to build its dependency tree. Webpack takes the contents of the `index.js` file, creates a `dist` (distribution = production) output folder with a compressed (minified) `main.js` file inside and puts the contents of `index.js` into the `main.js` file.
 ```
 module.exports = {
@@ -54,23 +54,38 @@ module.exports = {
 }
 ```
 
-### Output
+## Output
 The output of `webpack` is the `dist` (output) folder which sits next to the `src` (source = development) input folder. It is where webpack drops or “outputs” the neat bundles of assets it creates from the individual files we point it to.
 - Write your code in the files in the `src` folder b/c its output goes into the `dist` folder
 - Do NOT update the `dist` folder b/c you will lose it when the `src` folder is updated
 
-### Loader
-The problem is the `index.js` file in the `src` folder has no connection to the files in the `js` folder. This is where Babel-loader can help you b/c it does 2 things well:
+## Loader
+Out of the box, webpack only understands Vanilla JavaScript and JSON files. Loaders allow webpack to process other types of files and convert them into valid modules that can be used by your application. In our case, the problem is the `index.js` file in the `src` folder has no connection to the files in the `js` folder. This is where Babel (converter) can help you b/c it does the followings well:
 - it connects index.js to multiple js files thru `import {functionName} from './src/file.js'`
 - it converts `ES6` code into good old `Vanilla JS` which is support by every browser in the world.
+
+Look below to learn how you can add loader to webpack.config.js file
 ```
 module: {
     rules: [{
-        test: '/\.js$/',
-        exclude: /node_modules/,
-        loader: "babel-loader"
+        test: "/.js$/", (look for files that end in .js)
+        exclude: /node_modules/, (dont look in node_mod)
+        loader: "babel-loader", (run babel on js files)
         }
     ]
 }
 ```
 Remember! You cannot `import` something without using `export {functionName}` in the file you want to import it from!
+```
+inside nameChecker & formHandler files in js folder:
+    export { checkForName }
+    export { handleSubmit }
+
+inside index.js file in src folder:
+    import { checkForName } from './js/nameChecker'
+    import { handleSubmit } from './js/formHandler'
+```
+
+## Plugins
+They do actions that isnt just turning one type of file into another like Babel. Plugins can do all sorts of things, from automatically adding asset references to an html file (HTML-webpack plugin) to allowing for hot module replacement - which is used in React’s Create React App to create an auto updating development server.
+- HTML-webpack automatically adds reference to our dist folder so there is no need for `index.html > <script src="../../js/index.js">`
