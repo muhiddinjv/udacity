@@ -89,3 +89,32 @@ inside index.js file in src folder:
 ## Plugins
 They do actions that isnt just turning one type of file into another like Babel. Plugins can do all sorts of things, from automatically adding asset references to an html file (HTML-webpack plugin) to allowing for hot module replacement - which is used in React’s Create React App to create an auto updating development server.
 - HTML-webpack automatically adds reference to our dist folder so there is no need for `index.html > <script src="../../js/index.js">`
+
+This plugin will create an html file and allow us to create dynamic references to our bundled files.
+
+    PROBLEM: Cannot read property "tap" of undefined (webpack -v = plugin -v)
+    SOLUTION: npm i html-webpack-plugin@4.4.0 --save-dev
+
+## Mode
+If you "npm run build" without setting "mode", you will get the following error:
+
+    WARNING in configuration
+    The 'mode' option has not been set, webpack will fallback to 'production' for this value. Set 'mode' option to 'development' or 'production' to enable defaults for each environment.    
+
+No matter how awesome a development tool (e.g. we can’t run sass on a server) is, in the end our code will be judged by how well it runs on a server, and oftentimes what is best for the server is the opposite of what is convenient for developers. So how do we handle both of these environments? By utilizing build tools, we can make code that is convenient for our dev team, without sacrificing speed on the server.
+
+One of the awesome features of webpack, is that it lets us apply configurations to our code based on the environment we are running. We can create a development environment (MODE in webpack) and run totally different loaders and plugins than we do for production mode.
+
+- build tools allow devs to use the tools that are more convenient for them
+- build tools simultaneously allow devs to optimize code for the server
+
+TypeError: Class constructor ServeCommand cannot be invoked without 'new'
+- solution: npm i -D webpack
+
+### Production
+- CSS Minifiers - Minified files are actually harder to debug and the time difference is not as important in development. Absolutely necessary for prod though
+- JS Uglifier - a minifying tool, which you don’t need in development, just production!
+
+### Development
+- Linters - help find syntax errors and set rules that keep us honest about clean code and syntax consistency
+- Source maps - are expensive to make, making them less ideal for production, but great for finding our errors while working with bundled assets in development.
