@@ -118,3 +118,12 @@ TypeError: Class constructor ServeCommand cannot be invoked without 'new'
 ### Development
 - Linters - help find syntax errors and set rules that keep us honest about clean code and syntax consistency
 - Source maps - are expensive to make, making them less ideal for production, but great for finding our errors while working with bundled assets in development.
+
+Have you noticed how we often have to remove the dist folder manually before re-running the build script? From what I have seen, when you rebuild, new code will be added to the bundled files, but if there was old code that you got rid of, webpack build does not remove the old stuff. So, we have been removing the dist folder via the terminal and before rebuilding.
+
+Really though, that is an extra and unnecessary step. If we wanted to go really low tech, we could just edit our build script:
+
+    rm -rf dist && webpack-dev-server  --config webpack.dev.js --open
+
+Exercise: Convenience Optional Tasklist
+If you feel comfortable with the things we’ve learned so far, I highly recommend you try out this fun [Bundle Analyzer](https://www.npmjs.com/package/webpack-bundle-analyzer). It will give you a graphical representation of all the bundles in your code. We’ve done enough hand holding, so try this one on your own!
