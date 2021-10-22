@@ -96,3 +96,18 @@ Benefits of Sass
 - give us more flexibility in the way we apply styles
 
 Which sass concept we covered would you use most to style all states of a tooltip on our site? ampersand!
+
+## (&)Ampersand
+    button.cta{
+        border-radius:3px;
+        background:teal;
+        color:white;
+
+        &:hover{
+            background:aqua;
+        }
+
+        &:visited{
+            background:fuschia;
+        }
+    }
