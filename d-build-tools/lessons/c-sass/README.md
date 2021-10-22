@@ -33,8 +33,8 @@ git clone -- git@github.com:[your-user-name]/webpack-express.git --
 When a developer writes a .scss file, there is a problem. Browsers don’t know what Sass is (CSS extension language || preprocessor), they don’t run Sass, they run CSS. Sass transpiles to CSS - or in more common english - Sass can be directly translated to CSS. Anything you write in Sass can be written in 100% pure CSS, they are equivalent to each other, but the Sass syntax is going to be much shorter and easier to write than the CSS.
 
 Popular Benefits of Sass
-- Terser, more efficient syntax than css (like sass nesting) 
-- Extra syntax options (like the sass ampersand) 
+- Terser, shorter syntax than css (like sass nesting) 
+- Extra syntax options (like the sass ampersand = &) 
 - More flexibility (sass variables, mixins, and includes)
 
 We strongly recommend you to give it some time to read through the preprocessing, variables, nesting, modules, inheritance, and operators, from [this link](https://sass-lang.com/guide).
@@ -90,11 +90,6 @@ $font-main: fantasy;
 $theme-spacing: 25px;
 ```
 
-Benefits of Sass
-- maker shorter stylesheets by using terser syntax
-- help us write more reusable styles
-- give us more flexibility in the way we apply styles
-
 Which sass concept we covered would you use most to style all states of a tooltip on our site? ampersand!
 
 ## (&)Ampersand
@@ -111,3 +106,13 @@ Which sass concept we covered would you use most to style all states of a toolti
             background:fuschia;
         }
     }
+
+## Chaining Loaders
+Loaders become much more powerful when chained together:
+```
+{
+    test: /\.scss$/,
+    use: [ 'style-loader', 'css-loader', 'sass-loader' ]
+}
+```
+Tricky Part is chained loaders run in order from "right to left"
