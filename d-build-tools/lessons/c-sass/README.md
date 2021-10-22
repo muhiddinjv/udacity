@@ -115,4 +115,4 @@ Loaders become much more powerful when chained together:
     use: [ 'style-loader', 'css-loader', 'sass-loader' ]
 }
 ```
-Tricky Part is chained loaders run in order from "right to left"
+Tricky Part is chained loaders run in order from "right to left". So, in the code example above, our code goes thru "sass > css > style" loaders before it goes into bundle.css in the "dist" folder.
