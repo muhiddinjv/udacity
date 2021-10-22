@@ -30,7 +30,7 @@ git clone -- git@github.com:[your-user-name]/webpack-express.git --
 # Sass Lesson Notes
 
 ## Basics
-When a developer writes a .scss file, there is a problem. Browsers don’t know what Sass is (CSS extension language), they don’t run Sass, they run CSS. Sass transpiles to CSS - or in more common english - Sass can be directly translated to CSS. Anything you write in Sass can be written in 100% pure CSS, they are equivalent to each other, but the Sass syntax is going to be much shorter and easier to write than the CSS.
+When a developer writes a .scss file, there is a problem. Browsers don’t know what Sass is (CSS extension language || preprocessor), they don’t run Sass, they run CSS. Sass transpiles to CSS - or in more common english - Sass can be directly translated to CSS. Anything you write in Sass can be written in 100% pure CSS, they are equivalent to each other, but the Sass syntax is going to be much shorter and easier to write than the CSS.
 
 Popular Benefits of Sass
 - Terser, more efficient syntax than css (like sass nesting) 
@@ -44,4 +44,55 @@ We strongly recommend you to give it some time to read through the preprocessing
 3. Ampersand
 
 ## Nesting
-adsfasfd
+    nav {
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li { display: inline-block; }
+
+        a {
+            display: block;
+            padding: 6px 12px;
+            text-decoration: none;
+        }
+    }
+
+## Variable
+Another great sass feature is actually one that’s available in vanilla css as well, but the intentional use of variables in stylesheets, especially when [theming](https://css-tricks.com/css-custom-properties-theming/), can make for far more flexible and understandable styles.
+
+    $font-stack: Helvetica, sans-serif;
+    $primary-color: #333;
+
+    body {
+        font: 100% $font-stack;
+        color: $primary-color;
+    }
+
+In CSS becomes:
+
+    body {
+        font: 100% Helvetica, sans-serif;
+        color: #333;
+    }
+
+Perhaps that doesn’t look impressive, but what it means most certainly is. Imagine, you’ve built a website with hard coded values for font all throughout. The client comes to two days before launch, after the last pass of QA, and tells you that everything looks good but they want to change the font (as happens from time to time). You might cringe, because it will take you an hour to go through every single reference to font in the whole app, replace it with the new one and change sizes proportionally. Or, you might sigh a sigh of relief because you used a sass variable, and now all of those 170 references to font are all using the same single variable, you change that one value in your code, and can go to bed early that night instead of staying up and working.
+
+css properties that are most valuable as css variables:
+- line height & padding in paragraphs & sections
+- fonts, icons, transitions, warning colors
+- primary & secondary theme colors
+```
+$theme-secondary: #000000;
+$font-main: fantasy;
+$theme-spacing: 25px;
+```
+
+Benefits of Sass
+- maker shorter stylesheets by using terser syntax
+- help us write more reusable styles
+- give us more flexibility in the way we apply styles
+
+Which sass concept we covered would you use most to style all states of a tooltip on our site? ampersand!
