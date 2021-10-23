@@ -160,3 +160,11 @@ Its important to optimize your code by doing the followings:
 
 ## A real life example
 Just as a bit of extra for how knowing all of this about production builds can be useful, take this example. Imagine you just took on a new client, and want to give them a report of their current site before starting on any development work (that is a great thing to do for all your clients, by the way). Minimizing assets can be an easy win. You might be able to bump a client's page speed considerably, just by minimizing their stylesheets, if they aren't being minimized already. You can also check if styles are being loaded that are never used on the page.
+
+## (SW) Service Workers
+A service worker is a js file that keeps a cached copy of your DOM. what the service workers actually do is create a cached version of your website that they can supply if the server can’t be reached. But we don’t want that caching around our dev site, so we won’t add this to our dev config at all.
+
+### SW Benefits
+- allow websites to use push notifications like phones
+- allow websites to have icons like phone apps
+- allow websites to offer offline interactions like phones
