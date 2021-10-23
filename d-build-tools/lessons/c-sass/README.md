@@ -43,7 +43,7 @@ We strongly recommend you to give it some time to read through the preprocessing
 2. Variables
 3. Ampersand
 
-## Nesting
+## (nav>ul>li) Nesting
     nav {
         ul {
             margin: 0;
@@ -60,7 +60,7 @@ We strongly recommend you to give it some time to read through the preprocessing
         }
     }
 
-## Variable
+## ($fontstack) Variable
 Another great sass feature is actually one that’s available in vanilla css as well, but the intentional use of variables in stylesheets, especially when [theming](https://css-tricks.com/css-custom-properties-theming/), can make for far more flexible and understandable styles.
 
     $font-stack: Helvetica, sans-serif;
@@ -92,7 +92,7 @@ $theme-spacing: 25px;
 
 Which sass concept we covered would you use most to style all states of a tooltip on our site? ampersand!
 
-## (&)Ampersand
+## (&:hover) Ampersand
     button.cta{
         border-radius:3px;
         background:teal;
@@ -107,7 +107,7 @@ Which sass concept we covered would you use most to style all states of a toolti
         }
     }
 
-## Chaining Loaders
+## ['css','sass'] Chaining Loaders
 Loaders become much more powerful when chained together:
 ```
 {
@@ -116,3 +116,31 @@ Loaders become much more powerful when chained together:
 }
 ```
 Tricky Part is chained loaders run in order from "right to left". So, in the code example above, our code goes thru "sass > css > style" loaders before it goes into bundle.css in the "dist" folder.
+
+
+# Final Touches
+IIFE = Immediately Invoked Function Expression AKA a Self-Executing Anonymous Function runs as soon as it is defined.
+
+    (function () {
+        statements  
+    })();
+
+## Benefits
+### Avoid polluting the global scope 
+Because our application could include many functions and global variables from different source files, it's important to limit the number of global variables. If we have some initiation code that we don't need to use again, we could use the IIFE pattern. As we will not reuse the code again, using IIFE in this case is better than using a function declaration or a function expression.
+
+
+    (function () {
+        // some initiation code
+        let firstVariable;
+        let secondVariable;
+    })();
+    // firstVariable and secondVariable will be discarded after the function is executed.
+
+### The Module pattern
+We would also use IIFE to create private and public variables and methods. 
+
+### Benefits in Short
+- they keep variables out of global scope
+- they run right after being defined, so you don't have to name them
+- when you use them, you don't have to worry about your vars overlapping with vars 3rd party code
