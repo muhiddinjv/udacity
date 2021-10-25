@@ -1,0 +1,45 @@
+form, fieldset {
+    border: 1px solid white;
+    border-radius: 5px;
+    padding: 30px;
+    // background-color: white;
+}
+
+input {
+    padding: 8px 20px;
+    line-height: 16px;
+    margin: 10px 0;
+    border-radius: 3px;
+    border: none;
+}
+
+input[type="text"]{
+    min-width: 60%;
+}
+
+input[type="submit"]{
+    background: #1abc9c;
+    color: white;
+    cursor: pointer;
+    transition: .3s;
+}
+
+input[type="submit"]:hover{
+    background: #1cd6b1;
+
+}
+
+.title {
+    padding: 40px;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    font-size: 25px;
+  }
+
+  legend {
+      padding: 5px 10px;
+    color: white;
+      border-radius: 5px;
+      border: 1px solid white;
+  }

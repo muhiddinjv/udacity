@@ -1,0 +1,18 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+main {
+    padding: 10px;
+    flex: 2;
+    background-color: #5B5EA6;
+}
+
+section {
+    max-width: 500px;
+    margin: 10px auto;
+}
