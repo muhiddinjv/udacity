@@ -2,20 +2,27 @@ $milky: #e7e7e7;
 $white: white;
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    box-sizing: border-box;
-    text-align: center;
-}
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  box-sizing: border-box;
+  text-align: center;
 
-main {
+  main {
     padding: 10px;
     flex: 2;
-    background-color: #5B5EA6;
-}
+    background-color: #5b5ea6;
 
-section {
-    max-width: 500px;
-    margin: 10px auto;
+    section {
+      max-width: 500px;
+      margin: 20px auto;
+    }
+
+    legend {
+      padding: 5px 10px;
+      color: $white;
+      border-radius: 5px;
+      border: 1px solid $white;
+    }
+  }
 }
