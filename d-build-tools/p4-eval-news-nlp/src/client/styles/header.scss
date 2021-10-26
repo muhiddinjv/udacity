@@ -1,7 +1,9 @@
+@import 'base';
+
 header {
     display: flex;
     justify-content: space-between;
     padding: 10px 40px;
     background-color: #333;
-    color: white;
+    color: $milky;
 }

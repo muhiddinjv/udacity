@@ -1,8 +1,9 @@
+@import 'base';
+
 form, fieldset {
-    border: 1px solid white;
+    border: 1px solid $white;
     border-radius: 5px;
     padding: 30px;
-    // background-color: white;
 }
 
 input {
@@ -19,7 +20,7 @@ input[type="text"]{
 
 input[type="submit"]{
     background: #1abc9c;
-    color: white;
+    color: $white;
     cursor: pointer;
     transition: .3s;
 }
@@ -33,13 +34,14 @@ input[type="submit"]:hover{
     padding: 40px;
     text-align: center;
     background: #1abc9c;
-    color: white;
+    color: $white;
+    // font-size: 3vw; // responsive
     font-size: 25px;
   }
 
   legend {
       padding: 5px 10px;
-    color: white;
+      color: $white;
       border-radius: 5px;
-      border: 1px solid white;
+      border: 1px solid $white;
   }
