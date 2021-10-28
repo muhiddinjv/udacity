@@ -21,7 +21,7 @@ app.use(cors());
 app.use(express.static("website"));
 
 // Setup Server
-const port = 5000;
+const port = 6000;
 
 // Express to run server, routes & callback to debug
 const server = app.listen(port, () => {
