@@ -77,7 +77,7 @@ const getWeather = async () => {
       offline.innerText = "Reconnecting to the Internet..." + retries;
       // Retrying failed promise...
       if (retries < 1) {
-        return (offline.innerText = "Reconnecting failed. Please refresh the page!");
+        return (offline.innerText = "Reconnection failed. Please refresh the page!");
       }
       performAction();
     }, retryEveryMs);
