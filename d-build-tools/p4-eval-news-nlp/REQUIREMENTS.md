@@ -10,9 +10,9 @@
 
 - [x] Have a minimum of one form field
 
-- [ ] Make one request to the Aylien API
+- [ ] Make one request to the Sentiment Analysis API
 
-- [ ] Use Sass for styling
+- [x] Use Sass for styling
 
 - [ ] Minify js and styles in the production environment
 
