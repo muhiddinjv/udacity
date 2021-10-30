@@ -1,49 +1,40 @@
-const projectData = {};
-const dotenv = require('dotenv').config();
-var path = require('path')
-const express = require('express')
-const mockAPIResponse = require('./mockAPI.js')
-var bodyParser = require('body-parser')
-var cors = require('cors')
+var path = require("path");
+var cors = require("cors");
+const express = require("express");
 
-const { API_KEY, ANALYSIS_API } = process.env;
+const mockAPIResponse = require("./mockAPI.js");
+const { analyse } = require("./analyse.js");
+var bodyParser = require("body-parser");
 
-console.log(`Your API key is ${API_KEY}`);
-
-const app = express()
-app.use(cors())
+const app = express();
+app.use(cors());
 // to use json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 // to use url encoded values
-app.use(bodyParser.urlencoded({
-  extended: true
-}))
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
-app.use(express.static('dist'))
+app.use(express.static("dist"));
 
 // console.log(JSON.stringify(mockAPIResponse))
 
-app.get('/', function (req, res) {
-    res.sendFile('dist/index.html')
-})
+app.get("/", function (req, res) {
+  // res.sendFile("dist/index.html"); //original
+  res.sendFile(path.resolve('dist/index.html'));
+});
 
-app.get('/test', function (req, res) {
-    res.json(mockAPIResponse);
-})
+app.get("/test", function (req, res) {
+  res.json(mockAPIResponse);
+});
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function () {
-    console.log('Example app listening on port 8080!')
-})
+app.listen(8080, function (error) {
+  if (error) throw new Error(error)
+  console.log("Example app listening on port 8080!");
+});
 
-// Initialize all route with a callback function to GET '/all'
-app.get('/all', (req, res)=>{
-    res.send(projectData);
-  });
-  
-  // POST route
-  app.post('/getAnalysis', (req, res) => {
-    projectData = {city, date, temp, feelings} = req.body;
-    res.send(projectData);
-    // console.log(projectData);
-  });
+// POST route
+app.post("/addAnalysis", analyse);

@@ -1,8 +1,8 @@
 const API_KEY = "ec0af99cc85e00dff7b20c2fca28a66b";
 const ANALYSIS_API = "https://api.meaningcloud.com/sentiment-2.1";
 
-function validateCity(cityName) {
-  if (cityName == "" || !cityName) {
+function validateUrl(inputText) {
+  if (inputText == "" || !inputText) {
     return false; //return false if it's empty
   } else {
     return true; //return true if it is not empty
@@ -28,7 +28,7 @@ function handleSubmit(event) {
     redirect: "follow",
   };
 
-  const response = fetch(ANALYSIS_API, requestOptions)
+  fetch(ANALYSIS_API, requestOptions)
     .then((response) => ({
       body: response.json(),
     }))
@@ -39,7 +39,7 @@ function handleSubmit(event) {
   // Client.checkForName(formText)
 
   // console.log("::: Form Submitted :::")
-  // fetch('http://localhost:8080/test')
+  // fetch('http://localhost:8081/test')
   // .then(res => {
   //     return res.json()
   // })
@@ -51,7 +51,7 @@ function handleSubmit(event) {
 /* Function called by event listener */
 function performAction() {
     let feelings = document.getElementById("feelings").value;
-    if (!validateCity(cityName.value)) {
+    if (!validateUrl(inputText.value)) {
       // display error message if city name input is empty
       inputError.textContent = "City name cannot be empty, please enter it!";
       return;
@@ -65,14 +65,14 @@ function performAction() {
         //new syntax
         .then(function (data) {
           // Add data
-          postData("/addAnalysis", {
+          Client.postData("/addAnalysis", {
             city: data.name,
             date: date,
             temp: data.main.temp,
             feelings: feelings,
           });
           // we can do this because of async!
-          Client.updateUI();
+          Client.updateUI(data);
         });
     }
   }

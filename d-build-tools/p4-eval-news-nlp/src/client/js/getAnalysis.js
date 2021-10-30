@@ -1,3 +1,9 @@
+/* Global Variables */
+const textInput = document.querySelector("input[type=submit]");
+const offline = document.getElementById("offline");
+const inputError = document.querySelector(".inputError");
+const api = "ad8a4d7750ce20473c84cde66d6c7ab4";
+
 let retryEveryMs = 3000;
 let retries = 11;
 
@@ -5,7 +11,7 @@ let retries = 11;
 async function getAnalysis() {
   try {
     const res = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=${api}&units=metric`
+      `http://api.openweathermap.org/data/2.5/weather?q=${textInput.value}&appid=${api}&units=metric`
     );
     const data = await res.json();
     if (data.cod == "404") {
@@ -24,7 +30,7 @@ async function getAnalysis() {
         return (offline.innerText =
           "Reconnection failed. Please refresh the page!");
       }
-      performAction();
+      Client.handleSubmit();
     }, retryEveryMs);
   }
 }
