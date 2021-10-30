@@ -1,3 +1,4 @@
+const projectData = {};
 const dotenv = require('dotenv').config();
 var path = require('path')
 const express = require('express')
@@ -34,3 +35,15 @@ app.get('/test', function (req, res) {
 app.listen(8080, function () {
     console.log('Example app listening on port 8080!')
 })
+
+// Initialize all route with a callback function to GET '/all'
+app.get('/all', (req, res)=>{
+    res.send(projectData);
+  });
+  
+  // POST route
+  app.post('/getAnalysis', (req, res) => {
+    projectData = {city, date, temp, feelings} = req.body;
+    res.send(projectData);
+    // console.log(projectData);
+  });
