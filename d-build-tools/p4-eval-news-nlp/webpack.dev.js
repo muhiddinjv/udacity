@@ -6,8 +6,10 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 module.exports = {
     entry: './src/client/index.js',
     output: {
+        path: path.resolve(__dirname, "dist"),
         libraryTarget: 'var',
-        library: 'Client'
+        library: 'Client',
+        // clean: true, // Clean the output directory before emit.
     },
     mode: 'development',
     devtool: 'source-map',
@@ -34,7 +36,8 @@ module.exports = {
             verbose: true,// Write Logs to Console
             // Automatically remove all unused webpack assets on rebuild
             cleanStaleWebpackAssets: true,
-            protectWebpackAssets: false
+            protectWebpackAssets: false,
+            // cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
         }),
     ]
 }
