@@ -15,7 +15,7 @@ async function getAnalysis() {
     );
     const data = await res.json();
     if (data.cod == "404") {
-      inputError.innerText = "Please enter a valid city name!";
+      inputError.innerText = "Please enter a valid url!";
     }
     // console.log(data);
     offline.innerText = "";

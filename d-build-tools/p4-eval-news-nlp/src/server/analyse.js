@@ -9,4 +9,4 @@ const analyse = async (req, res) => {
   // console.log(projectData);
 }
 
-export { analyse }
+module.exports = {analyse}

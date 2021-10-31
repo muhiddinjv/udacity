@@ -31,9 +31,9 @@ app.get("/test", function (req, res) {
 });
 
 // designates what port the app will listen to for incoming requests
-app.listen(8080, function (error) {
+app.listen(8081, function (error) {
   if (error) throw new Error(error)
-  console.log("Example app listening on port 8080!");
+  console.log("Example app listening on port 8081!");
 });
 
 // POST route
