@@ -1,6 +1,5 @@
-import { checkForUrl } from './js/checkForUrl'
+import { checkUrl } from './js/checkUrl'
 import { handleSubmit } from './js/formHandler'
-import { getAnalysis } from './js/getAnalysis'
 import { postData } from './js/postData'
 import { updateUI } from './js/updateUI'
 
@@ -10,12 +9,9 @@ import './styles/form.scss'
 import './styles/footer.scss'
 import './styles/header.scss'
 
-console.log(checkForUrl);
-
 export {
-    checkForUrl,
+    checkUrl,
     handleSubmit,
-    getAnalysis,
     postData,
     updateUI,
 }

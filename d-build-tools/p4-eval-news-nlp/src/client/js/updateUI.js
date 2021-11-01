@@ -1,6 +1,6 @@
 /* Function to GET Project Data */
-const updateUI = ({ data }) => {
-  // const request = await fetch("/all");
+const updateUI = ({data}) => {
+  console.log(data);
   try {
     // const allData = await request.json();
     const results = document.getElementById("results");
@@ -8,12 +8,13 @@ const updateUI = ({ data }) => {
     const output = document.createElement("div");
 
     data.map((d) => {
+      console.log(d);
       output.innerHTML = `
-        <div class="agree">${d.agreement}</div>
-        <div class="subj">${d.subjectivity}</div>
-        <div class="confid">${d.confidence}</div>
-        <div class="irony">${d.irony}</div>
-        <div class="score">${d.score_tag}</div>
+        <div>${d.agreement}</div>
+        <div>${d.subjectivity}</div>
+        <div>${d.confidence}</div>
+        <div>${d.irony}</div>
+        <div>${d.score_tag}</div>
         `;
     });
 

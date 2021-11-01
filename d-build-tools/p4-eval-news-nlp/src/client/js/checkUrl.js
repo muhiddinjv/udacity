@@ -8,19 +8,11 @@
     6. https://www.npmjs.com/package/valid-url
  */
 
-function checkForUrl(inputText) {
-    console.log("::: Running checkForUrl :::", inputText);
-    let names = [
-        "Picard",
-        "Janeway",
-        "Kirk",
-        "Archer",
-        "Georgiou"
-    ]
-
-    if(names.includes(inputText)) {
-        alert("Welcome, Captain!")
-    }
+function checkUrl(url) {
+    console.log("::: Running checkForUrl :::", url);
+    var expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi
+    var regexp = new RegExp(expression);
+    return regexp.test(url);
 }
 
-export { checkForUrl }
+export { checkUrl }
