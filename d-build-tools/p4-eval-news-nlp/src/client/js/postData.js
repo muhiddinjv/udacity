@@ -1,6 +1,10 @@
 /* Function to POST data */
 const postData = async (url = "", data = {}) => {
-  // console.log(data);
+  console.log(">>>postData response below");
+  console.log(JSON.stringify(data));
+  console.log("post url: "+url);
+  console.log(">>>postData response above");
+
   const response = await fetch(url, {
     method: "POST",
     credentials: "same-origin",

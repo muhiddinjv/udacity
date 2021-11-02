@@ -1,26 +1,20 @@
 /* Function to GET Project Data */
-const updateUI = ({data}) => {
-  console.log(data);
+const updateUI = async (json) => {
+  console.log("updateUI is running below");
+  console.log(json);
+  // const request = await fetch("/all");
+  // console.log(request);
   try {
-    // const allData = await request.json();
+    // const json = await request.json();
     const results = document.getElementById("results");
-    const fragment = document.createDocumentFragment();
-    const output = document.createElement("div");
-
-    data.map((d) => {
-      console.log(d);
-      output.innerHTML = `
-        <div>${d.agreement}</div>
-        <div>${d.subjectivity}</div>
-        <div>${d.confidence}</div>
-        <div>${d.irony}</div>
-        <div>${d.score_tag}</div>
+    results.innerHTML = `
+        <div>${json.agreement}</div>
+        <div>${json.subjectivity}</div>
+        <div>${json.confidence}</div>
+        <div>${json.irony}</div>
+        <div>${json.score_tag}</div>
         `;
-    });
-
-    output.setAttribute("class", "output");
-    fragment.appendChild(output);
-    results.appendChild(fragment);
+    console.log("updateUI is running above");
   } catch (error) {
     console.log("error", error);
   }

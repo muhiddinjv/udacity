@@ -1,3 +1,4 @@
+let projectData = {};
 const axios = require("axios");
 require("dotenv").config();
 var path = require("path");
@@ -6,7 +7,7 @@ const express = require("express");
 
 const mockAPIResponse = require("./mockAPI.js");
 var bodyParser = require("body-parser");
-const { send } = require("process");
+// const { send } = require("process");
 
 const { API_KEY, ANALYSIS_API} = process.env;
 
@@ -30,17 +31,22 @@ app.get("/", function (req, res) {
   res.sendFile(path.resolve('src/client/views/index.html'));
 });
 
+app.get('/all', (req, res)=>{
+  res.send(projectData);
+});
+
 // a route that handling post request for new URL that coming from the frontend
 app.post("/addUrl", async (req, res)=>{
   try {
     await axios.get(`${ANALYSIS_API}?key=${API_KEY}&url=${req.body.url}&lang=en`).then(d=>{
-      // const json = {
-      //   // text: d.sentence_list[0].text,
-      //   score_tag: d.data.score_tag,
-      //   agreement: d.data.agreement,
-      // }
+      projectData = {
+        agreement,
+        subjectivity,
+        score_tag,
+      } = d.data
       // console.log(d.data.score_tag);
       // console.log(d.data.agreement);
+      console.log(projectData);
       res.send(d.data);
     })
   } catch (error) {

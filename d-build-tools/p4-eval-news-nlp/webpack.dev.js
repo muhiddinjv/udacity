@@ -10,7 +10,12 @@ module.exports = {
         libraryTarget: 'var',
         library: 'Client',
         // clean: true, // Clean the output directory before emit.
+        filename: 'bundle.js',
     },
+    devServer: {
+        compress: true,
+        port: 9000,
+      },
     mode: 'development',
     devtool: 'source-map',
     module: {
