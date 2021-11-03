@@ -4,7 +4,7 @@ form,
 fieldset {
   border: 1px solid $white;
   border-radius: 5px;
-  padding: 30px;
+  padding: 20px;
   color: $white;
 }
 
@@ -16,8 +16,8 @@ form {
     border-radius: 3px;
     border: none;
 
-    &[type="text"] {
-      min-width: 60%;
+    &[name="input"]{
+        width: 68%;
     }
 
     &[type="submit"] {
@@ -30,5 +30,23 @@ form {
     &[type="submit"]:hover {
       background: #1cd6b1;
     }
+  }
+}
+
+#results {
+  text-align: left;
+  div {
+    border: 1px solid $white;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+
+    p{
+      width: 200px;
+      border: 1px solid red;
+    }
+
   }
 }

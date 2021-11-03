@@ -39,14 +39,6 @@ app.get('/all', (req, res)=>{
 app.post("/addUrl", async (req, res)=>{
   try {
     await axios.get(`${ANALYSIS_API}?key=${API_KEY}&url=${req.body.url}&lang=en`).then(d=>{
-      projectData = {
-        agreement,
-        subjectivity,
-        score_tag,
-      } = d.data
-      // console.log(d.data.score_tag);
-      // console.log(d.data.agreement);
-      console.log(projectData);
       res.send(d.data);
     })
   } catch (error) {

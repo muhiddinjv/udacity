@@ -1,9 +1,9 @@
 /* Function to POST data */
 const postData = async (url = "", data = {}) => {
-  console.log(">>>postData response below");
+  console.log(">>> postData is running below >>>");
   console.log(JSON.stringify(data));
   console.log("post url: "+url);
-  console.log(">>>postData response above");
+  console.log(">>> postData is running above >>>");
 
   const response = await fetch(url, {
     method: "POST",

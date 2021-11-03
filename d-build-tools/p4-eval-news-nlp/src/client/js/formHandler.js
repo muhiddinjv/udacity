@@ -17,22 +17,28 @@ const handleSubmit = (e) => {
     let url = document.getElementById("name").value; //https://muhiddinjvv.web.app/blog.html
     // check what text was put into the form field
     if (Client.checkUrl(url)) {
-      Client.postData("http://localhost:3000/addUrl", { url }).then((d)=>{
-        console.log(">>> handling submit below...");
+      Client.postData("http://localhost:3000/addUrl", { url }).then((res)=>{
+        console.log(">>> formHandler is running below >>>");
+        console.log(res);
         let json = {
-          agreement: d.agreement,
-          score_tag: d.score_tag,
+          agreement: res.agreement,
+          confidence: res.confidence,
+          irony: res.irony,
+          subjectivity: res.subjectivity,
+          score_tag: res.score_tag,
+          sentence_list: res.sentence_list[4].text,
         }
-        console.log(json);
-        console.log(">>> handling submit above...");
+        console.log(">>> formHandler is running above >>>");
         Client.updateUI(json); 
       });
       inputError.textContent = "";
     } else {
       // display error message if input is empty
-      inputError.textContent =
-        "Input field cannot be empty. Please, enter URL.";
+      // setTimeout(() => {
+        inputError.textContent =
+        "Empty input or invalid URL";
       return;
+      // }, retryEveryMs);
     }
   } catch (error) {
     console.log("API Failure: " + error);
@@ -42,7 +48,7 @@ const handleSubmit = (e) => {
       // Retrying failed promise...
       if (retries < 1) {
         return (inputError.innerText =
-          "Connection failed. Please refresh the page!");
+          "Connection failed. Refresh the page!");
       }
       handleSubmit();
     }, retryEveryMs);
