@@ -2,6 +2,8 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebPackPlugin = require("html-webpack-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const WorkboxPlugin = require('workbox-webpack-plugin')
+// https://www.youtube.com/watch?v=m8Djyz13zXQ (workbox tutorial)
 
 module.exports = {
     entry: './src/client/index.js',
@@ -9,8 +11,6 @@ module.exports = {
         path: path.resolve(__dirname, "dist"),
         libraryTarget: 'var',
         library: 'Client',
-        // clean: true, // Clean the output directory before emit.
-        filename: 'bundle.js',
     },
     devServer: {
         compress: true,
@@ -39,10 +39,12 @@ module.exports = {
         new CleanWebpackPlugin({
             dry: true,// Simulate the removal of files
             verbose: true,// Write Logs to Console
-            // Automatically remove all unused webpack assets on rebuild
-            cleanStaleWebpackAssets: true,
+            cleanStaleWebpackAssets: true,// Automatically remove all unused webpack assets on rebuild
             protectWebpackAssets: false,
-            // cleanOnceBeforeBuildPatterns: [path.join(__dirname, "dist/**/*")],
         }),
+        new WorkboxPlugin.GenerateSW({
+            clientsClaim: true,
+            skipWaiting: true
+        })
     ]
 }

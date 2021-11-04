@@ -13,22 +13,22 @@ const validateUrl = (url) => {
 /* Function called by event listener */
 const handleSubmit = (e) => {
   e.preventDefault();
-  try {
-    let url = document.getElementById("name").value; //https://muhiddinjvv.web.app/blog.html
+  try {//https://muhiddinjvv.web.app/blog.html
+    let url = document.getElementById("name").value; 
     // check what text was put into the form field
     if (Client.checkUrl(url)) {
       Client.postData("http://localhost:3000/addUrl", { url }).then((res)=>{
-        console.log(">>> formHandler is running below >>>");
+        console.log(">>> Running formHandler below >>>");
         console.log(res);
         let json = {
-          agreement: res.agreement,
-          confidence: res.confidence,
-          irony: res.irony,
-          subjectivity: res.subjectivity,
-          score_tag: res.score_tag,
           sentence_list: res.sentence_list[4].text,
+          agreement: res.agreement,
+          subjectivity: res.subjectivity,
+          irony: res.irony,
+          confidence: res.confidence,
+          score_tag: res.score_tag,
         }
-        console.log(">>> formHandler is running above >>>");
+        console.log(">>> Running formHandler above >>>");
         Client.updateUI(json); 
       });
       inputError.textContent = "";

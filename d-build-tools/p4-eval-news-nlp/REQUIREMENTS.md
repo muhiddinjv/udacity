@@ -10,13 +10,13 @@
 
 - [x] Have a minimum of one form field
 
-- [ ] Make one request to the Sentiment Analysis API
+- [x] Make one request to the Sentiment Analysis API
 
 - [x] Use Sass for styling
 
-- [ ] Minify js and styles in the production environment
+- [x] Minify js and styles in the production environment
 
-- [ ] Response from the API must be added to the view for a user to see 
+- [x] Response from the API must be added to the view for a user to see 
 
 - [ ] Be able to show content offline
 
