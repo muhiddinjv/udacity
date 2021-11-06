@@ -1,4 +1,3 @@
-const inputError = document.querySelector(".inputError");
 let retryEveryMs = 3000;
 let retries = 11;
 
@@ -12,6 +11,7 @@ const validateUrl = (url) => {
 
 /* Function called by event listener */
 const handleSubmit = (e) => {
+  const inputError = document.querySelector(".inputError");
   e.preventDefault();
   try {//https://muhiddinjvv.web.app/blog.html
     let url = document.getElementById("name").value; 
@@ -34,11 +34,12 @@ const handleSubmit = (e) => {
       inputError.textContent = "";
     } else {
       // display error message if input is empty
-      // setTimeout(() => {
-        inputError.textContent =
-        "Empty input or invalid URL";
+      inputError.textContent =
+      "Empty input or invalid URL";
+      setTimeout(() => {
+        inputError.textContent = ""
+        }, retryEveryMs);
       return;
-      // }, retryEveryMs);
     }
   } catch (error) {
     console.log("API Failure: " + error);
