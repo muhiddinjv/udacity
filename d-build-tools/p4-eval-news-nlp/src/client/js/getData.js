@@ -1,9 +1,9 @@
 /* Function to POST data */
-const postData = async (url = "", data = {}) => {
-  console.log(">>> Running postData below >>>");
+const getData = async (url = "", data = {}) => {
+  console.log(">>> Running getData below >>>");
   console.log(JSON.stringify(data));
   console.log("post url: "+url);
-  console.log(">>> Running postData above >>>");
+  console.log(">>> Running getData above >>>");
 
   const response = await fetch(url, {
     method: "POST",
@@ -17,8 +17,9 @@ const postData = async (url = "", data = {}) => {
   try {
     return await response.json();
   } catch (error) {
-    console.log("error", error);
+    alert('Oops! Failed to get data!');
+    return error;
   }
 };
 
-export { postData };
+export { getData };

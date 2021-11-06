@@ -1,5 +1,5 @@
 /* Function to GET Project Data */
-const updateUI = async (json) => {
+const updateUI = (json) => {
   console.log(">>> Running updateUI below >>>");
   console.log(json);
   try {

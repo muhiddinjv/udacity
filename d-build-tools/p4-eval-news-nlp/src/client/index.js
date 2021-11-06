@@ -1,6 +1,6 @@
 import { checkUrl } from './js/checkUrl'
 import { handleSubmit } from './js/formHandler'
-import { postData } from './js/postData'
+import { getData } from './js/getData'
 import { updateUI } from './js/updateUI'
 
 import './styles/resets.scss'
@@ -12,6 +12,6 @@ import './styles/header.scss'
 export {
     checkUrl,
     handleSubmit,
-    postData,
+    getData,
     updateUI,
 }
