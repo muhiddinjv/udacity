@@ -6,7 +6,7 @@
     "test": "jest",
     "start": "nodemon src/server/index.js",
     "prod": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server  --config webpack.dev.js --open",
+    "dev": "webpack-dev-server  --config webpack.dev.js --open --port 2000",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
@@ -52,7 +52,7 @@
   },
   "jest": {
     "setupFilesAfterEnv": [
-      "./src/setupTests.js"
+      "./src/testErrFix.js"
     ]
   }
 }

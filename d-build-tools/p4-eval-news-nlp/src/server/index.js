@@ -28,7 +28,7 @@ app.get("/", function (req, res) {
   // res.sendFile('src/client/views/index.html');
 });
 
-// a route that handling post request for new URL that coming from the frontend
+// a route that handles post request for new URL that coming from the frontend
 app.post("/addUrl", getApi);
 
 app.get("/test", function (req, res) {

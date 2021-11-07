@@ -15,10 +15,11 @@ const getData = async (url = "", data = {}) => {
     body: JSON.stringify(data),
   });
   const newData = await response.json();
+  // console.log(newData);
   return newData;
   } catch (error) {
   const inputError = document.querySelector(".inputError");
-    inputError.textContent = "Oops! Failed to get data!";
+    inputError.textContent = "Oops! Failed to fetch data!";
     setTimeout(() => {
       inputError.textContent = "";
     }, 10000);
