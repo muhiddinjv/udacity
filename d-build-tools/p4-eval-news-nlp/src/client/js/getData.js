@@ -1,5 +1,7 @@
 /* Function to POST data */
 const getData = async (url = "", data = {}) => {
+  const inputError = document.querySelector(".inputError");
+
   console.log(">>> Running getData below >>>");
   console.log(JSON.stringify(data));
   console.log("post url: "+url);
@@ -17,7 +19,10 @@ const getData = async (url = "", data = {}) => {
   try {
     return await response.json();
   } catch (error) {
-    alert('Oops! Failed to get data!');
+    inputError.textContent = "Oops! Failed to get data!";
+    setTimeout(() => {
+      inputError.textContent = "";
+    }, 3000);
     return error;
   }
 };
