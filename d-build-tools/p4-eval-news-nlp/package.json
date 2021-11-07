@@ -6,12 +6,12 @@
     "test": "jest",
     "start": "nodemon src/server/index.js",
     "prod": "webpack --config webpack.prod.js",
-    "dev": "webpack-dev-server  --config webpack.dev.js",
+    "dev": "webpack-dev-server  --config webpack.dev.js --open",
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
-  "author": "Muhiddin JV",
-  "description": "Article Analyser",
+  "author": "Muhiddin Aka",
+  "description": "Article Evaluator",
   "dependencies": {
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
