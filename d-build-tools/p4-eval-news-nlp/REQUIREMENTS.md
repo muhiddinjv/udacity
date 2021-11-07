@@ -18,6 +18,6 @@
 
 - [x] Response from the API must be added to the view for a user to see 
 
-- [ ] Be able to show content offline
+- [x] Be able to show content offline
 
 All of these requirements are explained throughout the course. Specifics on setting up the Aylien API are found in the README file of this repo.

@@ -1,4 +1,3 @@
-/* Function to GET Project Data */
 const updateUI = (json) => {
   console.log(">>> Running updateUI below >>>");
   try {

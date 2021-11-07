@@ -5,10 +5,8 @@ var cors = require("cors");
 const express = require("express");
 
 const mockAPIResponse = require("./mockAPI.js");
+const getApi = require("./getApi.js");
 var bodyParser = require("body-parser");
-// const { send } = require("process");
-
-const { API_KEY, ANALYSIS_API } = process.env;
 
 const app = express();
 app.use(cors());
@@ -31,17 +29,7 @@ app.get("/", function (req, res) {
 });
 
 // a route that handling post request for new URL that coming from the frontend
-app.post("/addUrl", async (req, res) => {
-  try {
-    await axios
-      .get(`${ANALYSIS_API}?key=${API_KEY}&url=${req.body.url}&lang=en`)
-      .then((d) => {
-        res.send(d.data)
-      });
-  } catch (error) {
-    console.log(error.message);
-  }
-});
+app.post("/addUrl", getApi);
 
 app.get("/test", function (req, res) {
   res.json(mockAPIResponse);
