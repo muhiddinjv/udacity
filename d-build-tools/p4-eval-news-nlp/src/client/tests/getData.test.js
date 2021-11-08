@@ -1,5 +1,5 @@
 import { getData } from "../js/getData";
 
-test("getData function exists", () => {
-    expect(getData).toBeDefined();
-});
+test("getData is a function", () => {
+    expect(typeof getData).toBe("function");
+})

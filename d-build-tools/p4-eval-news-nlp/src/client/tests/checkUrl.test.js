@@ -1,5 +1,8 @@
 import { checkUrl } from "../js/checkUrl";
 
-test("checkUrl function exists", () => {
-    expect(checkUrl).toBeDefined();
+test("Testing input URL", () => {
+  expect(checkUrl(84)).toBeFalsy();
+  expect(checkUrl('string')).toBeFalsy();
+  expect(checkUrl('1@#$%&')).toBeFalsy();
+  expect(checkUrl('https://mukhiddinaka.web.app')).toBeTruthy();
 })
