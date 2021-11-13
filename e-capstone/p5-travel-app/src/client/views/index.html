@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Article Evaluator</title>
+        <link rel="stylesheet" href="/styles/resets.css">
+        <link rel="stylesheet" href="/styles/base.css">
+        <link rel="stylesheet" href="/styles/header.css">
+        <link rel="stylesheet" href="/styles/form.css">
+        <link rel="stylesheet" href="/styles/footer.css">
+    </head>
+
+    <body>
+
+        <header>
+            <div class="">Logo</div>
+            <div class="">Navigation</div>
+        </header>
+        <div class="title">
+            <h1>Article Evaluator</h1>
+            <p>Evaluate a News Article with NLP</p>
+        </div>
+        <main>
+            <section>
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <div class="inputError"></div>
+                    <input id="name" type="text" name="input" onblur="" placeholder="Enter URL (e.g. mukhiddinaka.web.app)">
+                    <input type="submit" name="submit" value="Evaluate" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                </form>
+            <section>
+
+            <fieldset>
+                <legend>Evaluation Results</legend>
+                <div id="results"></div>
+            </fieldset>
+        </main>
+
+        <footer>
+            <p>&copy Muhiddin JV 2021 </p>
+        </footer>
+
+        <script>
+            // Check that service workers are supported
+            if ('serviceWorker' in navigator) {
+                // Use the window load event to keep the page load performant
+                window.addEventListener('load', () => {
+                    navigator.serviceWorker.register('/service-worker.js')
+                    .then(reg => {
+                    console.log('ServiceWorker registration SUCCESSFUL', reg);
+                    })
+                    .catch(err => {
+                    console.log('ServiceWorker registration FAILED', err);
+                    });
+                });
+            }
+        </script>
+    </body>
+</html>
