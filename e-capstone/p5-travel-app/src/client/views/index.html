@@ -6,38 +6,35 @@
         <link rel="stylesheet" href="/styles/resets.css">
         <link rel="stylesheet" href="/styles/base.css">
         <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/form.css">
+        <link rel="stylesheet" href="/styles/main.css">
         <link rel="stylesheet" href="/styles/footer.css">
     </head>
 
     <body>
-
-        <header>
-            <div class="">Trawelo</div>
-            <div class="">Navigation</div>
-        </header>
-        <div class="title">
-            <h1>Trawelo</h1>
-            <p>Have the travel of your life</p>
+        <div id="wrapper">
+            <header>
+                <div>Trawelo</div>
+                <div>Navigation</div>
+            </header>
+            <main>
+                <!-- <section>
+                    <form class="" onsubmit="return Client.handleSubmit(event)">
+                        <div class="inputError"></div>
+                        <input id="name" type="text" name="input" onblur="" placeholder="Enter URL (e.g. mukhiddinaka.web.app)">
+                        <input type="submit" name="submit" value="Evaluate" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    </form>
+                <section>
+    
+                <fieldset>
+                    <legend>Added Trips</legend>
+                    <div id="results"></div>
+                </fieldset> -->
+            </main>
+    
+            <footer>
+                <p>&copy Muhiddin JV 2021 </p>
+            </footer>
         </div>
-        <main>
-            <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <div class="inputError"></div>
-                    <input id="name" type="text" name="input" onblur="" placeholder="Enter URL (e.g. mukhiddinaka.web.app)">
-                    <input type="submit" name="submit" value="Evaluate" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-                </form>
-            <section>
-
-            <fieldset>
-                <legend>Added Trips</legend>
-                <div id="results"></div>
-            </fieldset>
-        </main>
-
-        <footer>
-            <p>&copy Muhiddin JV 2021 </p>
-        </footer>
 
         <script>
             // Check that service workers are supported
@@ -46,10 +43,10 @@
                 window.addEventListener('load', () => {
                     navigator.serviceWorker.register('/service-worker.js')
                     .then(reg => {
-                    console.log('ServiceWorker registration SUCCESSFUL', reg);
+                    console.log('ServiceWorker is working', reg);
                     })
                     .catch(err => {
-                    console.log('ServiceWorker registration FAILED', err);
+                    console.log('ServiceWorker is NOT working', err);
                     });
                 });
             }
