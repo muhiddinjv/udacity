@@ -1,16 +1,30 @@
-@import 'base';
+@import "base";
 
 header {
-    // color: $milky;
-    border: 3px solid #333;
-    height: 30vh;
-}
+  border: 3px solid #333;
+  height: 100vh;
+  background: url(../media/banner.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  text-align: center;
+  color: $white;
+  
+  .nav{
+      display: flex;
+    // background: $green-shadow;
+    justify-content: space-between;
+    color: #333;
+    padding: 20px;
+  }
 
-// .title {
-//     padding: 40px;
-//     text-align: center;
-//     // background: #1abc9c;
-//     color: $white;
-//     // font-size: 3vw; // responsive
-//     font-size: 25px;
-//   }
+  .title {
+    background: $green-shadow;
+    padding: 10px;
+  }
+
+  form {
+    border: 1px solid black;
+  }
+}

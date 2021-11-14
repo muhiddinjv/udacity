@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8">
-        <title>Trawelo</title>
-        <link rel="stylesheet" href="/styles/resets.css">
-        <link rel="stylesheet" href="/styles/base.css">
-        <link rel="stylesheet" href="/styles/header.css">
-        <link rel="stylesheet" href="/styles/main.css">
-        <link rel="stylesheet" href="/styles/footer.css">
-    </head>
+  <head>
+    <meta charset="utf-8" />
+    <title>Trawelo</title>
+    <link rel="stylesheet" href="/styles/resets.css" />
+    <link rel="stylesheet" href="/styles/base.css" />
+    <link rel="stylesheet" href="/styles/header.css" />
+    <link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="/styles/footer.css" />
+  </head>
 
-    <body>
-        <div id="wrapper">
-            <header>
-                <div>Trawelo</div>
-                <div>Navigation</div>
-            </header>
-            <main>
-                <!-- <section>
+  <body>
+    <div id="wrapper">
+      <header>
+        <div class="nav">
+          <div>Trawelo</div>
+          <div>Navigation</div>
+        </div>
+        <div class="title">
+            <h1>Trawelo</h1>
+        </div>
+        <form onsubmit="return Client.handleSubmit(event)">
+          <div class="inputError"></div>
+          <select id="categories">
+            <option value="travels">Travels</option>
+            <option value="hotels">Hotels</option>
+            <option value="flights">Flights</option>
+          </select>
+
+          <input
+            type="text"
+            name="input"
+            placeholder="Enter city e.g Tashkent"
+          />
+          <input type="date" name="date" />
+          <input
+            type="submit"
+            name="submit"
+            value="Add Travel"
+            onclick="return Client.handleSubmit(event)"
+            onsubmit="return Client.handleSubmit(event)"
+          />
+        </form>
+      </header>
+      <main>
+        <!-- <section>
                     <form class="" onsubmit="return Client.handleSubmit(event)">
                         <div class="inputError"></div>
                         <input id="name" type="text" name="input" onblur="" placeholder="Enter URL (e.g. mukhiddinaka.web.app)">
@@ -29,27 +56,28 @@
                     <legend>Added Trips</legend>
                     <div id="results"></div>
                 </fieldset> -->
-            </main>
-    
-            <footer>
-                <p>&copy Muhiddin JV 2021 </p>
-            </footer>
-        </div>
+      </main>
 
-        <script>
-            // Check that service workers are supported
-            if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
-                window.addEventListener('load', () => {
-                    navigator.serviceWorker.register('/service-worker.js')
-                    .then(reg => {
-                    console.log('ServiceWorker is working', reg);
-                    })
-                    .catch(err => {
-                    console.log('ServiceWorker is NOT working', err);
-                    });
-                });
-            }
-        </script>
-    </body>
+      <footer>
+        <p>&copy Muhiddin JV 2021</p>
+      </footer>
+    </div>
+
+    <script>
+      // Check that service workers are supported
+      if ("serviceWorker" in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((reg) => {
+              console.log("ServiceWorker is working", reg);
+            })
+            .catch((err) => {
+              console.log("ServiceWorker is NOT working", err);
+            });
+        });
+      }
+    </script>
+  </body>
 </html>
