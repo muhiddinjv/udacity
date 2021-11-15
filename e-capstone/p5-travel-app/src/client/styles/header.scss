@@ -10,18 +10,41 @@ header {
   background-size: cover;
   text-align: center;
   color: $white;
-  
-  .nav{
-      display: flex;
-    // background: $green-shadow;
+
+  .nav {
+    display: flex;
     justify-content: space-between;
-    color: #333;
-    padding: 20px;
+    padding: 2rem;
+    div {
+      border: 1px solid $green-dark;
+      background: $green-shadow;
+      border-radius: 1rem;
+      font-size: 1.4rem;
+      padding: 1rem;
+    }
+  }
+
+  #banner {
+    height: 87vh;
+    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    form{
+      background: $green-shadow;
+      border: 1px solid $green-dark;
+      border-radius: 1rem;
+      padding: 2rem 3rem;
+    }
   }
 
   .title {
     background: $green-shadow;
-    padding: 10px;
+    border: 1px solid $green-dark;
+    border-radius: 1rem;
+    font-size: 3rem;
+    padding: 2rem 3rem;
   }
 
   form {

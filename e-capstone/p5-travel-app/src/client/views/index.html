@@ -14,34 +14,37 @@
     <div id="wrapper">
       <header>
         <div class="nav">
-          <div>Trawelo</div>
-          <div>Navigation</div>
+          <div class="nav__left">Trawelo</div>
+          <div class="nav__right">Navigation</div>
         </div>
-        <div class="title">
+        <div id="banner">
+          <div class="title">
             <h1>Trawelo</h1>
-        </div>
-        <form onsubmit="return Client.handleSubmit(event)">
-          <div class="inputError"></div>
-          <select id="categories">
-            <option value="travels">Travels</option>
-            <option value="hotels">Hotels</option>
-            <option value="flights">Flights</option>
-          </select>
+            <p>Enjoy the travel of your life!</p>
+          </div>
+          <form onsubmit="return Client.handleSubmit(event)">
+            <div class="inputError"></div>
+            <select id="categories">
+              <option value="travels">Travels</option>
+              <option value="hotels">Hotels</option>
+              <option value="flights">Flights</option>
+            </select>
 
-          <input
-            type="text"
-            name="input"
-            placeholder="Enter city e.g Tashkent"
-          />
-          <input type="date" name="date" />
-          <input
-            type="submit"
-            name="submit"
-            value="Add Travel"
-            onclick="return Client.handleSubmit(event)"
-            onsubmit="return Client.handleSubmit(event)"
-          />
-        </form>
+            <input
+              type="text"
+              name="input"
+              placeholder="Enter city e.g Tashkent"
+            />
+            <input type="date" name="date" />
+            <input
+              type="submit"
+              name="submit"
+              value="Add Travel"
+              onclick="return Client.handleSubmit(event)"
+              onsubmit="return Client.handleSubmit(event)"
+            />
+          </form>
+        </div>
       </header>
       <main>
         <!-- <section>
