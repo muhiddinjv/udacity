@@ -20,7 +20,7 @@
         <div id="banner">
           <div class="title">
             <h1>Trawelo</h1>
-            <p>Enjoy the travel of your life!</p>
+            <h4>Enjoy the travel of your life!</h4>
           </div>
           <form onsubmit="return Client.handleSubmit(event)">
             <div class="inputError"></div>
@@ -30,13 +30,13 @@
               <option value="flights">Flights</option>
             </select>
 
-            <input
+            <input class="city"
               type="text"
               name="input"
               placeholder="Enter city e.g Tashkent"
             />
-            <input type="date" name="date" />
-            <input
+            <input class="date" type="date" name="date" />
+            <input class="submit"
               type="submit"
               name="submit"
               value="Add Travel"

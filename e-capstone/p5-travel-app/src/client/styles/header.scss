@@ -26,25 +26,56 @@ header {
 
   #banner {
     height: 87vh;
-    border: 1px solid red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    form{
+
+    .title {
       background: $green-shadow;
-      border: 1px solid $green-dark;
+      border-right: 2px solid $green-dark;
+      border-left: 2px solid $green-dark;
+      border-bottom: none;
+      border-radius: 1rem 1rem 0 0;
+      font-size: 3rem;
+      padding: 2rem 3rem 0 3rem;
+      h4 {
+        margin-top: 1rem;
+      }
+    }
+
+    form {
+      background: $green-shadow;
+      border: 2px solid $green-dark;
+      border-top: none;
       border-radius: 1rem;
       padding: 2rem 3rem;
-    }
-  }
+      flex-flow: row wrap;
+      align-items: center;
 
-  .title {
-    background: $green-shadow;
-    border: 1px solid $green-dark;
-    border-radius: 1rem;
-    font-size: 3rem;
-    padding: 2rem 3rem;
+      select,
+      input {
+        font-size: 1.5rem;
+        padding: 0 2rem;
+        height: 4rem;
+        // background: transparent;
+        background: $green-shadow;
+        border: 2px solid white;
+        color: white;
+      }
+
+      .city{
+        width: 30rem;
+      }
+
+      .date{
+        width: 25rem;
+      }
+
+      .submit:hover{
+        background: $green-dark;
+      }
+    }
   }
 
   form {
