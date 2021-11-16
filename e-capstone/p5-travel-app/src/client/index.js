@@ -3,7 +3,6 @@ import { handleSubmit } from './js/formHandler'
 import { getData } from './js/getData'
 import { updateUI } from './js/updateUI'
 
-import './styles/resets.scss'
 import './styles/base.scss'
 import './styles/main.scss'
 import './styles/footer.scss'

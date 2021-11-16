@@ -13,55 +13,51 @@
   <body>
     <div id="wrapper">
       <header>
-        <div class="nav">
-          <div class="nav__left">Trawelo</div>
-          <div class="nav__right">Navigation</div>
-        </div>
-        <div id="banner">
+        <section class="hnav">
+          <div class="hnav__left">Trawelo</div>
+          <div class="hnav__right">Navigation</div>
+        </section>
+
+        <section id="banner">
           <div class="title">
             <h1>Trawelo</h1>
             <h4>Enjoy the travel of your life!</h4>
           </div>
-          <form onsubmit="return Client.handleSubmit(event)">
-            <div class="inputError"></div>
-            <select id="categories">
-              <option value="travels">Travels</option>
-              <option value="hotels">Hotels</option>
-              <option value="flights">Flights</option>
-            </select>
+          <form onsubmit="handleSubmit(event)">
+            <!-- <div class="inputError"></div> -->
+            <div id="inputs">
+              <select id="categories">
+                <option value="travels">Travels</option>
+                <option value="hotels">Hotels</option>
+                <option value="flights">Flights</option>
+              </select>
 
-            <input class="city"
-              type="text"
-              name="input"
-              placeholder="Enter city e.g Tashkent"
-            />
-            <input class="date" type="date" name="date" />
-            <input class="submit"
-              type="submit"
-              name="submit"
-              value="Add Travel"
-              onclick="return Client.handleSubmit(event)"
-              onsubmit="return Client.handleSubmit(event)"
-            />
+              <input
+                required
+                id="city"
+                type="text"
+                name="input"
+                placeholder="Enter city (e.g. Tashkent)"
+              />
+              <input id="date" type="date" name="date" required />
+              <a href="#plan" class="link">
+                <input
+                  required
+                  id="submit"
+                  type="submit"
+                  name="submit"
+                  value="Add Travel"
+                />
+              </a>
+            </div>
           </form>
-        </div>
+        </section>
       </header>
       <main>
-        <!-- <section>
-                    <form class="" onsubmit="return Client.handleSubmit(event)">
-                        <div class="inputError"></div>
-                        <input id="name" type="text" name="input" onblur="" placeholder="Enter URL (e.g. mukhiddinaka.web.app)">
-                        <input type="submit" name="submit" value="Evaluate" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
-                    </form>
-                <section>
-    
-                <fieldset>
-                    <legend>Added Trips</legend>
-                    <div id="results"></div>
-                </fieldset> -->
+        <!-- MAIN -->
       </main>
 
-      <footer>
+      <footer id="footer">
         <p>&copy Muhiddin JV 2021</p>
       </footer>
     </div>
@@ -71,14 +67,7 @@
       if ("serviceWorker" in navigator) {
         // Use the window load event to keep the page load performant
         window.addEventListener("load", () => {
-          navigator.serviceWorker
-            .register("/service-worker.js")
-            .then((reg) => {
-              console.log("ServiceWorker is working", reg);
-            })
-            .catch((err) => {
-              console.log("ServiceWorker is NOT working", err);
-            });
+          navigator.serviceWorker.register("/service-worker.js");
         });
       }
     </script>
