@@ -50,24 +50,29 @@ header {
       border-top: none;
       border-radius: 1rem;
       padding: 2rem 3rem;
-      flex-flow: row wrap;
-      align-items: center;
-      
-      @media only screen and (max-width: $bp-small) {
-        display: grid;
-        background: lightsalmon;
-        grid-template-columns: repeat(2, minmax(0, 10rem));
-        grid-template-areas:
-          "cg cg"
-          "ct dt"
-          "bt bt";
-        column-gap: 0.5rem;
-      }
+      // flex-flow: row wrap;
+      // align-items: center;
 
-      // #inputs{
-      //   display: grid;
-      //   grid-template-columns: repeat (auto-fit, minmax(200rem, 1fr));
-      // }
+      #inputs{
+        // display: grid;
+        // grid-template-columns: repeat (auto-fit, minmax(200rem, 1fr));
+        @media only screen and (max-width: $bp-medium) {
+          display: grid;
+          // background: lightsalmon;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-areas:
+            "cg cg"
+            "ct dt"
+            "bt bt";
+          column-gap: 0.5rem;
+
+          justify-items:auto;
+          select, input{
+          }
+        }
+
+        
+      }
 
       select,
       input {
