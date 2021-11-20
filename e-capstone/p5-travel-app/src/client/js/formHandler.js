@@ -2,8 +2,12 @@ const { checkUrl } = require("./checkUrl");
 const { getData } = require("./getData");
 const { updateUI } = require("./updateUI");
 
+const submitBtn = document.querySelector('#submit');
+submitBtn.addEventListener('click', handleSubmit);
+
 /* Function called by event listener */
 const handleSubmit = async (e) => {
+  alert('handle submit is working')
   e.preventDefault();//https://mukhiddinaka.web.app/blog.html
   const inputError = document.querySelector(".inputError");
   let url = document.getElementById("city").value;
