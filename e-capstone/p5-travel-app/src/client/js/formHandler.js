@@ -9,7 +9,7 @@ const handleSubmit = async (e) => {
   let url = document.getElementById("name").value;
 
   if (checkUrl(url)) { // check what text was put into the form field
-    const json = await getData("http://localhost:1000/addUrl", { url });
+    const json = await getData("http://localhost:1010/addUrl", { url });
 
     console.log(">>> Running formHandler below >>>");
     console.log(json);
