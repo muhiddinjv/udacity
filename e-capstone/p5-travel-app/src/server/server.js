@@ -36,7 +36,7 @@ app.get("/test", function (req, res) {
 });
 
 // designates what port the app will listen to for incoming requests
-app.listen(3000, function (error) {
+app.listen(2020, function (error) {
   if (error) throw new Error(error);
-  console.log("Example app listening on port 3000!");
+  console.log("Example app listening on port 2020!");
 });

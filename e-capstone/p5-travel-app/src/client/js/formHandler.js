@@ -6,7 +6,7 @@ const { updateUI } = require("./updateUI");
 const handleSubmit = async (e) => {
   e.preventDefault();//https://mukhiddinaka.web.app/blog.html
   const inputError = document.querySelector(".inputError");
-  let url = document.getElementById("name").value;
+  let url = document.getElementById("city").value;
 
   if (checkUrl(url)) { // check what text was put into the form field
     const json = await getData("http://localhost:1010/addUrl", { url });
