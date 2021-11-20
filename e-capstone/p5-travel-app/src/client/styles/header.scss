@@ -39,6 +39,11 @@ header {
       border-radius: 1rem 1rem 0 0;
       font-size: 3rem;
       padding: 2rem 3rem 0 3rem;
+
+      @media only screen and (max-width: $bp-medium) {
+        font-size: 2.5rem;
+      }
+
       h4 {
         margin-top: 1rem;
       }
@@ -50,28 +55,30 @@ header {
       border-top: none;
       border-radius: 1rem;
       padding: 2rem 3rem;
-      // flex-flow: row wrap;
-      // align-items: center;
-
-      #inputs{
-        // display: grid;
-        // grid-template-columns: repeat (auto-fit, minmax(200rem, 1fr));
+      
+      #inputs {
         @media only screen and (max-width: $bp-medium) {
           display: grid;
-          // background: lightsalmon;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           grid-template-areas:
-            "cg cg"
-            "ct dt"
+            "ct ct"
+            "cg dt"
             "bt bt";
-          column-gap: 0.5rem;
 
-          justify-items:auto;
-          select, input{
+          #city,
+          #date {
+            width: 100%;
+          }
+
+          #date{
+            border-left: none;
+          }
+
+          #categories, #date{
+            border-top: none;
+            border-bottom: none;
           }
         }
-
-        
       }
 
       select,
@@ -100,7 +107,7 @@ header {
         }
       }
 
-      #categories{
+      #categories {
         grid-area: cg;
       }
 

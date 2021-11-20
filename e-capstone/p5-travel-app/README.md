@@ -3,6 +3,8 @@
 ## Project Description
 This travel app, at a minimum, obtains a desired trip location & date from the user, and displays weather and an image of the location using information obtained from external APIs.
 
+The project includes a simple form where you can enter the location you are traveling to and the date you are leaving. If the trip is within a week, you will get the current weather forecast. If the trip is in the future, you will get a predicted forecast. It uses Weatherbit API which only takes in coordinates for weather data and those coordinates are retrieved from the Geonames API. Once, all of this data is colleted, its displayed in the User Interface along with an image of the location entered; for this, the Pixabay API is used.
+
 ## Project Features
 1) if input value is invalid, a helpful error message is displayed
 2) if its valid, an API call is done and the result is displayed in UI
