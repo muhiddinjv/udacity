@@ -9,7 +9,7 @@ header {
   background-attachment: fixed;
   background-size: cover;
   text-align: center;
-  color: $white;
+  color: $white; 
 
   .hnav {
     display: flex;
@@ -30,6 +30,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    
 
     .title {
       background: $green-shadow;
@@ -41,7 +42,7 @@ header {
       padding: 2rem 3rem 0 3rem;
 
       @media only screen and (max-width: $bp-medium) {
-        font-size: 2.5rem;
+        width: 60vw;
       }
 
       h4 {
@@ -55,7 +56,11 @@ header {
       border-top: none;
       border-radius: 1rem;
       padding: 2rem 3rem;
-      
+
+      @media only screen and (max-width: $bp-medium) {
+        width: 80vw;
+      }
+
       #inputs {
         @media only screen and (max-width: $bp-medium) {
           display: grid;
@@ -70,12 +75,31 @@ header {
             width: 100%;
           }
 
-          #date{
+          #date {
             border-left: none;
           }
 
-          #categories, #date{
+          #categories,
+          #date {
             border-top: none;
+            border-bottom: none;
+          }
+        }
+
+        @media only screen and (max-width: $bp-small) {
+          display: grid;
+          grid-template-rows: repeat(4, 1fr);
+          grid-template-columns: minmax(0, 1fr);
+          grid-template-areas: "ct" "cg" "dt" "bt";
+          width: 70vw;
+
+          #date{
+            border-left: 2px solid $white;
+            border-top: 2px solid $white;
+          }
+
+          #categories,
+          #date {
             border-bottom: none;
           }
         }
@@ -86,7 +110,6 @@ header {
         font-size: 1.5rem;
         padding: 0 2rem;
         height: 4rem;
-        // background: transparent;
         background: $green-shadow;
         border: 2px solid $white;
         color: $white;
