@@ -1,13 +1,10 @@
 /* Global Variables */
-const cityName = document.getElementById("city").value;
+
 
 // Create a new date instance dynamically with JS
 // let d = new Date(); console.log(d);
 // let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
 
-// Personal API Key for OpenWeatherMap API
-const api = "ad8a4d7750ce20473c84cde66d6c7ab4";
-//d0889ce843a11270e6749177a5118aec -- my 2nd api
 
 //function to check user input for city name
 function validateCity(cityName) {
@@ -21,14 +18,24 @@ function validateCity(cityName) {
 
 /* Function called by event listener */
 function performAction(e) {
+
+  const cityName = document.getElementById("city").value;
+let date = document.getElementById('date').value;
   
   e.preventDefault();
   const inputError = document.querySelector(".inputError");
-  let date = document.getElementById('date').value;
   
-  alert('perform action showing date & city: ' + date + " " + cityName)
+  alert('perform action showing date: ' + date)
 
-  let feelings = document.getElementById("feelings").value;
+  // let feelings = document.getElementById("feelings").value;
+
+  function validateCity(cityName) {
+    if (cityName == "" || !cityName) {
+      return false; //return false if it's empty
+    } else {
+      return true; //return true if it is not empty
+    }
+  }
 
   if (!validateCity(cityName)) {
     // display error message if city name input is empty
@@ -36,19 +43,19 @@ function performAction(e) {
     return;
   } else {
     inputError.textContent = "";
-    if (!feelings) {
-      // if feelings is empty fill it with this text
-      feelings = "too lazy to enter feelings";
-    }
+    // if (!feelings) {
+    //   // if feelings is empty fill it with this text
+    //   feelings = "too lazy to enter feelings";
+    // }
     getWeather()
       //new syntax
-      .then(function (data) {
+      .then((dat)=>{
         // Add data
         postData("/addWeather", {
-          city: data.name,
+          country: dat.geonames[0].countryName,
           date: date,
-          temp: data.main.temp,
-          // feelings: feelings,
+          lat: dat.geonames[0].lat,
+          lng: dat.geonames[0].lng,
         });
         // we can do this because of async!
         updateUI();
@@ -60,15 +67,12 @@ function performAction(e) {
 const getWeather = async () => {
   const cityName = document.getElementById("city").value;
 
-  // const res = await fetch(url);
+  console.log(cityName);
   const offline = document.getElementById("offline");
-  let result = `http://api.geonames.org/searchJSON?formatted=true&q=${cty}&maxRows=1&lang=es&username=muhiddin&style=full`;
   // `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}&units=metric`
 
   try {
-    const res = await fetch(
-      `http://api.geonames.org/searchJSON?formatted=true&q=${cityName}&maxRows=1&lang=es&username=muhiddin&style=full`
-    );
+    const res = await fetch(`http://api.geonames.org/searchJSON?formatted=true&q=${cityName}&maxRows=1&lang=en&username=muhiddin`)
     const data = await res.json();
     console.log(data);
     if (data.cod == "404") {
@@ -106,6 +110,7 @@ const postData = async (url = "", data = {}) => {
 
   try {
     const newData = await response.json();
+    console.log(newData);
     return newData;
   } catch (error) {
     console.log("error", error);
@@ -124,12 +129,12 @@ const updateUI = async () => {
 
     allData.map((d) => {
       entryRow.innerHTML = `
-      <div class="city">${d.city}</div>
+      <div class="city">${d.country}</div>
       <div class="temp">
-      ${d.temp > 0 ? "+" : ""}${Math.round(d.temp)}
+      ${d.date}
       </div>
-      <div class="date">${d.date}</div>
-      <div class="content"><div>Feelings: <i>${d.feelings}</i></div></div>
+      <div class="date">${d.lat}</div>
+      <div class="content"><div>Feelings: <i>${d.lng}</i></div></div>
       `;
     });
 

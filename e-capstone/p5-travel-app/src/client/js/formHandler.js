@@ -1,4 +1,4 @@
-const { checkUrl } = require("./checkUrl");
+// const { checkUrl } = require("./checkUrl");
 const { getData } = require("./getData");
 const { updateUI } = require("./updateUI");
 
