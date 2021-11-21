@@ -1,42 +1,42 @@
-// Setup empty JS object to act as endpoint for all routes
-const projectData = []; //empty array to hold the received data
-
-// Require Express to run server and routes
+require("dotenv").config();
+const axios = require("axios");
+var path = require("path");
+var cors = require("cors");
 const express = require("express");
 
-// Start up an instance of app
+const mockAPIResponse = require("./mockAPI.js");
+const getApi = require("./getApi.js");
+var bodyParser = require("body-parser");
+
 const app = express();
-
-/* Dependencies & Middleware*/
-//Here we are configuring express to use body-parser as middle-ware.
-const bodyParser = require("body-parser");
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-
-// Cors for cross origin allowance
-const cors = require("cors");
 app.use(cors());
+// to use json
+app.use(bodyParser.json());
+// to use url encoded values
+app.use(
+  bodyParser.urlencoded({
+    extended: true,
+  })
+);
 
-// Initialize the main project folder
 app.use(express.static("dist"));
 
-// Setup Server
-const port = 2020;
+// console.log(JSON.stringify(mockAPIResponse))
 
-// Express to run server, routes & callback to debug
-const server = app.listen(port, () => {
-  console.log(`running on localhost: ${port}`);
+app.get("/", function (req, res) {
+  res.sendFile(path.resolve("dist/index.html"));
+  // res.sendFile('src/client/views/index.html');
 });
 
-// Initialize all route with a callback function to GET '/all'
-app.get('/all', (req, res)=>{
-  res.send(projectData);
+// a route that handles post request for new URL that coming from the frontend
+app.post("/addUrl", getApi);
+
+app.get("/test", function (req, res) {
+  res.json(mockAPIResponse);
 });
 
-// POST route
-app.post('/addWeather', (req, res) => {
-  const newEntry = {city, date, temp, feelings} = req.body;
-  projectData.push(newEntry);
-  res.send(projectData);
-  console.log(projectData);
+// designates what port the app will listen to for incoming requests
+app.listen(2020, function (error) {
+  if (error) throw new Error(error);
+  console.log("Example app listening on port 2020!");
 });

@@ -1,15 +1,9 @@
 /* Global Variables */
-const cityName = document.getElementById("city");
-const generate = document.getElementById("submit");
-const offline = document.getElementById("offline");
-const inputError = document.querySelector(".inputError");
-
-let retryEveryMs = 3000;
-let retries = 11;
+const cityName = document.getElementById("city").value;
 
 // Create a new date instance dynamically with JS
-let d = new Date(); console.log(d);
-let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
+// let d = new Date(); console.log(d);
+// let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
 
 // Personal API Key for OpenWeatherMap API
 const api = "ad8a4d7750ce20473c84cde66d6c7ab4";
@@ -24,20 +18,26 @@ function validateCity(cityName) {
   }
 }
 
-// Event listener to add function to existing HTML DOM element
-generate.addEventListener("click", performAction);
 
 /* Function called by event listener */
-function performAction() {
+function performAction(e) {
+  
+  e.preventDefault();
+  const inputError = document.querySelector(".inputError");
+  let date = document.getElementById('date').value;
+  
+  alert('perform action showing date & city: ' + date + " " + cityName)
+
   let feelings = document.getElementById("feelings").value;
-  if (!validateCity(cityName.value)) {
+
+  if (!validateCity(cityName)) {
     // display error message if city name input is empty
     inputError.textContent = "City name cannot be empty, please enter it!";
     return;
   } else {
     inputError.textContent = "";
     if (!feelings) {
-      //if feelings is empty fill it with this text
+      // if feelings is empty fill it with this text
       feelings = "too lazy to enter feelings";
     }
     getWeather()
@@ -48,7 +48,7 @@ function performAction() {
           city: data.name,
           date: date,
           temp: data.main.temp,
-          feelings: feelings,
+          // feelings: feelings,
         });
         // we can do this because of async!
         updateUI();
@@ -58,12 +58,19 @@ function performAction() {
 
 /* Function to GET Web API Data*/
 const getWeather = async () => {
+  const cityName = document.getElementById("city").value;
+
   // const res = await fetch(url);
+  const offline = document.getElementById("offline");
+  let result = `http://api.geonames.org/searchJSON?formatted=true&q=${cty}&maxRows=1&lang=es&username=muhiddin&style=full`;
+  // `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}&units=metric`
+
   try {
     const res = await fetch(
-      `http://api.openweathermap.org/data/2.5/weather?q=${cityName.value}&appid=${api}&units=metric`
+      `http://api.geonames.org/searchJSON?formatted=true&q=${cityName}&maxRows=1&lang=es&username=muhiddin&style=full`
     );
     const data = await res.json();
+    console.log(data);
     if (data.cod == "404") {
       inputError.innerText = "Please enter a valid city name!";
     }
@@ -71,6 +78,7 @@ const getWeather = async () => {
     offline.innerText = "";
     return data;
   } catch (error) {
+    let retries = 11;
     console.log("error", error);
     setTimeout(() => {
       retries--;
@@ -80,13 +88,13 @@ const getWeather = async () => {
         return (offline.innerText = "Reconnection failed. Please refresh the page!");
       }
       performAction();
-    }, retryEveryMs);
+    }, 3000);
   }
 };
 
 /* Function to POST data */
 const postData = async (url = "", data = {}) => {
-  // console.log(data);
+  console.log(data);
   const response = await fetch(url, {
     method: "POST",
     credentials: "same-origin",
@@ -132,3 +140,5 @@ const updateUI = async () => {
     console.log("error", error);
   }
 };
+
+export { performAction };
