@@ -1,34 +1,23 @@
 /* Global Variables */
 
-
 // Create a new date instance dynamically with JS
 // let d = new Date(); console.log(d);
 // let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
 
-
-//function to check user input for city name
-function validateCity(cityName) {
-  if (cityName == "" || !cityName) {
-    return false; //return false if it's empty
-  } else {
-    return true; //return true if it is not empty
-  }
-}
-
-
 /* Function called by event listener */
 function performAction(e) {
-
-  const cityName = document.getElementById("city").value;
-let date = document.getElementById('date').value;
-  
   e.preventDefault();
+
   const inputError = document.querySelector(".inputError");
-  
-  alert('perform action showing date: ' + date)
+  const cityName = document.getElementById("city").value;
+  let date = document.getElementById("date").value;
+
+
+  // alert("perform action showing date: " + date);
 
   // let feelings = document.getElementById("feelings").value;
 
+  //function to check user input for city name
   function validateCity(cityName) {
     if (cityName == "" || !cityName) {
       return false; //return false if it's empty
@@ -49,7 +38,7 @@ let date = document.getElementById('date').value;
     // }
     getWeather()
       //new syntax
-      .then((dat)=>{
+      .then((dat) => {
         // Add data
         postData("/addWeather", {
           country: dat.geonames[0].countryName,
@@ -65,14 +54,16 @@ let date = document.getElementById('date').value;
 
 /* Function to GET Web API Data*/
 const getWeather = async () => {
+  const inputError = document.querySelector(".inputError");
   const cityName = document.getElementById("city").value;
-
-  console.log(cityName);
   const offline = document.getElementById("offline");
+
   // `http://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${api}&units=metric`
 
   try {
-    const res = await fetch(`http://api.geonames.org/searchJSON?formatted=true&q=${cityName}&maxRows=1&lang=en&username=muhiddin`)
+    const res = await fetch(
+      `http://api.geonames.org/searchJSON?formatted=true&q=${cityName}&maxRows=1&lang=en&username=muhiddin`
+    );
     const data = await res.json();
     console.log(data);
     if (data.cod == "404") {
@@ -89,7 +80,8 @@ const getWeather = async () => {
       offline.innerText = "Reconnecting to the Internet..." + retries;
       // Retrying failed promise...
       if (retries < 1) {
-        return (offline.innerText = "Reconnection failed. Please refresh the page!");
+        return (offline.innerText =
+          "Reconnection failed. Please refresh the page!");
       }
       performAction();
     }, 3000);
@@ -98,7 +90,6 @@ const getWeather = async () => {
 
 /* Function to POST data */
 const postData = async (url = "", data = {}) => {
-  console.log(data);
   const response = await fetch(url, {
     method: "POST",
     credentials: "same-origin",
@@ -110,7 +101,7 @@ const postData = async (url = "", data = {}) => {
 
   try {
     const newData = await response.json();
-    console.log(newData);
+    // console.log(newData);
     return newData;
   } catch (error) {
     console.log("error", error);

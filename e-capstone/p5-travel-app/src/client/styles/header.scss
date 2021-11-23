@@ -9,7 +9,7 @@ header {
   background-attachment: fixed;
   background-size: cover;
   text-align: center;
-  color: $white; 
+  color: $white;
 
   .hnav {
     display: flex;
@@ -30,7 +30,6 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    
 
     .title {
       background: $green-shadow;
@@ -71,16 +70,16 @@ header {
             "bt bt";
 
           #city,
-          #date {
+          #dates {
             width: 100%;
           }
 
-          #date {
+          #dates {
             border-left: none;
           }
 
           #categories,
-          #date {
+          #dates {
             border-top: none;
             border-bottom: none;
           }
@@ -93,20 +92,21 @@ header {
           grid-template-areas: "ct" "cg" "dt" "bt";
           width: 70vw;
 
-          #date{
+          #dates {
             border-left: 2px solid $white;
             border-top: 2px solid $white;
           }
 
           #categories,
-          #date {
+          #dates {
             border-bottom: none;
           }
         }
       }
 
       select,
-      input {
+      input[type="text"],
+      input[type="submit"] {
         font-size: 1.5rem;
         padding: 0 2rem;
         height: 4rem;
@@ -130,6 +130,37 @@ header {
         }
       }
 
+      #dates {
+        grid-area: dt;
+        width: 25rem;
+        display: flex;
+        font-size: 1.5rem;
+        padding: 0 2rem;
+        height: 4rem;
+        background: $green-shadow;
+        border: 2px solid $white;
+        color: $white;
+
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          // filter: invert(1); //white icon
+          background: transparent;
+          color: transparent;
+          position: absolute;
+          cursor: pointer;
+          height: auto;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          width: auto;
+        }
+
+        &:focus {
+          box-shadow: 0px 0px 5px $white;
+          outline: none;
+        }
+      }
+
       #categories {
         grid-area: cg;
       }
@@ -141,11 +172,6 @@ header {
         &::placeholder {
           color: $white;
         }
-      }
-
-      #date {
-        grid-area: dt;
-        width: 25rem;
       }
 
       #submit {
@@ -167,10 +193,6 @@ header {
           color: $green-btn;
           border: 2px solid $green-dark;
         }
-      }
-
-      ::-webkit-calendar-picker-indicator {
-        filter: invert(1);
       }
     }
   }
