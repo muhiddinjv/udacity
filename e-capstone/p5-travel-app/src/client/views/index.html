@@ -12,54 +12,59 @@
 
   <body>
     <div id="wrapper">
-      <header>
+      <header id="header">
         <section class="hnav">
           <div class="hnav__left">Trawelo</div>
           <div class="hnav__right">Navigation</div>
         </section>
 
-        <section id="banner">
-          <div class="title">
-            <h1>Trawelo</h1>
-            <h5>Enjoy the travel of your life!</h5>
+        <section class="imposter">
+          <div class="imposter__title">
+            <h1 class="imposter__heading">Trawelo</h1>
+            <h5 class="imposter__sub-heading">
+              Enjoy the travel of your life!
+            </h5>
           </div>
-          <form onsubmit="handleSubmit(event)">
-            <div class="inputError">error handler</div>
-            <div id="offline">offline handler</div>
-            <div id="inputs">
-              <select id="categories">
+
+          <form class="form" onsubmit="handleSubmit(event)">
+            <!-- <div class="form__error">error handler</div>
+            <div class="form__offline">offline handler</div> -->
+            <div class="form__inputs">
+              <select class="form__inputs-select">
                 <option value="travels">Travels</option>
                 <option value="hotels">Hotels</option>
                 <option value="flights">Flights</option>
               </select>
 
-              <input
-                required
-                id="city"
-                type="text"
-                name="input"
-                placeholder="Enter city (e.g. Tashkent)"
-              />
+              <div class="form__inputs-city">
+                <input
+                  id="city"
+                  type="text"
+                  name="input"
+                  placeholder="Enter city (e.g. Tashkent)"
+                  required
+                />
+              </div>
 
-              <div id="dates">
-                <div class="dates__start">
-                  <input type="date" name="date" required/>
+              <div class="form__inputs-dates">
+                <div class="date-start">
+                  <input id="start" type="date" name="date" placeholder="Start" required />
                 </div>
-                <div class="dates__end">
-                  <input type="date" name="date" required/>
+                <div class="date-end">
+                  <input id="end" type="date" name="date" placeholder="End" required />
                 </div>
               </div>
- 
-              <!-- <a href="#plan" class="link"> -->
-                <input
-                  required
+
+              <div class="form__inputs-btn">
+                <a href="#travels" class="link form__link">
+                <button
                   id="submit"
-                  type="submit"
+                  class="btn form__btn"
                   name="submit"
                   value="Add Travel"
-                  />
-                  <!-- onclick="return Client.performAction()" -->
-                  <!-- </a> -->
+                >Add Travel</button>
+              </a>
+              </div>
             </div>
           </form>
         </section>
@@ -76,6 +81,9 @@
 
     <script>
       // Check that service workers are supported
+
+      // document.querySelector("input[type='date']").defaultValue = "2014-02-09";
+
       if ("serviceWorker" in navigator) {
         // Use the window load event to keep the page load performant
         window.addEventListener("load", () => {

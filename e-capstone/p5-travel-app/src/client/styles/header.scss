@@ -1,6 +1,6 @@
 @import "base";
 
-header {
+#header {
   border: 3px solid #333;
   height: 100vh;
   background: url(../media/banner.jpg);
@@ -15,7 +15,8 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 2rem;
-    div {
+    &__left,
+    &__right {
       border: 1px solid $green-dark;
       background: $green-shadow;
       border-radius: 1rem;
@@ -24,14 +25,14 @@ header {
     }
   }
 
-  #banner {
+  .imposter {
     height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    .title {
+    &__title {
       background: $green-shadow;
       border-right: 2px solid $green-dark;
       border-left: 2px solid $green-dark;
@@ -39,49 +40,94 @@ header {
       border-radius: 1rem 1rem 0 0;
       font-size: 3rem;
       padding: 2rem 3rem 0 3rem;
+      min-width: 30rem;
+
 
       @media only screen and (max-width: $bp-small) {
         width: 60vw;
       }
-
-      h4 {
-        margin-top: 1rem;
-      }
     }
 
-    form {
+    .form {
       background: $green-shadow;
       border: 2px solid $green-dark;
       border-top: none;
       border-radius: 1rem;
       padding: 2rem 3rem;
+      min-width: 40rem;
 
-      @media only screen and (max-width: $bp-medium) {
-        width: 80vw;
-      }
 
-      #inputs {
+      &__inputs {
+        display: flex;
+
+        &-select {
+          grid-area: sl;
+          font-size: 1.5rem;
+          color: $white;
+          background: $green-shadow;
+          border: 2px solid $white;
+          padding: 0 2rem;
+          height: 4rem;
+          &:focus {
+            box-shadow: 0px 0px 5px $white;
+            outline: none;
+          }
+        }
+
+        &-dates {
+          grid-area: dt;
+          display: flex;
+          font-size: 1.5rem;
+          // padding-left: 2rem;
+          height: 4rem;
+          background: $green-shadow;
+          border: 2px solid $white;
+          color: $white;
+
+          .date-start,
+          .date-end {
+            position: relative;
+            border: 1px solid red;
+          }
+        }
+  
+        &-city {
+          grid-area: ct;
+          &::placeholder {
+            color: $white;
+          }
+        }
+  
+        &-btn {
+          grid-area: bt;
+          width: max-content;
+          width: 100%;
+        }
+
         @media only screen and (max-width: $bp-medium) {
           display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
+          grid-template-columns: repeat(3, minmax(0, 1fr));
           grid-template-areas:
-            "ct ct"
-            "cg dt"
-            "bt bt";
+            "ct ct ct"
+            "sl dt dt"
+            "bt bt bt";
 
-          #city,
-          #dates {
+          &-city{
             width: 100%;
           }
 
-          #dates {
+          &-dates {
             border-left: none;
           }
 
-          #categories,
-          #dates {
+          &-select,
+          &-dates {
             border-top: none;
             border-bottom: none;
+          }
+
+          input, button{
+            width: 100%;
           }
         }
 
@@ -89,115 +135,23 @@ header {
           display: grid;
           grid-template-rows: repeat(4, 1fr);
           grid-template-columns: minmax(0, 1fr);
-          grid-template-areas: "ct" "cg" "dt" "bt";
-          width: 70vw;
+          grid-template-areas: "ct" "sl" "dt" "bt";
 
-          #dates {
+          &-dates {
             border-left: 2px solid $white;
             border-top: 2px solid $white;
           }
 
-          #categories,
-          #dates {
+          &-select,
+          &-dates {
             border-bottom: none;
           }
         }
       }
 
-      select,
-      input[type="text"],
-      input[type="submit"] {
-        font-size: 1.5rem;
-        padding: 0 2rem;
-        height: 4rem;
-        background: $green-shadow;
-        border: 2px solid $white;
-        color: $white;
-
-        &:focus {
-          box-shadow: 0px 0px 5px $white;
-          outline: none;
-        }
-
-        /* Change autocomplete styles in WebKit */
-        &:-webkit-autofill,
-        &:-webkit-autofill:hover,
-        &:-webkit-autofill:focus {
-          // border: 1px solid white;
-          -webkit-text-fill-color: $white;
-          // -webkit-box-shadow: 0 0 0px 1000px red inset;
-          transition: background-color 5000s ease-in-out 0s;
-        }
-      }
-
-      #dates {
-        grid-area: dt;
-        width: 25rem;
-        display: flex;
-        font-size: 1.5rem;
-        padding: 0 2rem;
-        height: 4rem;
-        background: $green-shadow;
-        border: 2px solid $white;
-        color: $white;
-
-        input[type="date"]::-webkit-calendar-picker-indicator {
-          // filter: invert(1); //white icon
-          background: transparent;
-          color: transparent;
-          position: absolute;
-          cursor: pointer;
-          height: auto;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          width: auto;
-        }
-
-        &:focus {
-          box-shadow: 0px 0px 5px $white;
-          outline: none;
-        }
-      }
-
-      #categories {
-        grid-area: cg;
-      }
-
-      #city {
-        grid-area: ct;
-        width: 30rem;
-
-        &::placeholder {
-          color: $white;
-        }
-      }
-
-      #submit {
-        grid-area: bt;
-        transition: 0.5s;
-
-        &:focus {
-          outline: none;
-        }
-
-        &:hover {
-          box-shadow: 0px 0px 5px $white;
-          cursor: pointer;
-          background: $green-btn;
-        }
-
-        &:active {
-          background: $white;
-          color: $green-btn;
-          border: 2px solid $green-dark;
-        }
+      @media only screen and (max-width: $bp-medium) {
+        width: 80vw;
       }
     }
-  }
-
-  form {
-    border: 1px solid black;
   }
 }
