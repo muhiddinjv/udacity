@@ -53,9 +53,8 @@
       border: 2px solid $green-dark;
       border-top: none;
       border-radius: 1rem;
-      padding: 2rem 3rem;
+      padding: 2rem;
       min-width: 40rem;
-
 
       &__inputs {
         display: flex;
@@ -66,6 +65,7 @@
           color: $white;
           background: $green-shadow;
           border: 2px solid $white;
+          border-right: none;        
           padding: 0 2rem;
           height: 4rem;
           &:focus {
@@ -82,12 +82,14 @@
           height: 4rem;
           background: $green-shadow;
           border: 2px solid $white;
+          border-right: none;
+          border-left: none;
           color: $white;
 
           .date-start,
           .date-end {
             position: relative;
-            border: 1px solid red;
+            // border: 1px solid red;
           }
         }
   
@@ -112,16 +114,14 @@
             "sl dt dt"
             "bt bt bt";
 
-          &-city{
-            width: 100%;
-          }
 
           &-dates {
-            border-left: none;
+            justify-content: space-around;
           }
-
+          
           &-select,
           &-dates {
+            border-right: 2px solid $white;
             border-top: none;
             border-bottom: none;
           }

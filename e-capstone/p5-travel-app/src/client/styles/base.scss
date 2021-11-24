@@ -41,7 +41,7 @@ html {
   }
 
   @media only screen and (max-width: $bp-small) {
-    font-size: 42.5%;
+    font-size: 46.5%;
   }
 }
 
@@ -78,7 +78,7 @@ button {
   background: $green-shadow;
   border: 2px solid $white;
   color: $white;
-  transition: 0.5s;
+  // transition: 0.5s;
 
   &:focus {
     outline: none;
@@ -116,33 +116,22 @@ input {
 
     &::-webkit-calendar-picker-indicator {
       // filter: invert(1); //white icon
-      background: transparent;
-      color: transparent;
-      position: absolute;
-      cursor: pointer;
-      height: auto;
       top: 0;
       left: 0;
       right: 0;
       bottom: 0;
       width: auto;
+      height: auto;
+      cursor: pointer;
+      color: transparent;
+      position: absolute;
+      background: transparent;
     }
 
     &:before {
-			content: attr(placeholder) !important;
+			content: attr(placeholder);
 			color: $white;
 			margin: 0 1rem;
-		}
-
-    &:focus {
-			&:before {
-				content: '';
-			}
-		}
-		&:valid {
-			&:before {
-				content: '';
-			}
 		}
   }
 
