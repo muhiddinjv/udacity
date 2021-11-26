@@ -1,28 +1,61 @@
-// const { checkUrl } = require("./checkUrl");
-const { getData } = require("./getData");
-const { updateUI } = require("./updateUI");
+// const { getData } = require("./getData");
+// const { updateUI } = require("./updateUI");
+// let d = new Date(); console.log(d);
+// let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
+// function validateCity(input) {
+//   if (input == "" || !input) {
+//     return false; //return false if it's empty
+//   } else {
+//     return true; //return true if it is not empty
+//   }
+// }
 
 /* Function called by event listener */
-const handleSubmit = async () => {
-  // e.preventDefault();//https://mukhiddinaka.web.app/blog.html
-  const inputError = document.querySelector(".inputError");
-  let url = document.getElementById("city").value;
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  // if (checkUrl(url)) { // check what text was put into the form field
-    const json = await getData("http://localhost:1010/addUrl", { url });
+  const input = document.querySelector("#city").value;
+  const inputError = document.querySelector(".form__error");
+  const start = document.querySelector("#start").value;
+  const end = document.querySelector("#end").value;
 
-    console.log(">>> Running formHandler below >>>");
-    console.log(json);
-    updateUI(json);
-    console.log(">>> Running formHandler above >>>");
+  console.log("formhandler: " + input);
 
-  // } else {
-    // display error message if input is invalid
-  //   inputError.textContent = "Please, enter a valid article link!";
-  //   setTimeout(() => {
-  //     inputError.textContent = "";
-  //   }, 10000);
-  //   return;
+  // try {
+    if (!input == "") {
+      console.log(">>> Running formHandler below >>>");
+
+      const response = await fetch("http://localhost:1010/addCity", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ input }),
+      });
+
+      const json = await response.json();
+      console.log("API results: "+json.totalResultsCount);
+
+      if (json.totalResultsCount == "0") {
+        inputError.textContent = "No results found! Please, enter a valid city name!";
+        setTimeout(() => {
+          inputError.textContent = "";
+        }, 5000);
+        return;
+      } 
+        console.log(json);
+        console.log(">>> Running formHandler above >>>");
+      // }
+    } else {
+      inputError.textContent = "City name cannot be empty. Please enter it!";
+      setTimeout(() => {
+        inputError.textContent = "";
+      }, 5000);
+      return;
+    }
+  // } catch (error) {
+  //   console.log(error);
   // }
 };
 

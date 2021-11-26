@@ -1,7 +1,7 @@
 const updateUI = (json) => {
   console.log(">>> Running updateUI below >>>");
   try {
-    const results = document.getElementById("results");
+    const results = document.querySelector(".travels_list");
     results.innerHTML = `
       <div><b>Sentence:</b> <i>${json.sentence_list[2].text}</i></div>
       <div><b>Agreement:</b> <i>${json.agreement}</i></div>
