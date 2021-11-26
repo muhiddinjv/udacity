@@ -2,7 +2,6 @@ import { handleSubmit } from './js/formHandler'
 import { getData } from './js/getData'
 import { updateUI } from './js/updateUI'
 // import { testing } from './js/testing'
-// import { testApis } from './js/testApis'
 
 import './styles/base.scss'
 import './styles/main.scss'
@@ -16,5 +15,4 @@ export {
     getData,
     updateUI,
     // testing,
-    // testApis
 }
