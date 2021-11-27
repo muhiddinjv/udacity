@@ -3,16 +3,8 @@ const { default: axios } = require("axios");
 const { GEO_URL, GEO_USER, WB_URL, WB_KEY, PIX_URL, PIX_KEY } = process.env;
 
 const getApis = async (cityName) => {
-
   try {
     const geoData = await axios.get(`${GEO_URL}=${cityName}&maxRows=1&username=${GEO_USER}`);
-
-    if (geoData.data.geonames[0] == null) {
-      res
-        .status(404)
-        .json({ locValidation: "Please, enter valid location!" });
-      return;
-    }
 
     const { name, countryName, lat, lng } = geoData.data.geonames[0];
 
@@ -30,7 +22,7 @@ const getApis = async (cityName) => {
     const dest = name === countryName ? countryName : `${name}, ${countryName}`;
 
     const allApis = {
-      tripTo: dest,
+      travelTo: dest,
       weather: weatherData.data.data,
       pic: pixHits,
     };

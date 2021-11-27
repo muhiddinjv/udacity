@@ -9,12 +9,13 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('dist'));
 
-// Create travel data
+// Create travel data from 3 apis
 app.post('/apis', async (req, res) => {
 	try {
-		const cityName = encodeURI(req.body.input);
+		const cityName = encodeURI(req.body.city);
 		const data = await getApis(cityName);
-		res.send({data});
+		// console.log(data);
+		res.send(data);
 	} catch (err) {
 		console.error(err);
 	}

@@ -1,8 +1,9 @@
-import axios from 'axios';
+// import axios from 'axios';
+const { default: axios } = require("axios");
 // import { nanoid } from 'nanoid';
 
 export const state = {
-	trip: {
+	travel: {
 		// id: 0,
 		destination: '',
 		pic: {},
@@ -13,17 +14,17 @@ export const state = {
 };
 
 // Send data to server to make API requests
-export const sendData = async (url = '', input = {}) => {
+export const getData = async (url = '', input = {}) => {
 	const res = await axios.post(url, input, { withCredentials: true });
 	try {
 		const { data } = res;
-		// state.trip.id = nanoid();
-		state.trip.destination = data.destination;
-		state.trip.pic = {
+		// state.travel.id = nanoid();
+		state.travel.destination = data.destination;
+		state.travel.pic = {
 			url: data.pic.webformatURL,
 			alt: data.pic.tags,
 		};
-		state.trip.weather = data.weather.map(item => {
+		state.travel.weather = data.weather.map(item => {
 			return {
 				date: item.datetime,
 				icon: item.weather.icon,
