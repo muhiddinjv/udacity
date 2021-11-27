@@ -1,27 +1,30 @@
-// const { getData } = require("./getData");
-// const { updateUI } = require("./updateUI");
-const { default: axios } = require("axios");
+import axios from 'axios';
+import { checkDayDiff } from './checkDayDiff';
+import { currentDate } from './currentDate';
 
-(() => {
-  console.log("Self-invoking function is working! Yay!");
-  let d = new Date();
-  let today = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-  console.log(today);
-
-  // grey out past days so that the user cannot select them
-  document.getElementById("start").setAttribute("min", today);
-  document.getElementById("end").setAttribute("min", today);
-})();
+(()=>{
+  // disable past days in calendar so that user cannot select them
+  document.getElementById("start").setAttribute("min", currentDate());
+  document.getElementById("end").setAttribute("min", currentDate());
+})()
 
 /* Function called by event listener */
 const handleSubmit = async (e) => {
   e.preventDefault();
 
-  const city = document.querySelector("#city").value;
+  const cityInput = document.querySelector("#city").value;
   const inputError = document.querySelector(".form__error");
+  const startDate = document.querySelector("#start").value;
+  const endDate = document.querySelector("#end").value;
 
-  const start = document.querySelector("#start").value;
-  const end = document.querySelector("#end").value;
+  // Day Difference Vars
+  let countdown = checkDayDiff(currentDate(), startDate);
+  let travelDays = checkDayDiff(startDate, endDate);
+
+  console.log(`
+  Travel is in ${countdown} day(s) 
+  Travel will startDate on ${startDate} and take ${travelDays} days to complete
+  `);
 
   // checking the provided date within a week or not. if not it take as a future.
   // const unixDate = getDates(new Date(date).getTime(), 1000);
@@ -37,15 +40,14 @@ const handleSubmit = async (e) => {
   //   };
   // }
 
-  console.log("formhandler: " + city);
+  console.log("formhandler: " + cityInput);
 
-  // try {
-  if (!city == "" && !start == "" && !end == "") {
+  // cityInput, start and end date input validation
+  if (!cityInput == "" && !startDate == "" && !endDate == "") {
     console.log(">>> Running formHandler below >>>");
 
     // Make a Post request
-    const json = await axios.post("http://localhost:1010/apis", { city });
-    // const json = getData("http://localhost:1010/apis", {input})
+    const json = await axios.post("http://localhost:1010/apis", { cityInput });
 
     console.log(json);
 
@@ -67,9 +69,6 @@ const handleSubmit = async (e) => {
     }, 5000);
     return;
   }
-  // } catch (error) {
-  //   console.log(error);
-  // }
 };
 
 export { handleSubmit };

@@ -12,7 +12,7 @@ app.use(express.static('dist'));
 // Create travel data from 3 apis
 app.post('/apis', async (req, res) => {
 	try {
-		const cityName = encodeURI(req.body.city);
+		const cityName = encodeURI(req.body.cityInput);
 		const data = await getApis(cityName);
 		// console.log(data);
 		res.send(data);
