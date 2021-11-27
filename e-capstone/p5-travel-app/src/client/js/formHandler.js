@@ -1,13 +1,17 @@
 // const { getData } = require("./getData");
 // const { updateUI } = require("./updateUI");
 const { default: axios } = require("axios");
-let d = new Date();
-let today = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
-console.log(today);
 
- // grey out past days so that the user cannot select them
- document.getElementById("start").setAttribute("min", today);
- document.getElementById("end").setAttribute("min", today);
+(() => {
+  console.log("Self-invoking function is working! Yay!");
+  let d = new Date();
+  let today = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
+  console.log(today);
+
+  // grey out past days so that the user cannot select them
+  document.getElementById("start").setAttribute("min", today);
+  document.getElementById("end").setAttribute("min", today);
+})();
 
 /* Function called by event listener */
 const handleSubmit = async (e) => {
