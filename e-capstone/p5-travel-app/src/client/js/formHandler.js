@@ -1,5 +1,7 @@
 // const { getData } = require("./getData");
+const { sendData } = require("./sendData");
 // const { updateUI } = require("./updateUI");
+const { default: axios } = require("axios");
 // let d = new Date(); console.log(d);
 // let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
 // function validateCity(input) {
@@ -25,26 +27,30 @@ const handleSubmit = async (e) => {
     if (!input == "") {
       console.log(">>> Running formHandler below >>>");
 
-      const response = await fetch("http://localhost:1010/addCity", {
-        method: "POST",
-        credentials: "same-origin",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ input }),
-      });
+       // Fetch APIs
+      // const response = await fetch("http://localhost:1010/apis", {
+      //   method: "POST",
+      //   credentials: "same-origin",
+      //   headers: {
+      //     "Content-Type": "application/json",
+      //   },
+      //   body: JSON.stringify({ input }),
+      // });
 
-      const json = await response.json();
-      console.log("API results: "+json.totalResultsCount);
+      // const json = await response.json();
+      const json = await axios.post("http://localhost:1010/apis", {input})
+      // const json = sendData("http://localhost:1010/apis", {input})
 
-      if (json.totalResultsCount == "0") {
-        inputError.textContent = "No results found! Please, enter a valid city name!";
-        setTimeout(() => {
-          inputError.textContent = "";
-        }, 5000);
-        return;
-      } 
-        console.log(json);
+      console.log(json);
+
+      // if (json.totalResultsCount == "0") {
+      //   inputError.textContent = "No results found! Please, enter a valid city name!";
+      //   setTimeout(() => {
+      //     inputError.textContent = "";
+      //   }, 5000);
+      //   return;
+      // } 
+        // console.log(json);
         console.log(">>> Running formHandler above >>>");
       // }
     } else {

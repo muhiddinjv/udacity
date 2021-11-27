@@ -1,6 +1,6 @@
 import { handleSubmit } from './js/formHandler'
-import { getData } from './js/getData'
 import { updateUI } from './js/updateUI'
+import { sendData } from './js/sendData'
 // import { testing } from './js/testing'
 
 import './styles/base.scss'
@@ -12,7 +12,7 @@ document.getElementById('submit').addEventListener('click', handleSubmit);
 
 export {
     handleSubmit,
-    getData,
     updateUI,
+    sendData
     // testing,
 }
