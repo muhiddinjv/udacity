@@ -1,33 +1,23 @@
 // const { getData } = require("./getData");
 // const { updateUI } = require("./updateUI");
 const { default: axios } = require("axios");
-// let d = new Date(); console.log(d);
-// let date = `${d.getMonth()}.${d.getDate()}.${d.getFullYear()}`;
+let d = new Date();
+let today = `${d.getFullYear()}-${d.getMonth()+1}-${d.getDate()}`;
+console.log(today);
+
+ // grey out past days so that the user cannot select them
+ document.getElementById("start").setAttribute("min", today);
+ document.getElementById("end").setAttribute("min", today);
 
 /* Function called by event listener */
 const handleSubmit = async (e) => {
   e.preventDefault();
-  let today = new Date();
-  let date = today.getDate();
-  let month = today.getMonth() + 1;
-  let year = today.getFullYear();
-  if (date < 10) {
-    date = "0" + date;
-  } 
-   if (month < 10) {
-    month = "0" + month;
-  }
-  today = year + "-" + month + "-" + date;
 
   const city = document.querySelector("#city").value;
   const inputError = document.querySelector(".form__error");
 
   const start = document.querySelector("#start").value;
   const end = document.querySelector("#end").value;
-
-  // grey out past days so that the user cannot select them
-  document.getElementById("start").setAttribute("min", today);
-  document.getElementById("end").setAttribute("min", today);
 
   // checking the provided date within a week or not. if not it take as a future.
   // const unixDate = getDates(new Date(date).getTime(), 1000);
