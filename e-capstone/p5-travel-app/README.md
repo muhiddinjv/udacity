@@ -62,21 +62,21 @@ Testing is done with Jest. To run test, use the command `npm test`. To see a ful
 
 ## Minimum project must:
 
-- [ ] 1) input a desired trip location & (departure) date from the user
+- [x] 1) input a desired trip location & (departure) date from the user
 
 - [ ] 2) output weather & image of the location using info obtained from external APIs
   
 - [ ] 3) Have a countdown to see how soon the trip is & store the data
 
-- [ ] 4) Be set up with Webpack, Express, Node, and Sass, & Service Workers
+- [x] 4) Be set up with Webpack, Express, Node, and Sass, & Service Workers
 
 - [x] 5) Have separate dev and prod configurations for Webpack
 
-- [ ] 6) Have the developer environment set up with the Webpack dev server
+- [x] 6) Have the developer environment set up with the Webpack dev server
 
-- [ ] 7) Make request to at least 3 external APIs: [Weatherbit](https://www.weatherbit.io/), [Pixabay](https://pixabay.com/api/docs/#), [GeoNames API](http://www.geonames.org/)
+- [x] 7) Make request to at least 3 external APIs: [Weatherbit](https://www.weatherbit.io/), [Pixabay](https://pixabay.com/api/docs/#), [GeoNames API](http://www.geonames.org/)
 
-- [ ] 8) Minify js and Sass styles in the production environment
+- [x] 8) Minify js and Sass styles in the production environment
 
 - [ ] 9) Response from the API must be added to the view for a user to see 
 
