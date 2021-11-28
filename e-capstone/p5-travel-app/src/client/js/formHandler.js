@@ -1,67 +1,52 @@
-import axios from 'axios';
-import { checkDayDiff } from './checkDayDiff';
-import { currentDate } from './currentDate';
+import axios from "axios";
+import { currentDate, in1year, unixToLocalTime } from "./helpers";
+import { updateUI } from "./updateUI";
 
-(()=>{
+const start = document.getElementById("start");
+const end = document.getElementById("end");
+
+(() => {
   // disable past days in calendar so that user cannot select them
-  document.getElementById("start").setAttribute("min", currentDate());
-  document.getElementById("end").setAttribute("min", currentDate());
-})()
+  start.setAttribute("min", currentDate());
+  end.setAttribute("min", currentDate());
+
+  // set calendar days to current and 10 days from now
+  start.setAttribute("value", currentDate());
+  end.setAttribute("value", in1year());
+})();
 
 /* Function called by event listener */
 const handleSubmit = async (e) => {
   e.preventDefault();
 
   const cityInput = document.querySelector("#city").value;
-  const inputError = document.querySelector(".form__error");
-  const startDate = document.querySelector("#start").value;
-  const endDate = document.querySelector("#end").value;
-
-  // Day Difference Vars
-  let countdown = checkDayDiff(currentDate(), startDate);
-  let travelDays = checkDayDiff(startDate, endDate);
-
-  console.log(`
-  Travel is in ${countdown} day(s) 
-  Travel will startDate on ${startDate} and take ${travelDays} days to complete
-  `);
-
-  // checking the provided date within a week or not. if not it take as a future.
-  // const unixDate = getDates(new Date(date).getTime(), 1000);
-  // const today = getDates(new Date().getTime(), 1000);
-  // const daysAhead = getDates(unixDate - today, 86400);
-  // const isFuture = daysAhead > 7;
-  // if (location && date) {
-  //   const data = {
-  //     location: location,
-  //     date: unixDate,
-  //     isFuture: isFuture,
-  //     daysAhead: daysAhead,
-  //   };
-  // }
-
-  console.log("formhandler: " + cityInput);
+  let inputError = document.querySelector(".form__error");
+  let startDate = start.value; let endDate = end.value;
 
   // cityInput, start and end date input validation
   if (!cityInput == "" && !startDate == "" && !endDate == "") {
     console.log(">>> Running formHandler below >>>");
 
     // Make a Post request
-    const json = await axios.post("http://localhost:1010/apis", { cityInput });
+    const api = await axios.post("http://localhost:1010/apis", { cityInput });
 
-    console.log(json);
+    console.log("sunrise: " + unixToLocalTime(api.data.weather[0].sunrise_ts));
+    console.log("sunset: " + unixToLocalTime(api.data.weather[0].sunset_ts));
+    console.log(api);
+    console.log("destionation: " + api.data.travelTo);
 
-    if (json.status == "404") {
+    if (api.status == "404") {
       inputError.textContent =
         "No results found! Please, enter a valid city name!";
       setTimeout(() => {
         inputError.textContent = "";
       }, 5000);
       return;
+    } else {
+      // updateUI(api);
     }
-    // console.log(json);
+
     console.log(">>> Running formHandler above >>>");
-    // }
   } else {
     inputError.textContent = "Please, enter city name, start & end dates!";
     setTimeout(() => {

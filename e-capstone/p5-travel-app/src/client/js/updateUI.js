@@ -1,19 +1,52 @@
-const updateUI = (json) => {
-  console.log(">>> Running updateUI below >>>");
+import { checkDayDiff, currentDate } from "./helpers";
+
+const updateUI = async (api) => {
+  let startDate = document.querySelector("#start").value;
+  let endDate = document.querySelector("#end").value;
+
+  // Variables for day difference
+  let countdown = checkDayDiff(currentDate(), startDate);
+  let travelDays = checkDayDiff(startDate, endDate);
+
   try {
-    const results = document.querySelector(".travels_list");
-    results.innerHTML = `
-      <div><b>Sentence:</b> <i>${json.sentence_list[2].text}</i></div>
-      <div><b>Agreement:</b> <i>${json.agreement}</i></div>
-      <div><b>Subjectivity:</b> <i>${json.subjectivity}</i></div>
-      <div><b>Irony:</b> <i>${json.irony}</i></div>
-      <div><b>Confidence:</b> <i>${json.confidence}</i></div>
-      <div><b>Score:</b> <i>${json.score_tag}</i></div>
-      `;
-    console.log(results);
-    console.log(">>> Running updateUI above >>>");
+    const travelsList = document.querySelector(".travels__list");
+    const fragment = document.createDocumentFragment();
+    const travelCard = document.createElement("ul");
+
+    api.map((travel) => {
+      travelCard.innerHTML = `
+
+        <li class="travel__card" id="">
+          <div class="travel__image">
+            <img src="${travel.pic.url}" alt="${travel.pic.alt}">
+          </div>
+          <div class="travel__content">
+            <h3 class="travel__header">
+              ${travel.destination}
+            </h3>
+            <div class="travel__meta">
+              <span class="travel__length">Length: ${travelDays} days</span>
+              <span class="travel__countdown">Left: ${countdown} day(s)</span>
+            </div>
+            <ul class="travel__weather">
+              ${travel.weather}
+            </ul>
+          </div>
+          <div class="travel__edit">
+            <div class="btn travel__todo">pen icon</div>
+            <button class="btn travel__past">past</button>
+            <button class="btn travel__future">future</button>
+            <div class="btn travel__delete">can icon</div>
+          </div>
+        </li>
+
+    `});
+
+    // travelCard.setAttribute("class", "travelCard");
+    fragment.appendChild(travelCard);
+    travelsList.appendChild(fragment);
   } catch (error) {
-    console.log("updateUI Error: ", error);
+    console.log("error", error);
   }
 };
 
