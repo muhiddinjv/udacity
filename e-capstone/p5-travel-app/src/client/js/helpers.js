@@ -1,7 +1,7 @@
 const currentDate = () => {
-  let d = new Date(); // get current year-month-date below
+  let d = new Date(); 
   let today = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-  return today;
+  return today; // today = current year-month-date 
 };
 
 const in1year = () => {
@@ -27,13 +27,17 @@ const checkDayDiff = (date1, date2) => {
 
 const unixToLocalTime = (num) => {
   let unix_timestamp = num;
+  
   // Create a new JavaScript Date object based on the timestamp
   // multiplied by 1000 so that the argument is in milliseconds, not seconds.
   var date = new Date(unix_timestamp * 1000);
+
   // Hours part from the timestamp
   var hours = date.getHours();
+
   // Minutes part from the timestamp
   var minutes = "0" + date.getMinutes();
+
   // Seconds part from the timestamp
   // var seconds = "0" + date.getSeconds();
 
@@ -44,4 +48,13 @@ const unixToLocalTime = (num) => {
   return formattedTime;
 };
 
-export { currentDate, in1year, checkDayDiff, unixToLocalTime };
+const getMonthName = (dateSplit) => {
+  dateSplit = dateSplit.split('-');
+  let monthShortNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  let  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+  const date = new Date(dateSplit[0], dateSplit[1], dateSplit[2]); // 2020-06-21 //num > 1 ? 'trips' : 'trip'
+  return `${monthShortNames[date.getMonth() == 0 ? date.getMonth()+11 : date.getMonth()-1]} ${dateSplit[2]}`; 
+}
+
+export { currentDate, in1year, checkDayDiff, unixToLocalTime, getMonthName };
