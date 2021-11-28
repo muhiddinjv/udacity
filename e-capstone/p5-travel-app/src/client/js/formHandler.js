@@ -10,7 +10,7 @@ const end = document.getElementById("end");
   start.setAttribute("min", currentDate());
   end.setAttribute("min", currentDate());
 
-  // set calendar days to current and 10 days from now
+  // set calendar days to current and 1 year from now
   start.setAttribute("value", currentDate());
   end.setAttribute("value", in1year());
 })();
@@ -33,7 +33,7 @@ const handleSubmit = async (e) => {
     console.log("sunrise: " + unixToLocalTime(api.data.weather[0].sunrise_ts));
     console.log("sunset: " + unixToLocalTime(api.data.weather[0].sunset_ts));
     console.log(api);
-    console.log("destionation: " + api.data.travelTo);
+    console.log("destination: " + api.data.travelTo);
 
     if (api.status == "404") {
       inputError.textContent =
@@ -43,7 +43,7 @@ const handleSubmit = async (e) => {
       }, 5000);
       return;
     } else {
-      // updateUI(api);
+      updateUI(api);
     }
 
     console.log(">>> Running formHandler above >>>");

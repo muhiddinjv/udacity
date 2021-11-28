@@ -12,37 +12,37 @@ const updateUI = async (api) => {
     const travelsList = document.querySelector(".travels__list");
     const fragment = document.createDocumentFragment();
     const travelCard = document.createElement("ul");
+    // let travel = api;
+    travelCard.innerHTML = `
 
-    api.map((travel) => {
-      travelCard.innerHTML = `
-
-        <li class="travel__card" id="">
-          <div class="travel__image">
-            <img src="${travel.pic.url}" alt="${travel.pic.alt}">
+        <li class="travels__card" id="">
+          <div class="travels__image">
+            <img src="${api.data.pic.previewURL}" alt="${api.data.pic.alt}">
           </div>
-          <div class="travel__content">
-            <h3 class="travel__header">
-              ${travel.destination}
+          <div class="travels__content">
+            <h3 class="travels__header">
+              ${api.data.travelTo}
             </h3>
-            <div class="travel__meta">
-              <span class="travel__length">Length: ${travelDays} days</span>
-              <span class="travel__countdown">Left: ${countdown} day(s)</span>
+            <div class="travels__meta">
+              <span class="travels__length">Length: ${travelDays} days</span>
+              <span class="travels__countdown">Left: ${countdown} day(s)</span>
             </div>
-            <ul class="travel__weather">
-              ${travel.weather}
+            <ul class="travels__weather">
+              <li>High: ${api.data.weather[0].high_temp}</li>
+              <li>Low: ${api.data.weather[0].low_temp}</li>
             </ul>
           </div>
-          <div class="travel__edit">
-            <div class="btn travel__todo">pen icon</div>
-            <button class="btn travel__past">past</button>
-            <button class="btn travel__future">future</button>
-            <div class="btn travel__delete">can icon</div>
+          <div class="travels__edit">
+            <div class="btn travels__todo">pen icon</div>
+            <button class="btn travels__past">past</button>
+            <button class="btn travels__future">future</button>
+            <div class="btn travels__delete">can icon</div>
           </div>
         </li>
 
-    `});
+    `;
 
-    // travelCard.setAttribute("class", "travelCard");
+    // travelsCard.setAttribute("class", "travelsCard");
     fragment.appendChild(travelCard);
     travelsList.appendChild(fragment);
   } catch (error) {
