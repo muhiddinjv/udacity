@@ -80,7 +80,7 @@
           </div>
           <div class="travels__results">
 
-            <ul class="travels__list">
+            <!-- <ul class="travels__list">
               <li class="travels__card" id="">
                 <div class="travels__image">
                   <img src="src/client/pics/uzb.jpg" alt="api.pic.alt">
@@ -89,11 +89,13 @@
                   <h3 class="travels__header">
                     Tashkent, Uzbekistan
                   </h3>
-                  <div class="travels__meta">
-                    <div class="travels__length">Length: 365 days</div>
-                    <div class="travels__countdown">Left: 12 days</div>
+                  <div class="travels__info">
+                    
                     <div class="travels__start">Start: Dec 21, 2021</div>
                     <div class="travels__finish">Finish: Jan 04, 2022</div>
+                    <div class="travels__length">Length: 365 days</div>
+                    <div class="travels__countdown">Left: 12 days</div>
+                    
                   </div>
                   <ul class="travels__weather">
                     
@@ -102,17 +104,23 @@
                       <div class="travels__weather-icon">
                         <img src="src/client/pics/t02d.png" alt="w.weather.description">
                       </div>
-                      <div class="travels__weather-meta">
+                      <div class="travels__weather-info">
                         <div class="travels__weather-temp">
                           High: 14° / Low: 14°
                         </div>
-                        <div class="travels__weather-sun">
-                          sunrise: 06:00 / sunset: 17:05
-                        </div>
+                        <fieldset class="travels__weather-sun">
+                      
+                            <legend>Sun</legend>
+                            <span class="rise">rise: 06:00</span>
+                            <br>
+                            <span class="results">set: 17:05</span>
+                          
+                        </fieldset>
+                        <div class="travels__weather-desc">Desc: Scattered clouds</div>
                         <div class="travels__weather-pop">
                           <i class="umbrella icon"></i>
-                          <span class="travels__weather-high">Rain: 0%</span>
-                          <span class="travels__weather-desc">Desc: Scattered clouds</span>
+                          <div class="travels__weather-rain">Chance of rain: 0%</div>
+                          <div class="travels__weather-high">Snowfall: 60.75 mm/hr</div>
                         </div>
                       </div>
                     </li>
@@ -122,6 +130,51 @@
                 <div class="travels__edit">
                   <div class="btn travels__todo">pen icon</div>
                   <button class="btn travels__past">past</button>
+                  <button class="btn travels__future">future</button>
+                  <div class="btn travels__delete">can icon</div>
+                </div>
+              </li>
+            </ul> -->
+
+            <ul class="travels__list">
+              <li class="travels__card">
+                <div class="travels__image">
+                  <img src="src/client/pics/uzb.jpg" alt="">
+                </div>
+                <div class="travels__header">
+                  <h3 class="travels__title">title</h3>
+                  <p class="travels__dates">travel's in 3 days & lasts 12 days</p>
+                </div>
+                <ul class="travels__weather">
+                  <li>
+                    <h4 class="travels__weather-date">
+                      Forecast for Dec 21
+                    </h4>
+                    <div class="travels__weather-icon">
+                      <img src="src/client/pics/a01d.png" alt="">
+                    </div>
+                      
+                      <fieldset class="travels__weather-sun">
+                        <legend>Sun</legend>
+                        <div class="rise">rise: 06:00</div>
+                        <div class="results">set: 17:05</div>
+                      </fieldset>
+                      <fieldset class="travels__weather-temp">
+                        <legend>Temp</legend>
+                        <div class="high">+20*C</div>
+                        <div class="low">+15*C</div>
+                      </fieldset>
+                    <p class="travel__weather-desc">
+                      travel weather description
+                    </p>
+                    <div class="travel__weather-rain">
+                      chance of rain : 95%
+                    </div>
+                  </li>
+                </ul>
+                <div class="travels__edit">
+                  <div class="btn travels__todo">pen icon</div>
+                  <button class="travels__past">past</button>
                   <button class="btn travels__future">future</button>
                   <div class="btn travels__delete">can icon</div>
                 </div>
