@@ -7,9 +7,82 @@ main{
     justify-content: center;
 
     .travels{
+        font-size: 1.6rem;
+
+        &__results{
+            display: flex;
+            text-align: center;
+        }
+
         &__list{
-            margin-top: 1rem;
-            border: 1px solid red;
+            width: 40rem;
+            margin: 1rem;
+            border: 1px solid #999;
+            border-radius: 1rem;
+            background: white;
+        }
+
+        &__image{
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        &__content{
+            margin: 2rem;
+        }
+
+        &__header{
+            // border: 1px solid green;
+        }
+
+        &__title{
+            font-size: 2rem;
+        }
+
+        &__dates{
+            margin: 0.5rem 0;
+        }
+
+        &__weather{
+            &-card{
+                margin-top: 2rem;
+                // border: 1px solid blue;
+            }
+            &-content{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: center;
+                margin: 1rem 0;
+            }
+
+            &-icon{
+                border: 1px solid #999;
+                border-radius: 50%;
+                width: 10rem;
+            }
+
+            &-sun, &-temp{
+                border-radius: 1rem;
+                margin: 0.6rem 0;
+                border: 1px solid #999;
+                
+                legend{
+                    padding: 0 0.5rem;
+                    // border: 1px solid red ;
+                }
+            }
+            
+            &-sunmeta, &-tempmeta{
+                padding: 0.5rem 1rem 1rem 1rem;
+                margin: 0.1rem;
+                text-align: left;
+            }
+        }
+
+        &__edit{
+            display: flex;
+            justify-content: center;
+            border-top: 1px solid #999;
         }
     }
 }

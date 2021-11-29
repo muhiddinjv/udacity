@@ -26,7 +26,7 @@
             </h5>
             <div class="form__error"></div>
           </div>
-          
+
           <form class="form" onsubmit="handleSubmit(event)">
             <!-- <div class="form__offline">offline handler</div> -->
             <div class="form__inputs">
@@ -41,7 +41,7 @@
                   id="city"
                   type="text"
                   name="input"
-                  value="tashkent"
+                  value="bukhara"
                   placeholder="Enter city (e.g. Tashkent)"
                   required
                 />
@@ -49,29 +49,42 @@
 
               <div class="form__inputs-dates">
                 <div class="date-start">
-                  <input id="start" type="date" name="date" placeholder="Start" required />
+                  <input
+                    id="start"
+                    type="date"
+                    name="date"
+                    placeholder="Start"
+                    required
+                  />
                 </div>
                 <div class="date-end">
-                  <input id="end" type="date" name="date" placeholder="End" required />
+                  <input
+                    id="end"
+                    type="date"
+                    name="date"
+                    placeholder="End"
+                    required
+                  />
                 </div>
               </div>
 
               <div class="form__inputs-btn">
                 <a href="#travels" class="link form__link">
-                <button
-                  id="submit"
-                  class="btn form__btn"
-                  name="submit"
-                  value="Add Travel"
-                >Add Travel</button>
-              </a>
+                  <button
+                    id="submit"
+                    class="btn form__btn"
+                    name="submit"
+                    value="Add Travel"
+                  >
+                    Add Travel
+                  </button>
+                </a>
               </div>
             </div>
           </form>
         </section>
       </header>
 
-      
       <main>
         <section id="travels" class="travels">
           <div class="travels__message">
@@ -79,7 +92,6 @@
             <div class="travels__status"></div>
           </div>
           <div class="travels__results">
-
             <!-- <ul class="travels__list">
               <li class="travels__card" id="">
                 <div class="travels__image">
@@ -138,49 +150,55 @@
 
             <ul class="travels__list">
               <li class="travels__card">
-                <div class="travels__image">
-                  <img src="src/client/pics/uzb.jpg" alt="">
-                </div>
-                <div class="travels__header">
-                  <h3 class="travels__title">title</h3>
-                  <p class="travels__dates">travel's in 3 days & lasts 12 days</p>
-                </div>
-                <ul class="travels__weather">
-                  <li>
-                    <h4 class="travels__weather-date">
-                      Forecast for Dec 21
-                    </h4>
-                    <div class="travels__weather-icon">
-                      <img src="src/client/pics/a01d.png" alt="">
-                    </div>
-                      
-                      <fieldset class="travels__weather-sun">
-                        <legend>Sun</legend>
-                        <div class="rise">rise: 06:00</div>
-                        <div class="results">set: 17:05</div>
-                      </fieldset>
-                      <fieldset class="travels__weather-temp">
-                        <legend>Temp</legend>
-                        <div class="high">+20*C</div>
-                        <div class="low">+15*C</div>
-                      </fieldset>
-                    <p class="travel__weather-desc">
-                      travel weather description
+                <img class="travels__image" src="src/client/pics/webformatURL.jpg" alt="" />
+                <div class="travels__content">
+                  <div class="travels__header">
+                    <h3 class="travels__title">Tashkent, Uzbekistan</h3>
+                    <p class="travels__dates">
+                      Your travel is in 10 days & will last 12 days
                     </p>
-                    <div class="travel__weather-rain">
-                      chance of rain : 95%
-                    </div>
-                  </li>
-                </ul>
+                  </div>
+                  <ul class="travels__weather">
+                    <li class="travels__weather-card">
+                      <h4 class="travels__weather-date">Forecast for December 21, 2021</h4>
+
+                      <div class="travels__weather-content">
+                        <fieldset class="travels__weather-temp">
+                          <legend>Temp</legend>
+                          <div class="travels__weather-tempmeta">
+                            <div class="high">High: <span class="big-font">+20*C</span></div>
+                            <div class="low">Low: <span class="big-font">+15*C</span></div>
+                          </div>
+                        </fieldset>
+                        <div class="travels__weather-icon">
+                          <img src="src/client/pics/a01d.png" alt="" />
+                        </div>
+                        <fieldset class="travels__weather-sun">
+                          <legend>Sun</legend>
+                          <div class="travels__weather-sunmeta">
+                            <div class="rise">Rise: <span class="big-font">06:00</span></div>
+                            <div class="results">Set: <span class="big-font">17:05</span></div>
+                          </div>
+                        </fieldset>
+                      </div>
+
+                      <p class="travels__weather-desc">
+                        Description: partly cloudy
+                      </p>
+                      <div class="travels__weather-rain">
+                        Chance of: Rain 95% / Snow 10%
+                      </div>
+                    </li>
+                  </ul>
+                </div>
                 <div class="travels__edit">
                   <div class="btn travels__todo">pen icon</div>
                   <button class="travels__past">past</button>
                   <button class="btn travels__future">future</button>
-                  <div class="btn travels__delete">can icon</div>
+                  <div class="btn travels__delete">trash icon</div>
                 </div>
               </li>
             </ul>
-
           </div>
         </section>
       </main>

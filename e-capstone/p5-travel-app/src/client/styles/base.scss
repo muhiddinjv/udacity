@@ -19,9 +19,9 @@ $shadow: rgba(99, 99, 99, 0.2);
 $date-color: #de7a22;
 
 // PADDING
-$pad-medium: 0 6rem;
-$pad-small: 0 3rem;
-$pad-tiny: 0 1rem;
+$pad-big: 3rem;
+$pad-medium: 2rem;
+$pad-small: 1rem;
 
 * {
   margin: 0;
@@ -62,6 +62,10 @@ img {
 
 ul {
   list-style: none;
+}
+
+.big-font{
+  font-size: 1.8rem;
 }
 
 .link {
