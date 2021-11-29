@@ -11,9 +11,10 @@ const updateUI = async (api) => {
   let travelDays = checkDayDiff(startDate, endDate);
 
   try {
-    const travelsList = document.querySelector(".travels__list");
+    const travelsList = document.querySelector(".travels__results");
     const fragment = document.createDocumentFragment();
     const travelCard = document.createElement("ul");
+    travelCard.setAttribute("class", "travels__list");
     // let travel = api;
     travelCard.innerHTML = `
 
@@ -45,7 +46,6 @@ const updateUI = async (api) => {
 
     `;
     //${api.weather.map(item=>{getWeather(item)})}
-    // travelsCard.setAttribute("class", "travelsCard");
     fragment.appendChild(travelCard);
     travelsList.appendChild(fragment);
   } catch (error) {

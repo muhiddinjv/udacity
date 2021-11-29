@@ -6,6 +6,7 @@ const start = document.getElementById("start");
 const end = document.getElementById("end");
 
 (() => {
+  // addScrollToTravels();
   // disable past days in calendar so that user cannot select them
   start.setAttribute("min", currentDate());
   end.setAttribute("min", currentDate());
@@ -18,7 +19,7 @@ const end = document.getElementById("end");
 /* Function called by event listener */
 const handleSubmit = async (e) => {
   e.preventDefault();
-  
+
   const cityInput = document.querySelector("#city").value;
   let inputError = document.querySelector(".form__error");
   let startDate = start.value; let endDate = end.value;

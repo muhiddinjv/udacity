@@ -57,4 +57,15 @@ const getMonthName = (dateSplit) => {
   return `${monthShortNames[date.getMonth() == 0 ? date.getMonth()+11 : date.getMonth()-1]} ${dateSplit[2]}`; 
 }
 
+const addScrollToTravels=()=> {
+  const submit = document.querySelector('submit');
+  submit.addEventListener('click', e => {
+    e.preventDefault();
+    const id = submit.getAttribute('href');
+    document.querySelector(id).scrollIntoView({
+      behavior: 'smooth',
+    });
+  });
+}
+
 export { currentDate, in1year, checkDayDiff, unixToLocalTime, getMonthName };
