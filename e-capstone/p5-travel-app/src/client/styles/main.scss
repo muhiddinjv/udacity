@@ -15,7 +15,7 @@ main{
         }
 
         &__list{
-            width: 40rem;
+            width: 36rem;
             margin: 1rem;
             border: 1px solid #999;
             border-radius: 1rem;
@@ -27,7 +27,7 @@ main{
         }
 
         &__content{
-            margin: 2rem;
+            margin: 1.5rem;
         }
 
         &__header{
@@ -77,12 +77,43 @@ main{
                 margin: 0.1rem;
                 text-align: left;
             }
+            
+
+            &-chance{
+                display: flex;
+                justify-content: space-evenly;
+                align-items: center;
+                .rain{
+                    color: MediumSeaGreen;
+                    font-size: 4rem;
+                }
+                
+                .snow{
+                    color: DodgerBlue;
+                    font-size: 4rem;
+                }
+            }
         }
 
         &__edit{
             display: flex;
-            justify-content: center;
+            align-items: center;
+            background: $icon-color;
+            justify-content:space-between;
             border-top: 1px solid #999;
+            border-radius: 0 0 1rem 1rem;
+        }
+
+        &__edit > *{
+            width: 100%;
+        }
+
+        &__todo{
+            border-bottom-left-radius: 1rem;
+        } 
+        
+        &__delete{
+            border-bottom-right-radius: 1rem;
         }
     }
 }

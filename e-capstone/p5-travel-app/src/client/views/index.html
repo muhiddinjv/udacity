@@ -22,7 +22,7 @@
           <div class="imposter__title">
             <h1 class="imposter__heading">Trawelo</h1>
             <h5 class="imposter__sub-heading">
-              Enjoy the travel of your life!
+              The travel of your life starts here!
             </h5>
             <div class="form__error"></div>
           </div>
@@ -92,82 +92,36 @@
             <div class="travels__status"></div>
           </div>
           <div class="travels__results">
-            <!-- <ul class="travels__list">
-              <li class="travels__card" id="">
-                <div class="travels__image">
-                  <img src="src/client/pics/uzb.jpg" alt="api.pic.alt">
-                </div>
-                <div class="travels__content">
-                  <h3 class="travels__header">
-                    Tashkent, Uzbekistan
-                  </h3>
-                  <div class="travels__info">
-                    
-                    <div class="travels__start">Start: Dec 21, 2021</div>
-                    <div class="travels__finish">Finish: Jan 04, 2022</div>
-                    <div class="travels__length">Length: 365 days</div>
-                    <div class="travels__countdown">Left: 12 days</div>
-                    
-                  </div>
-                  <ul class="travels__weather">
-                    
-                    <li class="travels__weather">
-                      <span class="travels__weather-date">Forecast for Dec 21</span>
-                      <div class="travels__weather-icon">
-                        <img src="src/client/pics/t02d.png" alt="w.weather.description">
-                      </div>
-                      <div class="travels__weather-info">
-                        <div class="travels__weather-temp">
-                          High: 14° / Low: 14°
-                        </div>
-                        <fieldset class="travels__weather-sun">
-                      
-                            <legend>Sun</legend>
-                            <span class="rise">rise: 06:00</span>
-                            <br>
-                            <span class="results">set: 17:05</span>
-                          
-                        </fieldset>
-                        <div class="travels__weather-desc">Desc: Scattered clouds</div>
-                        <div class="travels__weather-pop">
-                          <i class="umbrella icon"></i>
-                          <div class="travels__weather-rain">Chance of rain: 0%</div>
-                          <div class="travels__weather-high">Snowfall: 60.75 mm/hr</div>
-                        </div>
-                      </div>
-                    </li>
-
-                  </ul>
-                </div>
-                <div class="travels__edit">
-                  <div class="btn travels__todo">pen icon</div>
-                  <button class="btn travels__past">past</button>
-                  <button class="btn travels__future">future</button>
-                  <div class="btn travels__delete">can icon</div>
-                </div>
-              </li>
-            </ul> -->
-
             <ul class="travels__list">
               <li class="travels__card">
-                <img class="travels__image" src="src/client/pics/webformatURL.jpg" alt="" />
+                <img
+                  class="travels__image"
+                  src="src/client/pics/bukhara.jpg"
+                  alt=""
+                />
                 <div class="travels__content">
                   <div class="travels__header">
-                    <h3 class="travels__title">Tashkent, Uzbekistan</h3>
+                    <h3 class="travels__title">Bukhara, Uzbekistan</h3>
                     <p class="travels__dates">
                       Your travel is in 10 days & will last 12 days
                     </p>
                   </div>
                   <ul class="travels__weather">
                     <li class="travels__weather-card">
-                      <h4 class="travels__weather-date">Forecast for December 21, 2021</h4>
+                      <h4 class="travels__weather-date">
+                        Forecast for December 21, 2021
+                      </h4>
 
                       <div class="travels__weather-content">
                         <fieldset class="travels__weather-temp">
                           <legend>Temp</legend>
                           <div class="travels__weather-tempmeta">
-                            <div class="high">High: <span class="big-font">+20*C</span></div>
-                            <div class="low">Low: <span class="big-font">+15*C</span></div>
+                            <div class="high">
+                              &#128200; <span class="big-font">+20*C</span>
+                            </div>
+                            <div class="low">
+                              &#128201; <span class="big-font">+15*C</span>
+                            </div>
                           </div>
                         </fieldset>
                         <div class="travels__weather-icon">
@@ -176,26 +130,34 @@
                         <fieldset class="travels__weather-sun">
                           <legend>Sun</legend>
                           <div class="travels__weather-sunmeta">
-                            <div class="rise">Rise: <span class="big-font">06:00</span></div>
-                            <div class="results">Set: <span class="big-font">17:05</span></div>
+                            <div class="rise">
+                              &#128316; <span class="big-font">06:00</span>
+                            </div>
+                            <div class="set">
+                              &#128317; <span class="big-font">17:05</span>
+                            </div>
                           </div>
                         </fieldset>
                       </div>
 
                       <p class="travels__weather-desc">
-                        Description: partly cloudy
+                        Description: Scattered clouds
                       </p>
-                      <div class="travels__weather-rain">
-                        Chance of: Rain 95% / Snow 10%
+                      <div class="travels__weather-chance">
+                        <span>Chance of:</span> 
+                        <span class="rain">&#127783;</span> 
+                        <span class="big-font">95%</span> 
+                        <span class="snow">&#127784;</span> 
+                        <span class="big-font">10%</span> 
                       </div>
                     </li>
                   </ul>
                 </div>
                 <div class="travels__edit">
-                  <div class="btn travels__todo">pen icon</div>
-                  <button class="travels__past">past</button>
-                  <button class="btn travels__future">future</button>
-                  <div class="btn travels__delete">trash icon</div>
+                  <button class="btn travels__todo">&#128221;</button>
+                  <button class="btn travels__past">Past</button>
+                  <button class="btn travels__future">Future</button>
+                  <button class="btn travels__delete">&#10060;</button>
                 </div>
               </li>
             </ul>
@@ -211,12 +173,12 @@
     <script>
       // Check that service workers are supported
 
-      if ("serviceWorker" in navigator) {
+      // if ("serviceWorker" in navigator) {
         // Use the window load event to keep the page load performant
-        window.addEventListener("load", () => {
-          navigator.serviceWorker.register("/service-worker.js");
-        });
-      }
+      //   window.addEventListener("load", () => {
+      //     navigator.serviceWorker.register("/service-worker.js");
+      //   });
+      // }
     </script>
     <script src="new.js"></script>
   </body>

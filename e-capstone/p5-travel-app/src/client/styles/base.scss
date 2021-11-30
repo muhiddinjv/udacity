@@ -8,6 +8,7 @@ $bp-medium: 54.6rem; // 858px
 $bp-small: 36rem; // 481px
 
 // COLOR
+$icon-color:#1ABC9C;
 $bt-color: #20948b;
 $bt-hover-color: #07575b;
 $white: white;
@@ -65,7 +66,7 @@ ul {
 }
 
 .big-font{
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .link {
@@ -78,7 +79,7 @@ ul {
   }
 }
 
-button {
+.btn {
   font-size: 1.5rem;
   padding: 0 2rem;
   height: 4rem;
