@@ -107,12 +107,13 @@ const slideShow = () => {
 
   dots.forEach((dot, n) => {
     dot.addEventListener("click", () => {
-      showSlides((slideIndex = n+1));
+      showSlides((slideIndex = n + 1));
     });
   });
 
   function showSlides(n) {
     let i;
+    // if (n > slides.length) {slideIndex = 1}
     if (n < 1) {slideIndex = slides.length};
     for (i = 0; i < slides.length; i++) slides[i].style.display = "none";
 
