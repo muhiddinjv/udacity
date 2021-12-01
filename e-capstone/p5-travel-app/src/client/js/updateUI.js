@@ -22,7 +22,7 @@ const updateUI = async (api) => {
           <div class="travels__header">
             <h3 class="travels__title">${api.travelTo}</h3>
             <p class="travels__dates">
-              Your travel is in ${countdown} ${countdown > 1 ? 'days' : 'day'} & will last ${travelDays} days
+              Your trip is in ${countdown} ${countdown > 1 ? 'days' : 'day'} & will last ${travelDays} days
             </p>
           </div>
           <ul class="travels__weather">
@@ -79,9 +79,8 @@ const getWeather = (w) => {
         </fieldset>
       </div>
 
-      <p class="travels__weather-desc">
-        Description: ${w.weather.description}
-      </p>
+      <p class="travels__weather-desc">${w.weather.description}</p>
+      
       <div class="travels__weather-chance">
         <span>Chance of</span> 
         <span class="rain">&#127783;</span> 
