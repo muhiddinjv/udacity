@@ -1,19 +1,21 @@
 const currentDate = () => {
   let today = new Date();
-let dd = String(today.getDate()).padStart(2, '0');
-let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-let yyyy = today.getFullYear();
+  let dd = String(today.getDate()).padStart(2, "0");
+  let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = today.getFullYear();
 
-today = `${yyyy}-${mm}-${dd}`;
+  today = `${yyyy}-${mm}-${dd}`;
   return today; // today = current year-month-date
 };
 
 const in1year = () => {
-  let one = new Date(); // get current year-month-date below
-  let oneYear = `${one.getFullYear() + 1}-${
-    one.getMonth() + 1
-  }-${one.getDate()}`;
-  return oneYear;
+  let today = new Date();
+  let dd = String(today.getDate()).padStart(2, "0");
+  let mm = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
+  let yyyy = today.getFullYear() + 1;
+
+  today = `${yyyy}-${mm}-${dd}`;
+  return today; // today = current year-month-date
 };
 
 // Number of Days Between Two Dates
@@ -118,7 +120,9 @@ const slideShow = () => {
   function showSlides(n) {
     let i;
     // if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length};
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
     for (i = 0; i < slides.length; i++) slides[i].style.display = "none";
 
     for (i = 0; i < dots.length; i++) {
