@@ -1,11 +1,10 @@
 import axios from "axios";
-import { currentDate, in1year, getMonthName } from "./helpers";
+import { currentDate, in1year, getMonthName, scrollIntoView } from "./helpers";
 import { updateUI } from "./updateUI";
 
 window.onload = function () {
   const start = document.getElementById("start");
   const end = document.getElementById("end");
-  // addScrollToTravels();
 
   // disable past days in calendar so that user cannot select them
   start.setAttribute("min", currentDate());
@@ -30,7 +29,7 @@ const handleSubmit = async (e) => {
 
   // cityInput, start and end date input validation
   if (!cityInput == "" && !startDate == "" && !endDate == "") {
-    console.log(">>> Running formHandler below >>>");
+    // console.log(">>> Running formHandler below >>>");
 
     // Make a Post request
     const api = await axios.post("http://localhost:1010/apis", { cityInput });
@@ -41,12 +40,13 @@ const handleSubmit = async (e) => {
       setTimeout(() => {
         inputError.textContent = "";
       }, 5000);
+
       return;
     } else {
       updateUI(api.data);
     }
-
-    console.log(">>> Running formHandler above >>>");
+    scrollIntoView();
+    // console.log(">>> Running formHandler above >>>");
   } else {
     inputError.textContent = "Please, enter city name, start & end dates!";
     setTimeout(() => {

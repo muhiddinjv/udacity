@@ -1,9 +1,7 @@
-import { checkDayDiff, currentDate, getMonthName, unixToLocalTime } from "./helpers";
+import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, removeElement} from "./helpers";
 
 
-const updateUI = async (api) => {
-  console.log(api);
-  
+const updateUI = async (api) => { 
   let startDate = document.querySelector("#start").value;
   let endDate = document.querySelector("#end").value;
   
@@ -12,14 +10,14 @@ const updateUI = async (api) => {
   let travelDays = checkDayDiff(startDate, endDate);
   
   try {
-    const travelsList = document.querySelector(".travels__results");
+    const travelResults = document.querySelector(".travels__results");
     const fragment = document.createDocumentFragment();
-    const travelCard = document.createElement("ul");
+    const travelCard = document.createElement("li");
     travelCard.setAttribute("class", "travels__list");
-    // let travel = api;
+
     travelCard.innerHTML = `
-      <li class="travels__card" id="">
-          <img class="travels__image" src="${api.pic.webformatURL}" alt="${api.pic.alt}">
+      <div class="travels__card" id="">
+        <img class="travels__image" src="${api.pic.webformatURL}" alt="${api.pic.alt}">
         <div class="travels__content">
           <div class="travels__header">
             <h3 class="travels__title">${api.travelTo}</h3>
@@ -37,10 +35,11 @@ const updateUI = async (api) => {
           <button class="btn travels__future">Future</button>
           <button class="btn travels__delete">&#10060;</button>
         </div>
-      </li>
+      </div>
     `;
     fragment.appendChild(travelCard);
-    travelsList.appendChild(fragment);
+    travelResults.appendChild(fragment);
+    removeElement(travelResults);
   } catch (error) {
     console.log("error", error);
   }
@@ -86,9 +85,9 @@ const getWeather = (w) => {
       <div class="travels__weather-chance">
         <span>Chance of</span> 
         <span class="rain">&#127783;</span> 
-        <span class="big-font">${w.pop}%</span> 
+        <span class="big-font">${Math.round(w.pop)}%</span> 
         <span class="snow">&#127784;</span> 
-        <span class="big-font">${w.snow}%</span> 
+        <span class="big-font">${Math.round(w.snow)}%</span> 
       </div>
     </li>
     `;

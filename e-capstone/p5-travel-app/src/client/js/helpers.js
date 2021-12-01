@@ -93,10 +93,10 @@ const getMonthName = (dateSplit) => {
   } ${dateSplit[2]}, ${dateSplit[0]}`;
 };
 
-const addScrollToTravels = () => {
-  const submit = document.querySelector("submit");
-  submit.addEventListener("click", (e) => {
-    e.preventDefault();
+const scrollIntoView = () => {
+  console.log('addscroll');
+  const submit = document.querySelector("#submit");
+  submit.addEventListener("click", () => {
     const id = submit.getAttribute("href");
     document.querySelector(id).scrollIntoView({
       behavior: "smooth",
@@ -133,12 +133,26 @@ const slideShow = () => {
   }
 };
 
+const removeElement = (travelResults) => {
+    let delTravel = document.querySelectorAll('.travels__delete');
+    let travelCard = document.querySelectorAll('.travels__list')
+    delTravel.forEach((btn, index) => {
+      btn.addEventListener('click', ()=>{
+        try {
+          travelResults.removeChild(travelCard[index])
+        } catch (error) {
+          console.log("Oops! " + error);
+        }
+      })
+    }); 
+}
+
 export {
   in1year,
-  slideShow,
   currentDate,
   checkDayDiff,
   getMonthName,
   unixToLocalTime,
-  addScrollToTravels
+  scrollIntoView,
+  removeElement
 };
