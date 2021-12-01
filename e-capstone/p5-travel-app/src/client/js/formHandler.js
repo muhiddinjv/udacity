@@ -3,6 +3,7 @@ import { currentDate, in1year, getMonthName } from "./helpers";
 import { updateUI } from "./updateUI";
 
 window.onload = function() {
+  console.log(currentDate());
 const start = document.getElementById("start");
 const end = document.getElementById("end");
   // addScrollToTravels();
