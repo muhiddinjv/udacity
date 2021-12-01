@@ -5,10 +5,9 @@ import './styles/base.scss'
 import './styles/main.scss'
 import './styles/footer.scss'
 import './styles/header.scss'
+import './styles/carousel.scss'
 
-document.getElementById('submit').addEventListener('click', handleSubmit);
-
-export {
+export default {
     handleSubmit,
     updateUI
 }

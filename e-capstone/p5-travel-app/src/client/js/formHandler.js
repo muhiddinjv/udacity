@@ -2,11 +2,11 @@ import axios from "axios";
 import { currentDate, in1year, getMonthName } from "./helpers";
 import { updateUI } from "./updateUI";
 
+window.onload = function() {
 const start = document.getElementById("start");
 const end = document.getElementById("end");
-
-(() => {
   // addScrollToTravels();
+
   // disable past days in calendar so that user cannot select them
   start.setAttribute("min", currentDate());
   end.setAttribute("min", currentDate());
@@ -14,8 +14,9 @@ const end = document.getElementById("end");
   // set calendar days to current and 1 year from now
   start.setAttribute("value", currentDate());
   end.setAttribute("value", in1year());
-})();
 
+  document.getElementById('submit').addEventListener('click', handleSubmit);
+}
 /* Function called by event listener */
 const handleSubmit = async (e) => {
   e.preventDefault();

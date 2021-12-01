@@ -1,7 +1,7 @@
 const currentDate = () => {
-  let d = new Date(); 
+  let d = new Date();
   let today = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`;
-  return today; // today = current year-month-date 
+  return today; // today = current year-month-date
 };
 
 const in1year = () => {
@@ -27,7 +27,7 @@ const checkDayDiff = (date1, date2) => {
 
 const unixToLocalTime = (num) => {
   let unix_timestamp = num;
-  
+
   // Create a new JavaScript Date object based on the timestamp
   // multiplied by 1000 so that the argument is in milliseconds, not seconds.
   var date = new Date(unix_timestamp * 1000);
@@ -49,23 +49,86 @@ const unixToLocalTime = (num) => {
 };
 
 const getMonthName = (dateSplit) => {
-  dateSplit = dateSplit.split('-');
-  let monthShortNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  let  months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  dateSplit = dateSplit.split("-");
+  let monthShortNames = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
 
   const date = new Date(dateSplit[0], dateSplit[1], dateSplit[2]); // 2020-06-21 //num > 1 ? 'trips' : 'trip'
-  return `${monthShortNames[date.getMonth() == 0 ? date.getMonth()+11 : date.getMonth()-1]} ${dateSplit[2]}`; 
-}
+  return `${
+    monthShortNames[
+      date.getMonth() == 0 ? date.getMonth() + 11 : date.getMonth() - 1
+    ]
+  } ${dateSplit[2]}`;
+};
 
-const addScrollToTravels=()=> {
-  const submit = document.querySelector('submit');
-  submit.addEventListener('click', e => {
+const addScrollToTravels = () => {
+  const submit = document.querySelector("submit");
+  submit.addEventListener("click", (e) => {
     e.preventDefault();
-    const id = submit.getAttribute('href');
+    const id = submit.getAttribute("href");
     document.querySelector(id).scrollIntoView({
-      behavior: 'smooth',
+      behavior: "smooth",
     });
   });
-}
+};
 
-export { currentDate, in1year, checkDayDiff, unixToLocalTime, getMonthName };
+const slideShow = () => {
+  let slides = document.querySelectorAll(".slides");
+  let dots = document.querySelectorAll(".dot");
+
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  dots.forEach((dot, n) => {
+    dot.addEventListener("click", () => {
+      showSlides((slideIndex = n+1));
+    });
+  });
+
+  function showSlides(n) {
+    let i;
+    if (n < 1) {slideIndex = slides.length};
+    for (i = 0; i < slides.length; i++) slides[i].style.display = "none";
+
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+};
+
+export {
+  currentDate,
+  in1year,
+  checkDayDiff,
+  unixToLocalTime,
+  getMonthName,
+  slideShow,
+};

@@ -1,4 +1,6 @@
-import { checkDayDiff, currentDate, getMonthName } from "./helpers";
+import { checkDayDiff, currentDate, getMonthName, slideShow } from "./helpers";
+
+slideShow();
 
 const updateUI = async (api) => {
   console.log(api);
