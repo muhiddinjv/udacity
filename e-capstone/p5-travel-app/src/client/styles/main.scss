@@ -43,9 +43,17 @@ main{
         }
 
         &__weather{
+            overflow: auto;
+            white-space: nowrap;
+
             &-card{
-                margin-top: 2rem;
+                margin: 2rem 4rem 1rem 0.4rem;
+                width: 32rem;
+                display: inline-block;
                 // border: 1px solid blue;
+            }
+            &-card:last-child{
+                margin-right: 0.4rem;
             }
             &-content{
                 display: flex;

@@ -87,10 +87,10 @@ const getMonthName = (dateSplit) => {
 
   const date = new Date(dateSplit[0], dateSplit[1], dateSplit[2]); // 2020-06-21 //num > 1 ? 'trips' : 'trip'
   return `${
-    monthShortNames[
+    months[
       date.getMonth() == 0 ? date.getMonth() + 11 : date.getMonth() - 1
     ]
-  } ${dateSplit[2]}`;
+  } ${dateSplit[2]}, ${dateSplit[0]}`;
 };
 
 const addScrollToTravels = () => {
@@ -134,10 +134,11 @@ const slideShow = () => {
 };
 
 export {
-  currentDate,
   in1year,
-  checkDayDiff,
-  unixToLocalTime,
-  getMonthName,
   slideShow,
+  currentDate,
+  checkDayDiff,
+  getMonthName,
+  unixToLocalTime,
+  addScrollToTravels
 };

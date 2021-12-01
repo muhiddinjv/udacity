@@ -2,30 +2,30 @@ import axios from "axios";
 import { currentDate, in1year, getMonthName } from "./helpers";
 import { updateUI } from "./updateUI";
 
-window.onload = function() {
-  console.log(currentDate());
-const start = document.getElementById("start");
-const end = document.getElementById("end");
+window.onload = function () {
+  const start = document.getElementById("start");
+  const end = document.getElementById("end");
   // addScrollToTravels();
 
   // disable past days in calendar so that user cannot select them
   start.setAttribute("min", currentDate());
   end.setAttribute("min", currentDate());
-  
+
   // set calendar days to current and 1 year from now
   start.setAttribute("value", currentDate());
   end.setAttribute("value", in1year());
 
-  document.getElementById('submit').addEventListener('click', handleSubmit);
-}
+  document.getElementById("submit").addEventListener("click", handleSubmit);
+};
 /* Function called by event listener */
 const handleSubmit = async (e) => {
   e.preventDefault();
 
   const cityInput = document.querySelector("#city").value;
   let inputError = document.querySelector(".form__error");
-  let startDate = start.value; let endDate = end.value;
-  
+  let startDate = start.value;
+  let endDate = end.value;
+
   console.log(`From ${getMonthName(startDate)} to ${getMonthName(endDate)}`);
 
   // cityInput, start and end date input validation
