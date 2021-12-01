@@ -9,9 +9,9 @@ const getApis = async (cityName) => {
     const { name, countryName, lat, lng } = geoData.data.geonames[0];
 
     const [weatherData, pixData1, pixData2] = await Promise.all([
-      axios.get(`${WB_URL}&lat=${lat}&lon=${lng}&days=3&key=${WB_KEY}`),
-      axios.get(`${PIX_URL}key=${PIX_KEY}&q=${name}&image_type=photo&orientation=horizontal&category=travel&order=popular&per_page=3&pretty=true`),      
-      axios.get(`${PIX_URL}key=${PIX_KEY}&q=${countryName}&image_type=photo&orientation=horizontal&category=travel&order=popular&per_page=3&pretty=true`),
+      axios.get(`${WB_URL}&lat=${lat}&lon=${lng}&days=7&key=${WB_KEY}`),
+      axios.get(`${PIX_URL}key=${PIX_KEY}&q=${name}&image_type=photo&orientation=horizontal&category=travel&order=popular&per_page=7&pretty=true`),      
+      axios.get(`${PIX_URL}key=${PIX_KEY}&q=${countryName}&image_type=photo&orientation=horizontal&category=travel&order=popular&per_page=7&pretty=true`),
     ]);
 
     const pixHits =
