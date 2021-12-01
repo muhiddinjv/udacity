@@ -1,4 +1,4 @@
-import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, removeElement} from "./helpers";
+import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, removeElement, comingSoon} from "./helpers";
 
 
 const updateUI = async (api) => { 
@@ -30,15 +30,16 @@ const updateUI = async (api) => {
           </ul>
         </div>
         <div class="travels__edit">
-          <button class="btn travels__todo">&#128221;</button>
-          <button class="btn travels__past">Past</button>
-          <button class="btn travels__future">Future</button>
+          <button class="btn alert travels__todo">&#128221;</button>
+          <button class="btn alert travels__past">Past</button>
+          <button class="btn alert travels__future">Future</button>
           <button class="btn travels__delete">&#10060;</button>
         </div>
       </div>
     `;
     fragment.appendChild(travelCard);
     travelResults.appendChild(fragment);
+    comingSoon();
     removeElement(travelResults);
   } catch (error) {
     console.log("error", error);
@@ -80,7 +81,7 @@ const getWeather = (w) => {
       </div>
 
       <p class="travels__weather-desc">${w.weather.description}</p>
-      
+
       <div class="travels__weather-chance">
         <span>Chance of</span> 
         <span class="rain">&#127783;</span> 

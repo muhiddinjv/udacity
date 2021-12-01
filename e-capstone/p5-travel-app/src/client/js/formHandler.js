@@ -1,5 +1,5 @@
 import axios from "axios";
-import { currentDate, in1year, getMonthName, scrollIntoView } from "./helpers";
+import { currentDate, in1year, getMonthName, scrollIntoView, comingSoon } from "./helpers";
 import { updateUI } from "./updateUI";
 
 window.onload = function () {
@@ -15,6 +15,7 @@ window.onload = function () {
   end.setAttribute("value", in1year());
 
   document.getElementById("submit").addEventListener("click", handleSubmit);
+  comingSoon();
 };
 /* Function called by event listener */
 const handleSubmit = async (e) => {
@@ -45,7 +46,7 @@ const handleSubmit = async (e) => {
     } else {
       updateUI(api.data);
     }
-    scrollIntoView();
+    // scrollIntoView();
     // console.log(">>> Running formHandler above >>>");
   } else {
     inputError.textContent = "Please, enter city name, start & end dates!";

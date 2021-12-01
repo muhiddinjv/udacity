@@ -147,6 +147,19 @@ const removeElement = (travelResults) => {
     }); 
 }
 
+const comingSoon = () => {
+  let alertBtn = document.querySelectorAll('.alert');
+  let inputSelect = document.querySelector('.form__inputs-select');
+  alertBtn.forEach(btn => {
+    btn.addEventListener('click',()=>{
+      alert('This feature is coming soon!')
+    })
+  });
+  inputSelect.addEventListener('change',()=>{
+      alert('This feature is coming soon!')
+  })
+}
+
 export {
   in1year,
   currentDate,
@@ -154,5 +167,6 @@ export {
   getMonthName,
   unixToLocalTime,
   scrollIntoView,
-  removeElement
+  removeElement,
+  comingSoon
 };
