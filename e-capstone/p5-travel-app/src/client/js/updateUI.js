@@ -1,4 +1,4 @@
-import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, comingSoon, scrollIntoView} from "./helpers";
+import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, comingSoon, scrollIntoView, removeElement} from "./helpers";
 
 const updateUI = (api, e) => { 
   let startDate = document.querySelector("#start").value;
@@ -13,6 +13,7 @@ const updateUI = (api, e) => {
     const fragment = document.createDocumentFragment();
     const travelCard = document.createElement("li");
     travelCard.setAttribute("class", "travels__list");
+    // travelCard.setAttribute("data-num", `${travelResults.children.length}`);
     travelCard.setAttribute("id", `card${travelResults.children.length}`);
     // travelCard.setAttribute("id", `${(new Date()).getTime()}`); //timestamp for id
 
@@ -43,7 +44,11 @@ const updateUI = (api, e) => {
     travelResults.appendChild(fragment);
     comingSoon();
     scrollIntoView(e);
-    removeElement(travelCard.id);
+    let delBtns = document.querySelectorAll('.travels__delete');
+    delBtns.forEach((btn)=>{
+      btn.addEventListener('click', removeElement)
+    })
+    // removeElement(travelCard.data-num);
   } catch (error) {
     console.log("error", error);
   }
@@ -95,26 +100,5 @@ const getWeather = (w) => {
     </li>
     `;
 };
-
-const removeElement = (id) => {
-  let deleteBtns = document.querySelectorAll('.travels__delete');
-  // let nodeList = document.getElementById('results');
-  // console.log(ev.target.parentNode.parentNode.parentNode.parentNode);
-  deleteBtns.forEach((btn, index) => {
-    btn.addEventListener('click', (eve)=>{
-      try {
-        console.log(eve.target);
-        console.log("list element id: "+id);
-        // document.getElementById(id).remove();
-        // nodeList.removeChild(nodeList.childNodes[index])
-        let li = document.getElementById(id);
-        li.style.display = "none";
-        // li.parentNode.removeChild(li);
-      } catch (error) {
-        console.log("Oops! " + error);
-      }
-    }, false)
-  }); 
-}
 
 export { updateUI };

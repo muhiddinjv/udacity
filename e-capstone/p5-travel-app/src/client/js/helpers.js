@@ -1,3 +1,5 @@
+import { doc } from "prettier";
+
 const slideShow = () => {
   let slides = document.querySelectorAll(".slides");
   let dots = document.querySelectorAll(".dot");
@@ -115,15 +117,13 @@ const getMonthName = (dateSplit) => {
 
   const date = new Date(dateSplit[0], dateSplit[1], dateSplit[2]);
   return `${
-    months[
-      date.getMonth() == 0 ? date.getMonth() + 11 : date.getMonth() - 1
-    ]
+    months[date.getMonth() == 0 ? date.getMonth() + 11 : date.getMonth() - 1]
   } ${dateSplit[2]}, ${dateSplit[0]}`;
 };
 
 const scrollIntoView = (e) => {
-  const travelCards = document.querySelectorAll('.travels__card')
-  
+  const travelCards = document.querySelectorAll(".travels__card");
+
   for (const card of travelCards) {
     if (e.target.id == card.attributes.id.value) {
       card.scrollIntoView({
@@ -136,38 +136,25 @@ const scrollIntoView = (e) => {
 };
 
 const comingSoon = () => {
-  let alertBtns= document.querySelectorAll('.alert');
-  let inputSelect = document.querySelector('.form__inputs-select');
-  alertBtns.forEach(btn => {
-    btn.addEventListener('click',()=>{
-      alert('This feature is coming soon!')
-    })
+  let alertBtns = document.querySelectorAll(".alert");
+  let inputSelect = document.querySelector(".form__inputs-select");
+  alertBtns.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      alert("This feature is coming soon!");
+    });
   });
-  inputSelect.addEventListener('change',()=>{
-      alert('This feature is coming soon!')
-  })
-}
+  inputSelect.addEventListener("change", () => {
+    alert("This feature is coming soon!");
+  });
+};
 
-const removeElement = (id) => {
-  let deleteBtns = document.querySelectorAll('.travels__delete');
-  // let nodeList = document.getElementById('results');
-  // console.log(ev.target.parentNode.parentNode.parentNode.parentNode);
-  deleteBtns.forEach((btn, index) => {
-    btn.addEventListener('click', (eve)=>{
-      try {
-        console.log(eve.target);
-        console.log("list element id: "+id);
-        // document.getElementById(id).remove()
-        // nodeList.removeChild(nodeList.childNodes[index])
-        // let li = document.getElementById(id);
-        // li.style.display = "none";
-        // li.parentNode.removeChild(li);
-      } catch (error) {
-        console.log("Oops! " + error);
-      }
-    }, false)
-  }); 
-}
+const removeElement = (e) => {
+  try {
+    e.path[3].remove();
+  } catch (error) {
+    console.log("Oops! " + error);
+  }
+};
 
 export {
   in1year,
@@ -177,5 +164,5 @@ export {
   unixToLocalTime,
   scrollIntoView,
   removeElement,
-  comingSoon
+  comingSoon,
 };
