@@ -23,8 +23,7 @@ const handleSubmit = async (e) => {
 
   const cityInput = document.querySelector("#city").value;
   let inputError = document.querySelector(".form__error");
-  let startDate = start.value;
-  let endDate = end.value;
+  let startDate = start.value; let endDate = end.value;
 
   // console.log(`From ${getMonthName(startDate)} to ${getMonthName(endDate)}`);
 

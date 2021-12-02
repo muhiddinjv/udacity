@@ -1,7 +1,8 @@
 import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, removeElement, comingSoon, scrollIntoView} from "./helpers";
 
+removeElement();
 
-const updateUI = async (api, e) => { 
+const updateUI = (api, e) => { 
   let startDate = document.querySelector("#start").value;
   let endDate = document.querySelector("#end").value;
   
@@ -14,10 +15,11 @@ const updateUI = async (api, e) => {
     const fragment = document.createDocumentFragment();
     const travelCard = document.createElement("li");
     travelCard.setAttribute("class", "travels__list");
-    travelCard.setAttribute("id", "submit");
+    travelCard.setAttribute("id", `card${travelResults.children.length}`);
+    // travelCard.setAttribute("id", `${(new Date()).getTime()}`); //timestamp for id
 
     travelCard.innerHTML = `
-      <div class="travels__card">
+      <div class="travels__card" id="submit">
         <img class="travels__image" src="${api.pic.webformatURL}" alt="${api.pic.alt}">
         <div class="travels__content">
           <div class="travels__header">
@@ -38,11 +40,12 @@ const updateUI = async (api, e) => {
         </div>
       </div>
     `;
+
     fragment.appendChild(travelCard);
     travelResults.appendChild(fragment);
     comingSoon();
+    removeElement(travelCard.id);
     scrollIntoView(e);
-    removeElement(travelResults);
   } catch (error) {
     console.log("error", error);
   }

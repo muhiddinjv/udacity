@@ -122,8 +122,8 @@ const getMonthName = (dateSplit) => {
 };
 
 const scrollIntoView = (e) => {
-  const travelCards = document.querySelectorAll('.travels__list')
-  console.log(e.target.name);
+  const travelCards = document.querySelectorAll('.travels__card')
+  
   for (const card of travelCards) {
     if (e.target.id == card.attributes.id.value) {
       card.scrollIntoView({
@@ -134,20 +134,6 @@ const scrollIntoView = (e) => {
     }
   }
 };
-
-const removeElement = (travelResults) => {
-    let delTravel = document.querySelectorAll('.travels__delete');
-    let travelCard = document.querySelectorAll('.travels__list')
-    delTravel.forEach((btn, index) => {
-      btn.addEventListener('click', ()=>{
-        try {
-          travelResults.removeChild(travelCard[index])
-        } catch (error) {
-          console.log("Oops! " + error);
-        }
-      })
-    }); 
-}
 
 const comingSoon = () => {
   let alertBtns= document.querySelectorAll('.alert');
@@ -160,6 +146,27 @@ const comingSoon = () => {
   inputSelect.addEventListener('change',()=>{
       alert('This feature is coming soon!')
   })
+}
+
+const removeElement = (id) => {
+  let deleteBtns = document.querySelectorAll('.travels__delete');
+  // let nodeList = document.getElementById('results');
+  // console.log(ev.target.parentNode.parentNode.parentNode.parentNode);
+  deleteBtns.forEach((btn, index) => {
+    btn.addEventListener('click', (eve)=>{
+      try {
+        console.log(eve.target);
+        console.log("list element id: "+id);
+        // document.getElementById(id).remove()
+        // nodeList.removeChild(nodeList.childNodes[index])
+        // let li = document.getElementById(id);
+        // li.style.display = "none";
+        // li.parentNode.removeChild(li);
+      } catch (error) {
+        console.log("Oops! " + error);
+      }
+    }, false)
+  }); 
 }
 
 export {

@@ -1,7 +1,6 @@
 @import "base";
 
 #header {
-  // border: 3px solid #333;
   height: 100vh;
   background: url(../pics/banner.jpg);
   background-position: center center;
@@ -83,7 +82,6 @@
           grid-area: dt;
           display: flex;
           font-size: 1.5rem;
-          // padding-left: 2rem;
           height: 4rem;
           background: $green-shadow;
           border: 2px solid $white;
@@ -94,7 +92,6 @@
           .date-start,
           .date-end {
             position: relative;
-            // border: 1px solid red;
           }
         }
   
