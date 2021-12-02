@@ -119,9 +119,4 @@ Testing is done with Jest. To run test, use the command `npm test`. To see a ful
   - [ ] Move expired trips to bottom/have their style change so it’s clear it’s expired
 
 ---
-- CHECK PAST YEARS
-- HISTORICAL WEATHER ON THIS SAME DAY FOR THE PAST 3 YEARS
-- Low: -7 °C
-- High: -1 °C
-- Rain: It rained over 4.17% of the day.
-- Snow: 0 cm
+- CHECK PAST YEARS: HISTORICAL WEATHER ON THIS SAME DAY FOR THE PAST 3 YEARS

@@ -44,8 +44,8 @@ const updateUI = (api, e) => {
     fragment.appendChild(travelCard);
     travelResults.appendChild(fragment);
     comingSoon();
-    removeElement(travelCard.id);
     scrollIntoView(e);
+    removeElement(travelCard.id);
   } catch (error) {
     console.log("error", error);
   }
