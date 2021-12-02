@@ -1,5 +1,5 @@
 import axios from "axios";
-import { currentDate, in1year, getMonthName, scrollIntoView, comingSoon } from "./helpers";
+import { currentDate, in1year, comingSoon } from "./helpers";
 import { updateUI } from "./updateUI";
 
 window.onload = function () {
@@ -26,7 +26,7 @@ const handleSubmit = async (e) => {
   let startDate = start.value;
   let endDate = end.value;
 
-  console.log(`From ${getMonthName(startDate)} to ${getMonthName(endDate)}`);
+  // console.log(`From ${getMonthName(startDate)} to ${getMonthName(endDate)}`);
 
   // cityInput, start and end date input validation
   if (!cityInput == "" && !startDate == "" && !endDate == "") {

@@ -1,3 +1,32 @@
+const slideShow = () => {
+  let slides = document.querySelectorAll(".slides");
+  let dots = document.querySelectorAll(".dot");
+
+  let slideIndex = 1;
+  showSlides(slideIndex);
+
+  dots.forEach((dot, n) => {
+    dot.addEventListener("click", () => {
+      showSlides((slideIndex = n + 1));
+    });
+  });
+
+  function showSlides(n) {
+    let i;
+    // if (n > slides.length) {slideIndex = 1}
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) slides[i].style.display = "none";
+
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+};
+
 const currentDate = () => {
   let today = new Date();
   let dd = String(today.getDate()).padStart(2, "0");
@@ -34,7 +63,6 @@ const checkDayDiff = (date1, date2) => {
 const unixToLocalTime = (num) => {
   let unix_timestamp = num;
 
-  // Create a new JavaScript Date object based on the timestamp
   // multiplied by 1000 so that the argument is in milliseconds, not seconds.
   var date = new Date(unix_timestamp * 1000);
 
@@ -85,7 +113,7 @@ const getMonthName = (dateSplit) => {
     "December",
   ];
 
-  const date = new Date(dateSplit[0], dateSplit[1], dateSplit[2]); // 2020-06-21 //num > 1 ? 'trips' : 'trip'
+  const date = new Date(dateSplit[0], dateSplit[1], dateSplit[2]);
   return `${
     months[
       date.getMonth() == 0 ? date.getMonth() + 11 : date.getMonth() - 1
@@ -96,13 +124,6 @@ const getMonthName = (dateSplit) => {
 const scrollIntoView = (e) => {
   const travelCards = document.querySelectorAll('.travels__list')
   console.log(e.target.name);
-  // console.log(travelCards.attributes.id);
-  // for (const card of travelCards) {
-  //   console.log(card.attributes.id.value);
-  // }
-
-  // Scroll to anchor ID using scrollTO event
-
   for (const card of travelCards) {
     if (e.target.id == card.attributes.id.value) {
       card.scrollIntoView({
@@ -111,35 +132,6 @@ const scrollIntoView = (e) => {
         inline: "nearest",
       });
     }
-  }
-};
-
-const slideShow = () => {
-  let slides = document.querySelectorAll(".slides");
-  let dots = document.querySelectorAll(".dot");
-
-  let slideIndex = 1;
-  showSlides(slideIndex);
-
-  dots.forEach((dot, n) => {
-    dot.addEventListener("click", () => {
-      showSlides((slideIndex = n + 1));
-    });
-  });
-
-  function showSlides(n) {
-    let i;
-    // if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {
-      slideIndex = slides.length;
-    }
-    for (i = 0; i < slides.length; i++) slides[i].style.display = "none";
-
-    for (i = 0; i < dots.length; i++) {
-      dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
   }
 };
 
@@ -158,9 +150,9 @@ const removeElement = (travelResults) => {
 }
 
 const comingSoon = () => {
-  let alertBtn = document.querySelectorAll('.alert');
+  let alertBtns= document.querySelectorAll('.alert');
   let inputSelect = document.querySelector('.form__inputs-select');
-  alertBtn.forEach(btn => {
+  alertBtns.forEach(btn => {
     btn.addEventListener('click',()=>{
       alert('This feature is coming soon!')
     })
