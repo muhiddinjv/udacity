@@ -64,7 +64,7 @@ Testing is done with Jest. To run test, use the command `npm test`. To see a ful
 
 - [x] 1) input a desired trip location & (departure) date from the user
 
-- [ ] 2) output weather & image of the location using info obtained from external APIs
+- [x] 2) output weather & image of the location using info obtained from external APIs
   
 - [ ] 3) Have a countdown to see how soon the trip is & store the data
 
@@ -78,7 +78,7 @@ Testing is done with Jest. To run test, use the command `npm test`. To see a ful
 
 - [x] 8) Minify js and Sass styles in the production environment
 
-- [ ] 9) Response from the API must be added to the view for a user to see 
+- [x] 9) Response from the API must be added to the view for a user to see 
 
 - [ ] 10) Be able to show content offline
 
@@ -86,25 +86,25 @@ Testing is done with Jest. To run test, use the command `npm test`. To see a ful
 
 ## Extended project must:
 
-- [ ] 1) Add end date and display length of trip
+- [x] 1) Add end date and display length of trip
 
-- [ ] 2) Pull in an image for the country from Pixabay API when the entered location brings up no results (good for obscure localities)
+- [x] 2) Pull in an image for the country from Pixabay API when the entered location brings up no results (good for obscure localities)
 
 - [ ] 3) Integrate the [REST Countries API](https://restcountries.com/) to pull in data for the country being visited 
 
 - [ ] 4) Use [Local Storage](https://www.taniarascia.com/how-to-use-local-storage-with-javascript/) to save the data so that when they close, then revisit the page, their info is still there
 
-- [ ] 5) Instead of just pulling a single day forecast, pull the forecast for multiple days
+- [x] 5) Instead of just pulling a single day forecast, pull the forecast for multiple days
 
-- [ ] 6) Incorporate icons into forecast
+- [x] 6) Incorporate icons into forecast
 
 ---
 
 - [ ] 7) Allow user to Print their trip and/or export to PDF
 
-- [ ] 8) Allow user to add multiple destinations on the same trip
+- [x] 8) Allow user to add multiple destinations on the same trip
 
-  - [ ] Pull in weather for additional locations
+  - [x] Pull in weather for additional locations
 
 - [ ] 9) Allow user to remove the trip
 
