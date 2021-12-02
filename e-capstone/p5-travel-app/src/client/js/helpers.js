@@ -93,15 +93,25 @@ const getMonthName = (dateSplit) => {
   } ${dateSplit[2]}, ${dateSplit[0]}`;
 };
 
-const scrollIntoView = () => {
-  console.log('addscroll');
-  const submit = document.querySelector("#submit");
-  submit.addEventListener("click", () => {
-    const id = submit.getAttribute("href");
-    document.querySelector(id).scrollIntoView({
-      behavior: "smooth",
-    });
-  });
+const scrollIntoView = (e) => {
+  const travelCards = document.querySelectorAll('.travels__list')
+  console.log(e.target.name);
+  // console.log(travelCards.attributes.id);
+  // for (const card of travelCards) {
+  //   console.log(card.attributes.id.value);
+  // }
+
+  // Scroll to anchor ID using scrollTO event
+
+  for (const card of travelCards) {
+    if (e.target.id == card.attributes.id.value) {
+      card.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+        inline: "nearest",
+      });
+    }
+  }
 };
 
 const slideShow = () => {

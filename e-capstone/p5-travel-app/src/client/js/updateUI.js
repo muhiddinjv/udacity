@@ -1,7 +1,7 @@
-import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, removeElement, comingSoon} from "./helpers";
+import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, removeElement, comingSoon, scrollIntoView} from "./helpers";
 
 
-const updateUI = async (api) => { 
+const updateUI = async (api, e) => { 
   let startDate = document.querySelector("#start").value;
   let endDate = document.querySelector("#end").value;
   
@@ -14,9 +14,10 @@ const updateUI = async (api) => {
     const fragment = document.createDocumentFragment();
     const travelCard = document.createElement("li");
     travelCard.setAttribute("class", "travels__list");
+    travelCard.setAttribute("id", "submit");
 
     travelCard.innerHTML = `
-      <div class="travels__card" id="">
+      <div class="travels__card">
         <img class="travels__image" src="${api.pic.webformatURL}" alt="${api.pic.alt}">
         <div class="travels__content">
           <div class="travels__header">
@@ -40,6 +41,7 @@ const updateUI = async (api) => {
     fragment.appendChild(travelCard);
     travelResults.appendChild(fragment);
     comingSoon();
+    scrollIntoView(e);
     removeElement(travelResults);
   } catch (error) {
     console.log("error", error);

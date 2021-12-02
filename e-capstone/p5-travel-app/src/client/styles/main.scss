@@ -12,6 +12,8 @@ main{
         &__results{
             display: flex;
             text-align: center;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
         &__list{

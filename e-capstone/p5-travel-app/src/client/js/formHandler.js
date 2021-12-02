@@ -44,9 +44,8 @@ const handleSubmit = async (e) => {
 
       return;
     } else {
-      updateUI(api.data);
+      updateUI(api.data, e);
     }
-    // scrollIntoView();
     // console.log(">>> Running formHandler above >>>");
   } else {
     inputError.textContent = "Please, enter city name, start & end dates!";
