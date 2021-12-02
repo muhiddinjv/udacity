@@ -1,6 +1,4 @@
-import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, removeElement, comingSoon, scrollIntoView} from "./helpers";
-
-removeElement();
+import { checkDayDiff, currentDate, getMonthName, unixToLocalTime, comingSoon, scrollIntoView} from "./helpers";
 
 const updateUI = (api, e) => { 
   let startDate = document.querySelector("#start").value;
@@ -97,5 +95,26 @@ const getWeather = (w) => {
     </li>
     `;
 };
+
+const removeElement = (id) => {
+  let deleteBtns = document.querySelectorAll('.travels__delete');
+  // let nodeList = document.getElementById('results');
+  // console.log(ev.target.parentNode.parentNode.parentNode.parentNode);
+  deleteBtns.forEach((btn, index) => {
+    btn.addEventListener('click', (eve)=>{
+      try {
+        console.log(eve.target);
+        console.log("list element id: "+id);
+        // document.getElementById(id).remove();
+        // nodeList.removeChild(nodeList.childNodes[index])
+        let li = document.getElementById(id);
+        li.style.display = "none";
+        // li.parentNode.removeChild(li);
+      } catch (error) {
+        console.log("Oops! " + error);
+      }
+    }, false)
+  }); 
+}
 
 export { updateUI };
