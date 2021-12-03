@@ -35,7 +35,7 @@ const updateUI = (api, e) => {
           <button class="btn alert travels__todo">&#128221;</button>
           <button class="btn alert travels__past">Past</button>
           <button class="btn alert travels__future">Future</button>
-          <button class="btn travels__delete">x</button>
+          <button class="btn travels__delete">&#10006</button>
         </div>
       </div>
     `;
