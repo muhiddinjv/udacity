@@ -8,7 +8,7 @@ module.exports = merge(devConfiguration,
     {
         mode: 'production',
         plugins: [
-            new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' })
+            new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
         ],
         optimization: {
             minimizer: [new TerserPlugin({}), new OptimizeCSSAssetsPlugin({})],
