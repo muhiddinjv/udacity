@@ -9,6 +9,13 @@ app.use(express.json());
 app.use(cors());
 app.use(express.static('dist'));
 
+// Server Test and Troubleshooting
+const mockAPIResponse = require('./mockAPI.js');
+
+app.get('/test', function (req, res) {
+    res.send(mockAPIResponse)
+});
+
 // Create travel data from 3 apis
 app.post('/apis', async (req, res) => {
 	try {
