@@ -1,5 +1,5 @@
 {
-  "name": "evaluate-news-nlp",
+  "name": "FEND-Capstone-Travel-App",
   "version": "0.0.1",
   "main": "index.js",
   "scripts": {
@@ -10,8 +10,8 @@
     "deploy": "gh-pages -d dist"
   },
   "keywords": [],
-  "author": "Muhiddin Aka",
-  "description": "Article Evaluator",
+  "author": "Muhiddin JV",
+  "description": "Where the travel of your life begins!",
   "dependencies": {
     "axios": "^0.21.1",
     "body-parser": "^1.19.0",
