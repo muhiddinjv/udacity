@@ -69,14 +69,14 @@
               </div>
 
               <div class="form__inputs-btn">
-                  <button
-                    id="submit"
-                    class="btn form__btn"
-                    name="submit"
-                    value="Add Travel"
-                  >
-                    Add Travel
-                  </button>
+                <button
+                  id="submit"
+                  class="btn form__btn"
+                  name="submit"
+                  value="Add Travel"
+                >
+                  Add Travel
+                </button>
               </div>
             </div>
           </form>
@@ -89,25 +89,33 @@
             <div class="travels__update"></div>
             <div class="travels__status"></div>
           </div>
-          <ul class="travels__results" id="results">
-          </ul>
+          <ul class="travels__results" id="results"></ul>
         </section>
       </main>
 
       <footer id="footer">
-        <p>&copy <a class="link" href="https://github.com/Emuallim/">Emuallim</a> 2022</p>
+        <p>
+          &copy
+          <a class="link" href="https://github.com/Emuallim/">Emuallim</a> 2022
+        </p>
       </footer>
     </div>
 
     <script>
       // Check that service workers are supported
-
-      // if ("serviceWorker" in navigator) {
+      if ("serviceWorker" in navigator) {
         // Use the window load event to keep the page load performant
-      //   window.addEventListener("load", () => {
-      //     navigator.serviceWorker.register("/service-worker.js");
-      //   });
-      // }
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/service-worker.js")
+            .then((reg) => {
+              console.log("ServiceWorker registration SUCCESSFUL", reg);
+            })
+            .catch((err) => {
+              console.log("ServiceWorker registration FAILED", err);
+            });
+        });
+      }
     </script>
     <script src="new.js"></script>
   </body>
