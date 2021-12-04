@@ -14,7 +14,7 @@ const updateUI = (api, e) => {
     const travelCard = document.createElement("li");
     travelCard.setAttribute("class", "travels__list");
     // travelCard.setAttribute("data-num", `${travelResults.children.length}`);
-    travelCard.setAttribute("id", `card${travelResults.children.length}`);
+    // travelCard.setAttribute("id", `card${travelResults.children.length}`);
     // travelCard.setAttribute("id", `${(new Date()).getTime()}`); //timestamp for id
 
     travelCard.innerHTML = `
@@ -28,7 +28,7 @@ const updateUI = (api, e) => {
             </p>
           </div>
           <ul class="travels__weather">
-            ${api.weather.map(w=>getWeather(w))}
+            ${api.weather.map(w=>getWeather(w)).join('')}
           </ul>
         </div>
         <div class="travels__edit">
@@ -48,7 +48,6 @@ const updateUI = (api, e) => {
     delBtns.forEach((btn)=>{
       btn.addEventListener('click', removeElement)
     })
-    // removeElement(travelCard.data-num);
   } catch (error) {
     console.log("error", error);
   }
