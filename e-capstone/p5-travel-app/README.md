@@ -66,7 +66,7 @@ Testing is done with Jest. To run test, use the command `npm test`. To see a ful
 
 - [x] 2) output weather & image of the location using info obtained from external APIs
   
-- [ ] 3) Have a countdown to see how soon the trip is & store the data
+- [x] 3) Have a countdown to see how soon the trip is & store the data
 
 - [x] 4) Be set up with Webpack, Express, Node, and Sass, & Service Workers
 
@@ -80,7 +80,7 @@ Testing is done with Jest. To run test, use the command `npm test`. To see a ful
 
 - [x] 9) Response from the API must be added to the view for a user to see 
 
-- [ ] 10) Be able to show content offline
+- [x] 10) Be able to show content offline
 
 ---
 
@@ -106,7 +106,7 @@ Testing is done with Jest. To run test, use the command `npm test`. To see a ful
 
   - [x] Pull in weather for additional locations
 
-- [ ] 9) Allow user to remove the trip
+- [x] 9) Allow user to remove the trip
 
 - [ ] 10) Allow user to add hotel and/or flight data
 
